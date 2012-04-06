@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.7.2.v3740f.jar" sourcepath="E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.swt.win32.win32.x86.source_3.7.2.v3740f.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.platform.doc.isv_3.7.2.v20120120-1417.jar!/reference/api"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/accessibility/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/awt/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/browser/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/custom/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/dnd/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/events/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/graphics/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/layout/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/opengl/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/printing/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/program/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/widgets/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/image/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/theme/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/swt/ole/win32/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/gdip/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/ole/win32/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/win32/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/swt/internal/opengl/win32/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.jface_3.7.0.v20110928-1505.jar" sourcepath="E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.jface.source_3.7.0.v20110928-1505.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/eclipse-rcp-indigo-SR2-win32/eclipse/plugins/org.eclipse.platform.doc.isv_3.7.2.v20120120-1417.jar!/reference/api"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/action/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/action/images/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/bindings/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/bindings/keys/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/bindings/keys/formatting/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/commands/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/contexts/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/dialogs/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/dialogs/images/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/fieldassist/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/fieldassist/images/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/images/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/jface/internal/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/jface/internal/provisional/action/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/layout/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/menus/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/operation/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/preference/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/preference/images/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/resource/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/util/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/viewers/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/viewers/deferred/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/window/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/wizard/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jface/wizard/images/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/eclipse/plugins/org.eclipse.core.commands_3.6.0.I20100512-1500.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/plugins/org.eclipse.equinox.common_3.6.0.v20100503.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
