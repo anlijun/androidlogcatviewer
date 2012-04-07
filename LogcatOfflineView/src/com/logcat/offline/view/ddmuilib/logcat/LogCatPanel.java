@@ -80,7 +80,13 @@ import java.util.List;
  * LogCatPanel displays a table listing the logcat messages.
  */
 public final class LogCatPanel implements ILogCatMessageEventListener{
-    /** Preference key to use for storing list of logcat filters. */
+    private static final String RESET_ALL_FILTER = "Reset All Filter";
+
+	private static final String RESET_PID_FILTER = "Reset PID Filter";
+
+	private static final String RESET_TAG_FILTER = "Reset Tag Filter";
+
+	/** Preference key to use for storing list of logcat filters. */
     public static final String LOGCAT_FILTERS_LIST = "logcat.view.filters.list";
 
     /** Preference key to use for storing font settings. */
@@ -116,10 +122,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private static final String IMAGE_EDIT_FILTER = "edit.png"; //$NON-NLS-1$
     private static final String IMAGE_DISPLAY_FILTERS = "displayfilters.png"; //$NON-NLS-1$
     
-    private static final String ACTION_SHOW_TAG = "Show Selected Tag(s)";
+    private static final String ACTION_SHOW_TAG = "Hide Unselected Tag(s)";
     private static final String ACTION_HIDE_TAG = "Hide Selected Tag(s)";
     private static final String ACTION_HIGHLIGHT_TAG = "Highlight Selected Tag(s)";
-    private static final String ACTION_SHOW_PID = "Show Selected PID(s)";
+    private static final String ACTION_SHOW_PID = "Hide Unselected PID(s)";
     private static final String ACTION_HIDE_PID = "Hide Selected PID(s)";
     private static final String ACTION_HIGHLIGHT_PID = "Highlight Selected PID(s)";
     
@@ -178,14 +184,15 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private SashForm mSash;
     
     private int mPanelID;
-
+    private String mPannelName;
     /**
      * Construct a logcat panel.
      * @param prefStore preference store where UI preferences will be saved
      */
-    public LogCatPanel(PreferenceStore prefStore, int panelID) {
+    public LogCatPanel(PreferenceStore prefStore, int panelID, String pannelName) {
         mPrefStore = prefStore;
         mPanelID = panelID;
+        mPannelName = pannelName;
         
         LogCatMessageParser.getInstance().addMessageReceivedEventListener(this);
         LogCatSynSelectedListener.getInstance().addMessageReceivedEventListener(this);
@@ -498,7 +505,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 
         mLiveFilterText = new Text(c, SWT.BORDER | SWT.SEARCH);
         mLiveFilterText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        mLiveFilterText.setMessage(DEFAULT_SEARCH_MESSAGE);
+        mLiveFilterText.setMessage("<" + mPannelName + "> " + DEFAULT_SEARCH_MESSAGE);
         mLiveFilterText.setToolTipText(DEFAULT_SEARCH_TOOLTIP);
         mLiveFilterText.addModifyListener(new ModifyListener() {
             @Override
@@ -714,6 +721,17 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private void createViewMenu(){
     	MenuManager mmg = new MenuManager();
     	Menu menu = mmg.createContextMenu(mViewer.getTable());
+
+    	mmg.add(new Action(RESET_ALL_FILTER){
+			@Override
+			public void run() {
+				mResetTag.run();
+				mResetPID.run();
+				updateAppliedFilters();
+			}
+    	});
+    	mmg.add(new Separator());
+    	
     	mShowSelectedTag = new Action(ACTION_SHOW_TAG){
 			@Override
 			public void run() {
@@ -785,7 +803,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 		        mHighlightSelectedTag.setEnabled(false);
 			}
     	};
-    	mResetTag = new Action("Reset Tag"){
+    	mResetTag = new Action(RESET_TAG_FILTER){
 			@Override
 			public void run() {
 				mSelectedTagList = null;
@@ -802,10 +820,11 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				updateAppliedFilters();
 			}
     	};
+    	    	
+    	mmg.add(mResetTag);
     	mmg.add(mShowSelectedTag);
     	mmg.add(mHideSelectedTag);
     	mmg.add(mHighlightSelectedTag);
-    	mmg.add(mResetTag);
     	
     	mmg.add(new Separator());
     	mShowSelectedPID = new Action(ACTION_SHOW_PID){
@@ -877,7 +896,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 		        mHighlightSelectedPID.setEnabled(false);
 			}
     	};
-    	mResetPID = new Action("Reset PID"){
+    	mResetPID = new Action(RESET_PID_FILTER){
 			@Override
 			public void run() {
 				mSelectedPIDList = null;
@@ -894,20 +913,11 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				updateAppliedFilters();
 			}
     	};
+    	mmg.add(mResetPID);
     	mmg.add(mShowSelectedPID);
     	mmg.add(mHideSelectedPID);
     	mmg.add(mHighlightSelectedPID);
-    	mmg.add(mResetPID);
-    	
-    	mmg.add(new Separator());
-    	mmg.add(new Action("Reset All"){
-			@Override
-			public void run() {
-				mResetTag.run();
-				mResetPID.run();
-				updateAppliedFilters();
-			}
-    	});
+
     	mViewer.getTable().setMenu(menu);
     }
     

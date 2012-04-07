@@ -58,8 +58,8 @@ import java.util.regex.PatternSyntaxException;
 public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     private static final String TITLE = "Logcat Message Filter Settings";
     private static final String DEFAULT_MESSAGE =
-            "Filter logcat messages by the source's tag, pid or minimum log level.\n"
-            + "Empty fields will match all messages.";
+            "Filter logcat messages by the source's tag, pid or minimum log level. " +
+            "Empty fields will match all messages.";
     private static final int ITEM_SHOW_NUM = 20;
     
     private String mFilterName;
@@ -239,7 +239,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	gd.heightHint = pidG.getBounds().height;
         sash.setLayoutData(gd);
     	
-    	Table tableS = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI);
+    	Table tableS = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI | SWT.BORDER);
     	gd = new GridData(GridData.FILL_BOTH);
     	tableS.setLayoutData(gd);
     	mTvPIDShow = new TableViewer(tableS);
@@ -276,7 +276,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	gd.heightHint = pidG.getBounds().height;
         sash.setLayoutData(gd);
     	
-    	Table tableH = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI);
+    	Table tableH = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI | SWT.BORDER);
     	gd = new GridData(GridData.FILL_BOTH);
     	tableH.setLayoutData(gd);
     	mTvPIDHide = new TableViewer(tableH);
@@ -388,7 +388,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	gd.heightHint = tagG.getBounds().height;
         sash.setLayoutData(gd);
     	
-    	Table tableS = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI);
+    	Table tableS = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI | SWT.BORDER);
     	gd = new GridData(GridData.FILL_BOTH);
     	tableS.setLayoutData(gd);
     	mTvTagShow = new TableViewer(tableS);
@@ -425,7 +425,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	gd.heightHint = tagG.getBounds().height;
         sash.setLayoutData(gd);
     	
-    	Table tableH = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI);
+    	Table tableH = new Table(sash, SWT.FULL_SELECTION | SWT.MULTI | SWT.BORDER);
     	gd = new GridData(GridData.FILL_BOTH);
     	tableH.setLayoutData(gd);
     	mTvTagHide = new TableViewer(tableH);

@@ -107,8 +107,11 @@ public final class LogCatMessageParser {
 	                curTid = "";
 	                /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
 	                 * to generate "A", but generates "F". */
-	                if (curLogLevel == null && matcher.group(4).equals("F")) {
+	                if (curLogLevel == null && matcher.group(2).equals("F")) {
 	                	curLogLevel = LogLevel.ASSERT;
+	                }
+	                if(curLogLevel == null){
+	                	continue;
 	                }
 	                
 	                LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,

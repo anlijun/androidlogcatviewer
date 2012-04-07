@@ -218,6 +218,8 @@ public final class LogCatFilterSettingsSerializer {
     
     private List<String> getHideList(String value){
     	List<String> hideList = new ArrayList<String>();
+    	if(value == null || value.length()<3)
+    		return hideList;
     	value = value.substring(1, value.length() - 2);
     	for (String str : value.split(KW_LIST_VALUE)){
     		hideList.add(str);

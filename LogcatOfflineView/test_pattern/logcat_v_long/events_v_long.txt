@@ -1,0 +1,1149 @@
+[ 04-07 09:18:23.955    37:0x25 I/boot_progress_start ]
+4085
+
+[ 04-07 09:18:25.535    37:0x25 I/boot_progress_preload_start ]
+5663
+
+[ 04-07 09:18:40.706    37:0x25 I/boot_progress_preload_end ]
+20834
+
+[ 04-07 09:18:41.216    89:0x67 I/boot_progress_system_run ]
+21341
+
+[ 04-07 09:18:41.496    89:0x67 I/boot_progress_pms_start ]
+21621
+
+[ 04-07 09:18:41.756    89:0x67 I/boot_progress_pms_system_scan_start ]
+21883
+
+[ 04-07 09:19:19.675    89:0x67 I/boot_progress_pms_data_scan_start ]
+59809
+
+[ 04-07 09:19:25.526    89:0x67 I/boot_progress_pms_scan_end ]
+65652
+
+[ 04-07 09:19:25.836    89:0x67 I/boot_progress_pms_ready ]
+65965
+
+[ 04-07 09:19:27.016    89:0x67 I/battery_status ]
+[2,2,1,1,Li-ion]
+
+[ 04-07 09:19:27.016    89:0x67 I/battery_level ]
+[50,0,0]
+
+[ 04-07 09:19:27.053    89:0x74 I/power_screen_state ]
+[1,3,0,0]
+
+[ 04-07 09:19:27.207    89:0x77 I/screen_toggled ]
+1
+
+[ 04-07 09:19:27.456    89:0x67 I/configuration_changed ]
+1528
+
+[ 04-07 09:19:27.696    89:0x67 I/wifi_state_changed ]
+InitialState
+
+[ 04-07 09:19:27.716    89:0x82 I/wifi_state_changed ]
+DriverUnloadedState
+
+[ 04-07 09:19:27.946    89:0x67 I/free_storage_left ]
+[124665856,0,65925120]
+
+[ 04-07 09:19:27.946    89:0x67 I/free_storage_changed ]
+124665856
+
+[ 04-07 09:19:28.376    89:0x67 I/backup_data_changed ]
+android
+
+[ 04-07 09:19:28.376    89:0x67 I/backup_data_changed ]
+com.android.browser
+
+[ 04-07 09:19:28.376    89:0x67 I/backup_data_changed ]
+com.android.calendar
+
+[ 04-07 09:19:28.386    89:0x67 I/backup_data_changed ]
+com.android.inputmethod.latin
+
+[ 04-07 09:19:28.386    89:0x67 I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:19:28.386    89:0x67 I/backup_data_changed ]
+com.android.providers.userdictionary
+
+[ 04-07 09:19:28.386    89:0x67 I/backup_data_changed ]
+com.android.sharedstoragebackup
+
+[ 04-07 09:19:28.656    89:0x68 I/am_proc_start ]
+[143,10020,android.process.acore,broadcast,com.android.providers.contacts/.ContactsUpgradeReceiver]
+
+[ 04-07 09:19:28.816    89:0x59 I/am_proc_bound ]
+[143,android.process.acore]
+
+[ 04-07 09:19:31.096   143:0x8f I/contacts_upgrade_receiver ]
+2132
+
+[ 04-07 09:19:31.146    89:0x64 I/am_proc_start ]
+[157,10004,android.process.media,broadcast,com.android.providers.media/.MediaUpgradeReceiver]
+
+[ 04-07 09:19:31.316    89:0x64 I/am_proc_bound ]
+[157,android.process.media]
+
+[ 04-07 09:19:31.516    89:0xa0 I/am_proc_start ]
+[173,10031,com.android.providers.calendar,broadcast,com.android.providers.calendar/.CalendarUpgradeReceiver]
+
+[ 04-07 09:19:31.646    89:0xa0 I/am_proc_bound ]
+[173,com.android.providers.calendar]
+
+[ 04-07 09:19:31.836   173:0xad I/calendar_upgrade_receiver ]
+91
+
+[ 04-07 09:19:31.916    89:0x68 I/boot_progress_ams_ready ]
+72044
+
+[ 04-07 09:19:31.966    89:0x68 I/am_proc_start ]
+[187,1000,com.android.systemui,service,com.android.systemui/.SystemUIService]
+
+[ 04-07 09:19:32.196    89:0x68 I/configuration_changed ]
+512
+
+[ 04-07 09:19:32.246    89:0xa0 I/am_proc_bound ]
+[187,com.android.systemui]
+
+[ 04-07 09:19:32.256    89:0xa0 I/am_create_service ]
+[1097062136,com.android.systemui/.SystemUIService,,187]
+
+[ 04-07 09:19:32.946    89:0x68 I/am_create_service ]
+[1097096432,com.android.systemui/.ImageWallpaper,act=android.service.wallpaper.WallpaperService,187]
+
+[ 04-07 09:19:33.046    89:0x68 I/am_proc_start ]
+[201,10022,com.android.inputmethod.latin,service,com.android.inputmethod.latin/.LatinIME]
+
+[ 04-07 09:19:33.306    89:0x68 I/am_proc_start ]
+[215,1001,com.android.phone,added application,com.android.phone]
+
+[ 04-07 09:19:33.386    89:0x68 I/am_create_task ]
+2
+
+[ 04-07 09:19:33.386    89:0x68 I/am_create_activity ]
+[1102670032,2,com.android.settings/.CryptKeeper,android.intent.action.MAIN,NULL,NULL,276824064]
+
+[ 04-07 09:19:33.566    89:0x68 I/am_proc_start ]
+[226,1000,com.android.settings,activity,com.android.settings/.CryptKeeper]
+
+[ 04-07 09:19:33.616    89:0x59 I/am_proc_bound ]
+[201,com.android.inputmethod.latin]
+
+[ 04-07 09:19:33.626    89:0x59 I/am_create_service ]
+[1096959112,com.android.inputmethod.latin/.LatinIME,act=android.view.InputMethod,201]
+
+[ 04-07 09:19:33.636    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:19:33.946    89:0xd2 I/notification_cancel ]
+[android,17302839,NULL,0,0]
+
+[ 04-07 09:19:33.975    89:0xa0 I/am_proc_bound ]
+[215,com.android.phone]
+
+[ 04-07 09:19:34.047   201:0xc9 I/binder_sample ]
+[,1,145,com.android.inputmethod.latin,29]
+
+[ 04-07 09:19:34.176    89:0xa0 I/am_proc_bound ]
+[226,com.android.settings]
+
+[ 04-07 09:19:34.206    89:0xa0 I/am_restart_activity ]
+[1102670032,2,com.android.settings/.CryptKeeper]
+
+[ 04-07 09:19:34.336    89:0xd2 I/notification_cancel ]
+[android,17302839,NULL,0,0]
+
+[ 04-07 09:19:34.736   187:0xbb I/binder_sample ]
+[android.content.IContentProvider,21,15,com.android.systemui,3]
+
+[ 04-07 09:19:36.235   201:0xc9 I/binder_sample ]
+[android.content.IContentService,1,194,com.android.inputmethod.latin,38]
+
+[ 04-07 09:19:36.305   215:0xd7 I/binder_sample ]
+[android.content.IContentService,1,17,com.android.phone,3]
+
+[ 04-07 09:19:37.125   226:0xe2 I/binder_sample ]
+[android.content.pm.IPackageManager,51,1150,com.android.settings,100]
+
+[ 04-07 09:19:37.565    89:0xa0 I/am_proc_start ]
+[272,10020,android.process.acore,content provider,com.android.providers.userdictionary/.UserDictionaryProvider]
+
+[ 04-07 09:19:37.575   215:0xd7 I/binder_sample ]
+[android.app.IActivityManager,12,1250,com.android.phone,100]
+
+[ 04-07 09:19:37.585   187:0xbb I/binder_sample ]
+[android.app.IActivityManager,12,1075,com.android.systemui,100]
+
+[ 04-07 09:19:37.605    89:0x10c I/am_finish_activity ]
+[1102670032,2,com.android.settings/.CryptKeeper,app-request]
+
+[ 04-07 09:19:37.605    89:0x10c I/am_pause_activity ]
+[1102670032,com.android.settings/.CryptKeeper]
+
+[ 04-07 09:19:37.865    89:0x65 I/am_create_task ]
+3
+
+[ 04-07 09:19:37.865    89:0x65 I/am_create_activity ]
+[1096250152,3,com.android.sdksetup/.DefaultActivity,android.intent.action.MAIN,NULL,NULL,276824064]
+
+[ 04-07 09:19:38.035    89:0x65 I/am_proc_start ]
+[283,10028,com.android.sdksetup,activity,com.android.sdksetup/.DefaultActivity]
+
+[ 04-07 09:19:38.035   226:0xe2 I/binder_sample ]
+[android.app.IActivityManager,19,314,com.android.settings,62]
+
+[ 04-07 09:19:38.286    89:0x10f I/am_proc_bound ]
+[272,android.process.acore]
+
+[ 04-07 09:19:38.385   226:0xe2 I/binder_sample ]
+[,1,93,com.android.settings,18]
+
+[ 04-07 09:19:38.485   226:0xe2 I/binder_sample ]
+[,1,82,com.android.settings,16]
+
+[ 04-07 09:19:38.655   272:0x110 I/binder_sample ]
+[android.content.pm.IPackageManager,1,89,android.process.acore,17]
+
+[ 04-07 09:19:38.715    89:0x10d I/am_proc_bound ]
+[283,com.android.sdksetup]
+
+[ 04-07 09:19:38.735    89:0x10d I/am_restart_activity ]
+[1096250152,3,com.android.sdksetup/.DefaultActivity]
+
+[ 04-07 09:19:39.195    89:0x10d I/notification_cancel ]
+[com.android.phone,2,NULL,0,64]
+
+[ 04-07 09:19:39.405    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:19:39.435   283:0x11b I/binder_sample ]
+[android.content.IContentProvider,3,264,com.android.sdksetup,52]
+
+[ 04-07 09:19:39.518   283:0x11b I/content_update_sample ]
+[content://settings/secure,insert,,345,com.android.sdksetup,70]
+
+[ 04-07 09:19:39.705    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:19:40.345    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:19:40.355   272:0x110 I/binder_sample ]
+[android.app.IActivityManager,12,83,android.process.acore,16]
+
+[ 04-07 09:19:40.415    89:0x10f I/content_update_sample ]
+[content://settings/secure,insert,,641,,100]
+
+[ 04-07 09:19:40.425   283:0x11b I/binder_sample ]
+[android.app.backup.IBackupManager,8,645,com.android.sdksetup,100]
+
+[ 04-07 09:19:42.465   215:0xd7 I/binder_sample ]
+[android.app.IActivityManager,110,1850,com.android.phone,100]
+
+[ 04-07 09:19:42.535    89:0x10d I/am_finish_activity ]
+[1096250152,3,com.android.sdksetup/.DefaultActivity,proc died without state saved]
+
+[ 04-07 09:19:42.760    89:0x67 I/notification_cancel_all ]
+[com.android.sdksetup,0,0]
+
+[ 04-07 09:19:42.991   201:0xc9 I/binder_sample ]
+[android.app.IActivityManager,29,6921,com.android.inputmethod.latin,100]
+
+[ 04-07 09:19:43.010   215:0xd7 I/binder_sample ]
+[com.android.internal.telephony.ITelephonyRegistry,8,211,com.android.phone,42]
+
+[ 04-07 09:19:43.431   187:0xbb I/binder_sample ]
+[android.view.IWindowSession,4,231,com.android.systemui,46]
+
+[ 04-07 09:19:43.540   215:0xd7 I/binder_sample ]
+[com.android.internal.telephony.ITelephonyRegistry,8,361,com.android.phone,72]
+
+[ 04-07 09:19:43.601   201:0xc9 I/binder_sample ]
+[android.app.IActivityManager,38,45,com.android.inputmethod.latin,9]
+
+[ 04-07 09:19:43.710   272:0x110 I/binder_sample ]
+[android.app.IActivityManager,110,575,android.process.acore,100]
+
+[ 04-07 09:19:43.821   201:0x10b I/content_query_sample ]
+[content://user_dictionary/words,word/frequency,(locale is NULL) or (locale=?) or (locale=?),,824,,100]
+
+[ 04-07 09:19:43.861   272:0x110 I/binder_sample ]
+[android.app.IActivityManager,110,144,android.process.acore,28]
+
+[ 04-07 09:19:43.872   215:0xd7 I/binder_sample ]
+[com.android.internal.telephony.ITelephonyRegistry,8,130,com.android.phone,26]
+
+[ 04-07 09:19:44.200    89:0xa0 I/am_proc_start ]
+[319,10008,com.android.deskclock,broadcast,com.android.deskclock/.AlarmInitReceiver]
+
+[ 04-07 09:19:44.210    89:0x67 I/am_destroy_activity ]
+[1102670032,2,com.android.settings/.CryptKeeper,finish-idle]
+
+[ 04-07 09:19:44.240    89:0x67 I/boot_progress_enable_screen ]
+84617
+
+[ 04-07 09:19:44.720    89:0x64 I/notification_enqueue ]
+[com.android.systemui,17301675,NULL,Notification(contentView=com.android.systemui/0x1090098 vibrate=null,sound=null,defaults=0x0,flags=0x2)]
+
+[ 04-07 09:19:45.011    89:0x59 I/am_proc_bound ]
+[319,com.android.deskclock]
+
+[ 04-07 09:19:45.331   319:0x13f I/binder_sample ]
+[android.view.IWindowManager,6,81,com.android.deskclock,16]
+
+[ 04-07 09:19:45.491    89:0x137 I/notification_cancel ]
+[com.android.phone,5,NULL,0,64]
+
+[ 04-07 09:19:45.491    89:0x10c I/notification_cancel ]
+[com.android.phone,6,NULL,0,64]
+
+[ 04-07 09:19:45.791    89:0x59 I/force_gc ]
+Binder
+
+[ 04-07 09:19:46.091   187:0xbb I/binder_sample ]
+[android.app.IActivityManager,12,303,com.android.systemui,60]
+
+[ 04-07 09:19:46.491   319:0x152 I/content_query_sample ]
+[content://com.android.deskclock/alarm,_id/hour/minutes/daysofweek/alarmtime/enabled/vibrate/message/alert,enabled=1,,279,,56]
+
+[ 04-07 09:19:46.501   215:0xd7 I/gsm_service_state_change ]
+[1,1,0,0]
+
+[ 04-07 09:19:46.501   215:0xd7 I/gsm_rat_switched ]
+[-1,0,3]
+
+[ 04-07 09:19:46.741    89:0x65 I/am_proc_start ]
+[340,10032,com.android.calendar,broadcast,com.android.calendar/.widget.CalendarAppWidgetService$CalendarFactory]
+
+[ 04-07 09:19:46.921   215:0xd7 I/binder_sample ]
+[com.android.internal.telephony.ITelephonyRegistry,3,206,com.android.phone,41]
+
+[ 04-07 09:19:46.921    89:0x10f I/am_proc_bound ]
+[340,com.android.calendar]
+
+[ 04-07 09:19:47.151    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.163    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.181    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.181    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.181    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.181    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.181    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.201    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.201    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.201    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.221    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.221    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.221    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.221    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.221    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.231    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.231    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.231    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.231    89:0x67 I/notification_cancel_all ]
+[com.android.settings,0,0]
+
+[ 04-07 09:19:47.311    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.311    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.322    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.322    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.322    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.322    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.322    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.331    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.351    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.351    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.361    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.372    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.381    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.391    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.941    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:47.981    89:0x7f I/am_wtf   ]
+[89,system_server,-1,NetworkStats,open failed: ENOENT (No such file or directory)]
+
+[ 04-07 09:19:48.002    89:0x64 I/configuration_changed ]
+4
+
+[ 04-07 09:19:48.421   319:0x13f I/binder_sample ]
+[android.view.IWindowManager,6,89,com.android.deskclock,17]
+
+[ 04-07 09:19:48.441   215:0xd7 I/binder_sample ]
+[android.net.wifi.IWifiManager,15,328,com.android.phone,65]
+
+[ 04-07 09:19:48.761    89:0x10d I/am_proc_start ]
+[358,10031,com.android.providers.calendar,content provider,com.android.providers.calendar/.CalendarProvider2]
+
+[ 04-07 09:19:48.771    89:0x59 I/configuration_changed ]
+3
+
+[ 04-07 09:19:48.941    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.941    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.971    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.971    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.981    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.981    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.981    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.981    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.981    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.991    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:48.991    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:49.051    89:0x59 I/notification_cancel ]
+[com.android.phone,5,NULL,0,64]
+
+[ 04-07 09:19:49.061    89:0x137 I/notification_cancel ]
+[com.android.phone,6,NULL,0,64]
+
+[ 04-07 09:19:49.061    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:49.101    89:0x10f I/am_proc_bound ]
+[358,com.android.providers.calendar]
+
+[ 04-07 09:19:49.181   340:0x154 I/binder_sample ]
+[android.app.IActivityManager,110,868,com.android.calendar,100]
+
+[ 04-07 09:19:49.821   215:0xd7 I/content_query_sample ]
+[content://telephony/carriers,,numeric = '310260' and carrier_enabled = 1,,743,com.android.phone,100]
+
+[ 04-07 09:19:50.091    89:0x85 I/connectivity_state_changed ]
+1552
+
+[ 04-07 09:19:50.361   215:0xd7 I/binder_sample ]
+[android.app.IActivityManager,110,5,com.android.phone,1]
+
+[ 04-07 09:19:50.501    89:0x10f I/am_proc_start ]
+[376,10020,com.android.contacts,broadcast,com.android.contacts/.calllog.CallLogReceiver]
+
+[ 04-07 09:19:50.521    89:0x85 I/connectivity_state_changed ]
+1576
+
+[ 04-07 09:19:50.541   215:0xd7 I/binder_sample ]
+[com.android.internal.telephony.ITelephonyRegistry,8,68,com.android.phone,13]
+
+[ 04-07 09:19:50.661    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.661    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.671    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.671    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.671    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.671    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.681    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.691    89:0x7f I/am_wtf   ]
+[89,system_server,-1,NetworkStats,open failed: ENOENT (No such file or directory)]
+
+[ 04-07 09:19:50.731    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.741    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.741    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.741    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.751    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.751    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:50.801    89:0x64 I/am_proc_bound ]
+[376,com.android.contacts]
+
+[ 04-07 09:19:51.011   215:0xd7 I/content_update_sample ]
+[content://telephony/carriers/current,insert,,259,com.android.phone,52]
+
+[ 04-07 09:19:51.121   215:0xd7 I/binder_sample ]
+[android.content.IContentService,1,85,com.android.phone,17]
+
+[ 04-07 09:19:51.121   215:0xd7 I/content_query_sample ]
+[content://telephony/carriers,,numeric = '310260' and carrier_enabled = 1,,111,com.android.phone,23]
+
+[ 04-07 09:19:51.261   376:0x178 I/binder_sample ]
+[android.content.pm.IPackageManager,22,365,com.android.contacts,73]
+
+[ 04-07 09:19:51.271    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:51.391    89:0x85 I/connectivity_state_changed ]
+1600
+
+[ 04-07 09:19:51.491    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:51.571    89:0x7f I/am_wtf   ]
+[89,system_server,-1,NetworkStats,open failed: ENOENT (No such file or directory)]
+
+[ 04-07 09:19:51.921    89:0x59 I/am_create_service ]
+[1094578360,com.android.contacts/.calllog.CallLogNotificationsService,act=com.android.contacts.calllog.UPDATE_NOTIFICATIONS,376]
+
+[ 04-07 09:19:52.161    89:0x59 I/notification_cancel ]
+[com.android.systemui,17301675,NULL,0,0]
+
+[ 04-07 09:19:53.961   215:0x12f I/content_query_sample ]
+[content://call_log/calls,_id/number/date/duration/type,type=3 AND new=1,date DESC,11225,,100]
+
+[ 04-07 09:19:54.611    89:0x18a I/am_proc_start ]
+[397,10004,android.process.media,content provider,com.android.providers.downloads/.DownloadProvider]
+
+[ 04-07 09:19:54.611   215:0xd7 I/binder_sample ]
+[android.app.IActivityManager,69,647,com.android.phone,100]
+
+[ 04-07 09:19:54.790    89:0x65 I/am_proc_start ]
+[407,10011,com.android.email,broadcast,com.android.email/.service.EmailBroadcastReceiver]
+
+[ 04-07 09:19:54.821    89:0x10f I/am_proc_bound ]
+[397,android.process.media]
+
+[ 04-07 09:19:54.981   376:0x188 I/content_query_sample ]
+[content://call_log/calls?allow_voicemails=true,_id/number/voicemail_uri,new = 1 AND type = ?,date DESC,2908,,100]
+
+[ 04-07 09:19:55.001    89:0x137 I/am_proc_bound ]
+[407,com.android.email]
+
+[ 04-07 09:19:55.771   358:0x166 I/binder_sample ]
+[android.app.IActivityManager,12,931,com.android.providers.calendar,100]
+
+[ 04-07 09:19:55.881    89:0x10f I/am_proc_start ]
+[426,10021,com.android.exchange,service,com.android.exchange/.ExchangeService]
+
+[ 04-07 09:19:55.891    89:0x64 I/am_create_service ]
+[1102687592,com.android.email/.service.EmailBroadcastProcessorService,act=broadcast_receiver,407]
+
+[ 04-07 09:19:56.041    89:0x10f I/am_proc_bound ]
+[426,com.android.exchange]
+
+[ 04-07 09:19:56.061    89:0x10f I/am_create_service ]
+[1103343192,com.android.exchange/.ExchangeService,act=com.android.email.EXCHANGE_INTENT,426]
+
+[ 04-07 09:19:56.191    89:0xa0 I/notification_cancel ]
+[com.android.contacts,1,DefaultVoicemailNotifier,0,64]
+
+[ 04-07 09:19:56.231    89:0x10f I/am_destroy_service ]
+[1094578360,com.android.contacts/.calllog.CallLogNotificationsService,376]
+
+[ 04-07 09:19:56.661   358:0x166 I/binder_sample ]
+[android.app.IActivityManager,30,318,com.android.providers.calendar,63]
+
+[ 04-07 09:19:56.731   376:0x178 I/binder_sample ]
+[android.app.IActivityManager,61,493,com.android.contacts,98]
+
+[ 04-07 09:19:56.731   426:0x1aa I/binder_sample ]
+[android.app.IActivityManager,38,463,com.android.exchange,92]
+
+[ 04-07 09:19:56.811    89:0x10f I/am_create_service ]
+[1097342784,com.android.providers.downloads/.DownloadService,,397]
+
+[ 04-07 09:19:56.971   397:0x18d I/binder_sample ]
+[android.app.IActivityManager,16,12,android.process.media,2]
+
+[ 04-07 09:19:56.991    89:0x10c I/am_create_service ]
+[1096999712,com.android.exchange/.service.ExchangeBroadcastProcessorService,act=broadcast_receiver,426]
+
+[ 04-07 09:19:57.001    89:0xa0 I/notification_cancel_all ]
+[com.android.providers.downloads,0,64]
+
+[ 04-07 09:19:57.071    89:0x10d I/am_create_service ]
+[1096996184,com.android.providers.media/.MediaScannerService,,397]
+
+[ 04-07 09:19:57.151    89:0x10c I/am_proc_start ]
+[452,10025,com.android.mms,broadcast,com.android.mms/.transaction.MmsSystemEventReceiver]
+
+[ 04-07 09:19:57.171    89:0x18a I/content_update_sample ]
+[content://downloads/my_downloads,delete,notificationpackage=? AND notificationclass=?,313,,63]
+
+[ 04-07 09:19:57.180   397:0x1c0 I/content_query_sample ]
+[content://downloads/all_downloads,_data,,,303,,61]
+
+[ 04-07 09:19:57.251    89:0x64 I/am_proc_bound ]
+[452,com.android.mms]
+
+[ 04-07 09:19:57.311   358:0x166 I/binder_sample ]
+[android.app.IActivityManager,110,500,com.android.providers.calendar,100]
+
+[ 04-07 09:19:57.381    89:0x64 I/am_destroy_service ]
+[1096999712,com.android.exchange/.service.ExchangeBroadcastProcessorService,426]
+
+[ 04-07 09:19:57.841   358:0x166 I/binder_sample ]
+[android.app.IActivityManager,110,469,com.android.providers.calendar,93]
+
+[ 04-07 09:19:57.881   358:0x166 I/binder_sample ]
+[android.app.IActivityManager,110,39,com.android.providers.calendar,7]
+
+[ 04-07 09:19:57.980   452:0x1da I/content_query_sample ]
+[content://mms-sms/draft,thread_id,,,313,,63]
+
+[ 04-07 09:19:58.011   452:0x1c4 I/binder_sample ]
+[android.content.IContentProvider,4,307,com.android.mms,61]
+
+[ 04-07 09:19:58.161    89:0x59 I/am_create_service ]
+[1103256976,com.android.mms/.transaction.SmsReceiverService,act=android.intent.action.BOOT_COMPLETED,452]
+
+[ 04-07 09:19:58.191    89:0x137 I/notification_cancel ]
+[com.android.mms,123,NULL,0,64]
+
+[ 04-07 09:19:58.211   452:0x1c4 I/binder_sample ]
+[android.app.IActivityManager,34,75,com.android.mms,15]
+
+[ 04-07 09:19:58.271    89:0x10d I/am_create_service ]
+[1097185960,com.android.providers.calendar/.CalendarReceiver$RemoveScheduledAlarmsEmptyService,,358]
+
+[ 04-07 09:19:58.371    89:0x10c I/am_destroy_service ]
+[1097185960,com.android.providers.calendar/.CalendarReceiver$RemoveScheduledAlarmsEmptyService,358]
+
+[ 04-07 09:19:58.561    89:0x85 I/connectivity_state_changed ]
+1552
+
+[ 04-07 09:19:58.731    89:0x85 I/connectivity_state_changed ]
+1576
+
+[ 04-07 09:19:58.821   340:0x154 I/binder_sample ]
+[android.app.IActivityManager,16,374,com.android.calendar,74]
+
+[ 04-07 09:19:58.891    89:0x7f I/am_wtf   ]
+[89,system_server,-1,NetworkStats,open failed: ENOENT (No such file or directory)]
+
+[ 04-07 09:19:58.901    89:0x64 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.921    89:0x65 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.921    89:0x10d I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.921    89:0x10f I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.921    89:0x10c I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.931    89:0x59 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.931    89:0xa0 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:58.931    89:0x137 I/notification_cancel ]
+[com.android.phone,7,NULL,0,64]
+
+[ 04-07 09:19:59.140    89:0x10e I/content_query_sample ]
+[content://telephony/carriers/preferapn,apn,,name ASC,4194,,100]
+
+[ 04-07 09:19:59.190   397:0x1c2 I/content_query_sample ]
+[content://downloads/all_downloads,,,,1868,,100]
+
+[ 04-07 09:19:59.291    89:0x10c I/am_create_service ]
+[1102624360,com.android.email/.service.AccountService,act=com.android.email.ACCOUNT_INTENT,407]
+
+[ 04-07 09:19:59.390    89:0x64 I/am_destroy_service ]
+[1102624360,com.android.email/.service.AccountService,407]
+
+[ 04-07 09:19:59.460    89:0x10f I/am_create_service ]
+[1100104712,com.android.email/.service.AccountService,act=com.android.email.ACCOUNT_INTENT,407]
+
+[ 04-07 09:19:59.550    89:0x137 I/am_destroy_service ]
+[1100104712,com.android.email/.service.AccountService,407]
+
+[ 04-07 09:19:59.620    89:0x65 I/am_create_service ]
+[1097163304,com.android.email/.service.AccountService,act=com.android.email.ACCOUNT_INTENT,407]
+
+[ 04-07 09:19:59.680    89:0x10c I/am_destroy_service ]
+[1097342784,com.android.providers.downloads/.DownloadService,397]
+
+[ 04-07 09:19:59.850    89:0x10c I/am_create_service ]
+[1097147120,com.android.providers.calendar/.EmptyService,,358]
+
+[ 04-07 09:19:59.870   452:0x1e2 I/content_update_sample ]
+[content://sms/outbox,update,type = 4,636,,100]
+
+[ 04-07 09:20:00.310   407:0x1b4 I/content_query_sample ]
+[content://com.android.email.provider/account,_id/displayName/emailAddress/syncKey/syncLookback/syncInterval/hostAuthKeyRecv/hostAuthKeySend/flags/isDefault/compatibilityUuid/senderName/ringtoneUri/protocolVersion/newMessageCount/securitySyncKey/signature/policyKey/notifiedMessageId/notifiedMessageCount,,,2864,,100]
+
+[ 04-07 09:20:00.470   407:0x1a9 I/content_query_sample ]
+[content://com.android.email.provider/account,_id,,,3408,,100]
+
+[ 04-07 09:20:00.470   407:0x1b0 I/content_query_sample ]
+[content://com.android.email.provider/account,_id,,,3328,,100]
+
+[ 04-07 09:20:00.780   407:0x1a6 I/content_query_sample ]
+[content://com.android.email.provider/account,_id,,,1050,,100]
+
+[ 04-07 09:20:01.110    89:0x65 I/am_destroy_service ]
+[1097163304,com.android.email/.service.AccountService,407]
+
+[ 04-07 09:20:01.120    89:0x10c I/am_destroy_service ]
+[1097147120,com.android.providers.calendar/.EmptyService,358]
+
+[ 04-07 09:20:01.180    89:0x10f I/am_destroy_service ]
+[1102687592,com.android.email/.service.EmailBroadcastProcessorService,407]
+
+[ 04-07 09:20:01.200   452:0x1e2 I/content_query_sample ]
+[content://sms,thread_id/date/address/subject/body,(type = 1 AND seen = 0),date desc,927,,100]
+
+[ 04-07 09:20:01.220    89:0x64 I/notification_cancel ]
+[com.android.mms,123,NULL,0,64]
+
+[ 04-07 09:20:01.240   426:0x1d4 I/content_query_sample ]
+[content://com.android.email.provider/hostauth?limit=1,count(*),protocol="eas",,82,,17]
+
+[ 04-07 09:20:01.270    89:0x65 I/am_destroy_service ]
+[1103343192,com.android.exchange/.ExchangeService,426]
+
+[ 04-07 09:20:01.310    89:0x64 I/am_destroy_service ]
+[1103256976,com.android.mms/.transaction.SmsReceiverService,452]
+
+[ 04-07 09:20:01.400   340:0x175 I/content_query_sample ]
+[content://com.android.calendar/instances/when/1333703989621/1334481589621,allDay/begin/end/title/eventLocation/event_id/startDay/endDay/calendar_color/selfAttendeeStatus,visible=1,startDay ASC, startMinute ASC, endDay ASC, endMinute ASC LIMIT 503,5011,,100]
+
+[ 04-07 09:20:01.660   201:0x139 I/content_query_sample ]
+[content://com.android.contacts/contacts,_id/display_name,,,18124,,100]
+
+[ 04-07 09:20:01.820   340:0x1e4 I/content_query_sample ]
+[content://com.android.calendar/instances/when/1333703998452/1334481598452,allDay/begin/end/title/eventLocation/event_id/startDay/endDay/calendar_color/selfAttendeeStatus,visible=1,startDay ASC, startMinute ASC, endDay ASC, endMinute ASC LIMIT 503,2830,,100]
+
+[ 04-07 09:20:01.820   340:0x1f2 I/content_query_sample ]
+[content://com.android.calendar/instances/when/1333704001113/1334481601113,allDay/begin/end/title/eventLocation/event_id/startDay/endDay/calendar_color/selfAttendeeStatus,visible=1,startDay ASC, startMinute ASC, endDay ASC, endMinute ASC LIMIT 503,632,,100]
+
+[ 04-07 09:20:01.820   340:0x165 I/content_query_sample ]
+[content://com.android.calendar/instances/when/1333703988212/1334481588212,allDay/begin/end/title/eventLocation/event_id/startDay/endDay/calendar_color/selfAttendeeStatus,visible=1,startDay ASC, startMinute ASC, endDay ASC, endMinute ASC LIMIT 503,5233,,100]
+
+[ 04-07 09:20:01.930    89:0x10c I/am_create_service ]
+[1100066832,com.android.providers.downloads/.DownloadService,,397]
+
+[ 04-07 09:20:01.940    89:0x64 I/notification_cancel_all ]
+[com.android.providers.downloads,0,64]
+
+[ 04-07 09:20:01.960    89:0x65 I/force_gc ]
+Binder
+
+[ 04-07 09:20:02.150    89:0x10e I/content_query_sample ]
+[content://telephony/carriers/preferapn,apn,,name ASC,228,,46]
+
+[ 04-07 09:20:02.180   397:0x1f9 I/content_query_sample ]
+[content://downloads/all_downloads,,,,194,,39]
+
+[ 04-07 09:20:02.200   358:0x1bb I/content_query_sample ]
+[content://com.android.calendar/calendar_alerts,alarmTime,state=0 AND alarmTime<? AND alarmTime>? AND end>=?,alarmTime ASC,360,,73]
+
+[ 04-07 09:20:02.250    89:0x137 I/am_destroy_service ]
+[1100066832,com.android.providers.downloads/.DownloadService,397]
+
+[ 04-07 09:20:02.420   340:0x1fa I/content_query_sample ]
+[content://com.android.calendar/instances/when/1333704001113/1334481601113,allDay/begin/end/title/eventLocation/event_id/startDay/endDay/calendar_color/selfAttendeeStatus,visible=1,startDay ASC, startMinute ASC, endDay ASC, endMinute ASC LIMIT 503,69,,14]
+
+[ 04-07 09:20:03.400    89:0x64 I/am_create_service ]
+[1103402712,com.android.providers.calendar/.CalendarProviderIntentService,act=com.android.providers.calendar.intent.CalendarProvider2,358]
+
+[ 04-07 09:20:03.490    89:0x10d I/am_destroy_service ]
+[1103402712,com.android.providers.calendar/.CalendarProviderIntentService,358]
+
+[ 04-07 09:20:04.440    89:0x10d I/notification_cancel ]
+[com.android.providers.contacts,1,NULL,0,64]
+
+[ 04-07 09:20:05.600    89:0x137 I/am_destroy_service ]
+[1096996184,com.android.providers.media/.MediaScannerService,397]
+
+[ 04-07 09:20:10.661    89:0x67 I/notification_cancel_all ]
+[com.android.email,0,0]
+
+[ 04-07 09:20:10.991    89:0x68 I/am_proc_start ]
+[514,10029,com.android.quicksearchbox,broadcast,com.android.quicksearchbox/.CorporaUpdateReceiver]
+
+[ 04-07 09:20:11.071    89:0x10d I/am_proc_bound ]
+[514,com.android.quicksearchbox]
+
+[ 04-07 09:21:03.961    89:0x7b I/am_create_task ]
+4
+
+[ 04-07 09:21:03.961    89:0x7b I/am_create_activity ]
+[1102757264,4,com.android.launcher/com.android.launcher2.Launcher,android.intent.action.MAIN,NULL,NULL,270532608]
+
+[ 04-07 09:21:03.981    89:0x7b I/am_proc_start ]
+[528,10009,com.android.launcher,activity,com.android.launcher/com.android.launcher2.Launcher]
+
+[ 04-07 09:21:04.111    89:0x10f I/am_proc_bound ]
+[528,com.android.launcher]
+
+[ 04-07 09:21:04.142    89:0x10f I/am_restart_activity ]
+[1102757264,4,com.android.launcher/com.android.launcher2.Launcher]
+
+[ 04-07 09:21:04.810   528:0x210 I/binder_sample ]
+[com.android.internal.appwidget.IAppWidgetService,14,106,com.android.launcher,21]
+
+[ 04-07 09:21:05.200   528:0x210 I/binder_sample ]
+[android.content.pm.IPackageManager,12,364,com.android.launcher,72]
+
+[ 04-07 09:21:05.220   226:0xe2 I/binder_sample ]
+[android.content.pm.IPackageManager,51,479,com.android.settings,95]
+
+[ 04-07 09:21:07.150   528:0x210 I/am_on_resume_called ]
+com.android.launcher2.Launcher
+
+[ 04-07 09:21:09.541   187:0xbb I/binder_sample ]
+[android.view.IWindowSession,4,24,com.android.systemui,4]
+
+[ 04-07 09:21:10.051    89:0x76 I/activity_launch_time ]
+[1102757264,com.android.launcher/com.android.launcher2.Launcher,6095,96911]
+
+[ 04-07 09:21:15.221   528:0x210 I/binder_sample ]
+[android.view.IWindowManager,68,16,com.android.launcher,3]
+
+[ 04-07 09:21:15.461    89:0x67 I/notification_cancel_all ]
+[com.android.settings,0,0]
+
+[ 04-07 09:21:15.890   528:0x210 I/binder_sample ]
+[android.app.IActivityManager,110,36,com.android.launcher,7]
+
+[ 04-07 09:21:15.930   528:0x210 I/binder_sample ]
+[android.app.IActivityManager,110,18,com.android.launcher,3]
+
+[ 04-07 09:21:16.480   226:0xe2 I/binder_sample ]
+[android.app.IActivityManager,16,488,com.android.settings,97]
+
+[ 04-07 09:21:23.032    89:0x10d I/am_create_task ]
+5
+
+[ 04-07 09:21:23.032    89:0x10d I/am_create_activity ]
+[1094578720,5,com.android.contacts/.activities.DialtactsActivity,android.intent.action.MAIN,NULL,NULL,270532608]
+
+[ 04-07 09:21:23.061    89:0x10d I/am_pause_activity ]
+[1102757264,com.android.launcher/com.android.launcher2.Launcher]
+
+[ 04-07 09:21:23.081   528:0x210 I/binder_sample ]
+[android.app.IActivityManager,3,55,com.android.launcher,11]
+
+[ 04-07 09:21:23.081   528:0x210 I/am_on_paused_called ]
+com.android.launcher2.Launcher
+
+[ 04-07 09:21:23.091    89:0x137 I/am_restart_activity ]
+[1094578720,5,com.android.contacts/.activities.DialtactsActivity]
+
+[ 04-07 09:21:23.461   376:0x178 I/binder_sample ]
+[android.view.IWindowManager,80,225,com.android.contacts,45]
+
+[ 04-07 09:21:24.591   376:0x178 I/am_on_resume_called ]
+com.android.contacts.activities.DialtactsActivity
+
+[ 04-07 09:21:25.231    89:0x137 I/notification_cancel ]
+[com.android.phone,1,NULL,0,64]
+
+[ 04-07 09:21:25.241    89:0xa0 I/am_create_service ]
+[1102656512,com.android.contacts/.calllog.CallLogNotificationsService,act=com.android.contacts.calllog.UPDATE_NOTIFICATIONS,376]
+
+[ 04-07 09:21:25.711    89:0x65 I/notification_cancel ]
+[com.android.contacts,1,DefaultVoicemailNotifier,0,64]
+
+[ 04-07 09:21:25.711    89:0x137 I/am_destroy_service ]
+[1102656512,com.android.contacts/.calllog.CallLogNotificationsService,376]
+
+[ 04-07 09:21:26.131    89:0x76 I/activity_launch_time ]
+[1094578720,com.android.contacts/.activities.DialtactsActivity,3049,3049]
+
+[ 04-07 09:21:29.642    89:0x10f I/am_create_task ]
+6
+
+[ 04-07 09:21:29.642    89:0x10f I/am_create_activity ]
+[1095168728,6,com.android.phone/.PrivilegedOutgoingCallBroadcaster,android.intent.action.CALL_PRIVILEGED,NULL,tel:1%2023,268435456]
+
+[ 04-07 09:21:29.642    89:0x10f I/am_pause_activity ]
+[1094578720,com.android.contacts/.activities.DialtactsActivity]
+
+[ 04-07 09:21:29.671    89:0x65 I/am_finish_activity ]
+[1094578720,5,com.android.contacts/.activities.DialtactsActivity,app-request]
+
+[ 04-07 09:21:29.681   376:0x178 I/am_on_paused_called ]
+com.android.contacts.activities.DialtactsActivity
+
+[ 04-07 09:21:29.731    89:0xa0 I/am_restart_activity ]
+[1095168728,6,com.android.phone/.PrivilegedOutgoingCallBroadcaster]
+
+[ 04-07 09:21:31.141   215:0xd7 I/am_on_resume_called ]
+com.android.phone.PrivilegedOutgoingCallBroadcaster
+
+[ 04-07 09:21:31.221    89:0x10f I/am_create_activity ]
+[1097183536,6,com.android.phone/.SipCallOptionHandler,com.android.phone.SIP_SELECT_PHONE,NULL,tel:1%2023,268435456]
+
+[ 04-07 09:21:31.221    89:0x10f I/am_pause_activity ]
+[1095168728,com.android.phone/.PrivilegedOutgoingCallBroadcaster]
+
+[ 04-07 09:21:31.231    89:0x59 I/am_finish_activity ]
+[1095168728,6,com.android.phone/.PrivilegedOutgoingCallBroadcaster,app-request]
+
+[ 04-07 09:21:31.231   215:0xd7 I/am_on_paused_called ]
+com.android.phone.PrivilegedOutgoingCallBroadcaster
+
+[ 04-07 09:21:31.251    89:0x137 I/am_restart_activity ]
+[1097183536,6,com.android.phone/.SipCallOptionHandler]
+
+[ 04-07 09:21:31.411    89:0x59 I/am_create_task ]
+7
+
+[ 04-07 09:21:31.411    89:0x59 I/am_create_activity ]
+[1102499744,7,com.android.phone/.InCallScreen,android.intent.action.MAIN,NULL,NULL,277086208]
+
+[ 04-07 09:21:31.421    89:0x59 I/am_pause_activity ]
+[1097183536,com.android.phone/.SipCallOptionHandler]
+
+[ 04-07 09:21:31.471    89:0x10c I/am_finish_activity ]
+[1097183536,6,com.android.phone/.SipCallOptionHandler,app-request]
+
+[ 04-07 09:21:31.511    89:0x137 I/am_restart_activity ]
+[1102499744,7,com.android.phone/.InCallScreen]
+
+[ 04-07 09:21:33.061    89:0x10c I/notification_cancel ]
+[com.android.phone,2,NULL,0,64]
+
+[ 04-07 09:21:33.151   215:0xd7 I/phone_ui_enter ]
+[]
+
+[ 04-07 09:21:33.181   215:0xd7 I/am_on_resume_called ]
+com.android.phone.InCallScreen
+
+[ 04-07 09:21:33.301    89:0xa0 I/notification_cancel ]
+[com.android.phone,2,NULL,0,64]
+
+[ 04-07 09:21:33.541   187:0xbb I/binder_sample ]
+[android.view.IWindowManager,77,10,com.android.systemui,2]
+
+[ 04-07 09:21:33.901   215:0x12f I/content_query_sample ]
+[content://com.android.contacts/phone_lookup/123,,,,773,,100]
+
+[ 04-07 09:21:33.972    89:0x76 I/activity_launch_time ]
+[1102499744,com.android.phone/.InCallScreen,2465,4283]
+
+[ 04-07 09:21:34.422    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:21:35.001    89:0x59 I/am_destroy_activity ]
+[1094578720,5,com.android.contacts/.activities.DialtactsActivity,finish-imm]
+
+[ 04-07 09:21:35.011    89:0x59 I/am_destroy_activity ]
+[1095168728,6,com.android.phone/.PrivilegedOutgoingCallBroadcaster,finish-idle]
+
+[ 04-07 09:21:35.011    89:0x59 I/am_destroy_activity ]
+[1097183536,6,com.android.phone/.SipCallOptionHandler,finish-idle]
+
+[ 04-07 09:21:35.031    89:0x10d I/notification_cancel ]
+[com.android.phone,1,NULL,0,64]
+
+[ 04-07 09:21:35.041    89:0x10f I/am_create_service ]
+[1094554240,com.android.contacts/.calllog.CallLogNotificationsService,act=com.android.contacts.calllog.UPDATE_NOTIFICATIONS,376]
+
+[ 04-07 09:21:35.091   376:0x178 I/binder_sample ]
+[android.content.IBulkCursor,12,25,com.android.contacts,5]
+
+[ 04-07 09:21:35.120   376:0x178 I/binder_sample ]
+[android.content.IBulkCursor,12,26,com.android.contacts,5]
+
+[ 04-07 09:21:35.200    89:0x10c I/notification_cancel ]
+[com.android.contacts,1,DefaultVoicemailNotifier,0,64]
+
+[ 04-07 09:21:35.210    89:0xa0 I/am_destroy_service ]
+[1094554240,com.android.contacts/.calllog.CallLogNotificationsService,376]
+
+[ 04-07 09:21:35.860    89:0x64 I/notification_cancel ]
+[com.android.phone,2,NULL,0,64]
+
+[ 04-07 09:21:39.730    89:0x59 I/am_create_task ]
+8
+
+[ 04-07 09:21:39.730    89:0x59 I/am_create_activity ]
+[1102232464,8,com.android.contacts/.activities.DialtactsActivity,NULL,NULL,NULL,65536]
+
+[ 04-07 09:21:39.730    89:0x59 I/am_pause_activity ]
+[1102499744,com.android.phone/.InCallScreen]
+
+[ 04-07 09:21:39.760   215:0xd7 I/phone_ui_exit ]
+[]
+
+[ 04-07 09:21:39.770    89:0x65 I/notification_cancel ]
+[com.android.phone,2,NULL,0,64]
+
+[ 04-07 09:21:39.770   215:0xd7 I/am_on_paused_called ]
+com.android.phone.InCallScreen
+
+[ 04-07 09:21:39.790    89:0x10f I/am_restart_activity ]
+[1102232464,8,com.android.contacts/.activities.DialtactsActivity]
+
+[ 04-07 09:21:40.050   376:0x178 I/am_on_resume_called ]
+com.android.contacts.activities.DialtactsActivity
+
+[ 04-07 09:21:40.471   376:0x178 I/binder_sample ]
+[android.view.IWindowSession,1,421,com.android.contacts,84]
+
+[ 04-07 09:21:40.561   215:0xd7 I/binder_sample ]
+[android.app.IActivityManager,19,786,com.android.phone,100]
+
+[ 04-07 09:21:41.030   215:0x23a I/content_update_sample ]
+[content://call_log/calls,insert,,1766,,100]
+
+[ 04-07 09:21:41.990   215:0x23a I/content_update_sample ]
+[content://call_log/calls,delete,_id IN (SELECT _id FROM calls ORDER BY date DESC LIMIT -1 OFFSET 500),692,,100]
+
+[ 04-07 09:21:42.500   376:0x23e I/content_query_sample ]
+[content://call_log/calls,number,type = 2,date DESC LIMIT 1,417,,84]
+
+[ 04-07 09:21:42.530   376:0x226 I/content_query_sample ]
+[content://com.android.contacts/data/phones?directory=0&address_book_index_extras=true&remove_duplicate_entries=true,_id/data2/data3/data1/contact_id/lookup/photo_id/display_name,,sort_key,289,,58]
+
+[ 04-07 09:21:42.970    89:0x8d I/backup_data_changed ]
+com.android.providers.settings
+
+[ 04-07 09:21:43.000    89:0x8c I/content_update_sample ]
+[content://settings/system,insert,,39,,8]
+
+[ 04-07 09:21:43.261    89:0x77 I/screen_toggled ]
+2
+
+[ 04-07 09:21:43.431    89:0x76 I/activity_launch_time ]
+[1102232464,com.android.contacts/.activities.DialtactsActivity,3658,3658]
+
+[ 04-07 09:21:43.770   215:0xd7 I/binder_sample ]
+[android.view.IWindowSession,4,103,com.android.phone,20]
+
+[ 04-07 09:21:46.231    89:0x7b I/am_pause_activity ]
+[1102232464,com.android.contacts/.activities.DialtactsActivity]
+
+[ 04-07 09:21:46.241   376:0x178 I/am_on_paused_called ]
+com.android.contacts.activities.DialtactsActivity
+
+[ 04-07 09:21:46.251    89:0x7b I/am_task_to_front ]
+4
+
+[ 04-07 09:21:46.251    89:0x7b I/am_new_intent ]
+[1102637632,4,com.android.launcher/com.android.launcher2.Launcher,android.intent.action.MAIN,NULL,NULL,274726912]
+
+[ 04-07 09:21:46.261    89:0x137 I/am_resume_activity ]
+[1102757264,4,com.android.launcher/com.android.launcher2.Launcher]
+
+[ 04-07 09:21:46.291   528:0x210 I/am_on_resume_called ]
+com.android.launcher2.Launcher
+
+[ 04-07 09:21:47.211   376:0x178 I/binder_sample ]
+[com.android.internal.view.IInputMethodManager,8,353,com.android.contacts,70]
+
+[ 04-07 09:21:47.321    89:0x10f I/notification_cancel ]
+[com.android.phone,1,NULL,0,64]
+
+[ 04-07 09:21:47.401    89:0x59 I/am_create_service ]
+[1093548520,com.android.contacts/.calllog.CallLogNotificationsService,act=com.android.contacts.calllog.UPDATE_NOTIFICATIONS,376]
+
+[ 04-07 09:21:47.491   376:0x189 I/content_update_sample ]
+[content://call_log/calls?allow_voicemails=true,update,new = 1,176,,36]
+
+[ 04-07 09:21:47.581   376:0x189 I/content_query_sample ]
+[content://call_log/calls?allow_voicemails=true,_id/number/date/duration/type/countryiso/voicemail_uri/geocoded_location/name/numbertype/numberlabel/lookup_uri/matched_number/normalized_number/photo_id/formatted_number/is_read,NOT (is_read IS NOT NULL AND is_read = 0 AND date > ?),date DESC,21,,5]
+
+[ 04-07 09:21:47.711    89:0x137 I/notification_cancel ]
+[com.android.contacts,1,DefaultVoicemailNotifier,0,64]
+
+[ 04-07 09:21:47.761    89:0x65 I/am_destroy_service ]
+[1093548520,com.android.contacts/.calllog.CallLogNotificationsService,376]
+

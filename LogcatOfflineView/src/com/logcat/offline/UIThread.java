@@ -231,17 +231,17 @@ public class UIThread {
     }
 	
 	private void createMainPanel(Composite parent) {
-        mLogCatPanel_main = new LogCatPanel(mPreferenceStore, PANEL_ID_MAIN);
+        mLogCatPanel_main = new LogCatPanel(mPreferenceStore, PANEL_ID_MAIN, "main buffer");
         mLogCatPanel_main.createControl(parent);
 	}
 	
 	private void createEventPanel(Composite parent) {
-        mLogCatPanel_event = new LogCatPanel(mPreferenceStore, PANEL_ID_EVENTS);
+        mLogCatPanel_event = new LogCatPanel(mPreferenceStore, PANEL_ID_EVENTS, "events buffer");
         mLogCatPanel_event.createControl(parent);
 	}
 	
 	private void createRadioPanel(Composite parent) {
-        mLogCatPanel_radio = new LogCatPanel(mPreferenceStore, PANEL_ID_RADIO);
+        mLogCatPanel_radio = new LogCatPanel(mPreferenceStore, PANEL_ID_RADIO, "radio buffer");
         mLogCatPanel_radio.createControl(parent);
 	}
 }
