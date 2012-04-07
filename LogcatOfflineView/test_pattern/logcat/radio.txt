@@ -1,0 +1,887 @@
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [ApnContext] set reason as roamingOff, for type default,current state IDLE
+D/GSM     (  217): [GsmDCT] trySetupData for type:default due to roamingOff
+D/GSM     (  217): [GsmDCT] trySetupData with mIsPsRestricted=false
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED NOT_READY reason null
+D/RILJ    (  217): [0009]> BASEBAND_VERSION
+D/RIL     (   35): onRequest: BASEBAND_VERSION
+D/RILJ    (  217): [0009]< BASEBAND_VERSION error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0010]> GET_IMEI
+D/RIL     (   35): onRequest: GET_IMEI
+D/AT      (   35): AT> AT+CGSN
+D/AT      (   35): AT< 000000000000000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0010]< GET_IMEI 
+D/RILJ    (  217): [0011]> GET_IMEISV
+D/RIL     (   35): onRequest: GET_IMEISV
+D/RILJ    (  217): [0011]< GET_IMEISV error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0012]> OPERATOR
+D/RIL     (   35): onRequest: OPERATOR
+D/AT      (   35): AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+D/AT      (   35): AT< +COPS: 0,0,"Android"
+D/AT      (   35): AT< +COPS: 0,1,"Android"
+D/AT      (   35): AT< +COPS: 0,2,"310260"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0012]< OPERATOR {Android, Android, 310260}
+D/RILJ    (  217): [0013]> DATA_REGISTRATION_STATE
+D/RIL     (   35): onRequest: DATA_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CGREG?
+D/AT      (   35): AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0013]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+D/RILJ    (  217): [0014]> VOICE_REGISTRATION_STATE
+D/RIL     (   35): onRequest: VOICE_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CREG?
+D/AT      (   35): AT< +CREG: 2,1, "ffffffff", "ffffffff"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0014]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+D/RILJ    (  217): [0015]> QUERY_NETWORK_SELECTION_MODE
+D/RIL     (   35): onRequest: QUERY_NETWORK_SELECTION_MODE
+D/AT      (   35): AT> AT+COPS?
+D/AT      (   35): AT< +COPS: 0,2,310260
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0015]< QUERY_NETWORK_SELECTION_MODE {0}
+D/RILJ    (  217): [0016]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0016]< GET_CURRENT_CALLS  
+D/RILJ    (  217): [0017]> OPERATOR
+D/RIL     (   35): onRequest: OPERATOR
+D/AT      (   35): AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+D/AT      (   35): AT< +COPS: 0,0,"Android"
+D/AT      (   35): AT< +COPS: 0,1,"Android"
+D/AT      (   35): AT< +COPS: 0,2,"310260"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0017]< OPERATOR {Android, Android, 310260}
+D/RILJ    (  217): [0018]> DATA_REGISTRATION_STATE
+D/RIL     (   35): onRequest: DATA_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CGREG?
+D/AT      (   35): AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0018]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+D/RILJ    (  217): [0019]> VOICE_REGISTRATION_STATE
+D/RILJ    (  217): [0020]> QUERY_NETWORK_SELECTION_MODE
+D/RIL     (   35): onRequest: VOICE_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CREG?
+D/AT      (   35): AT< +CREG: 2,1, "ffffffff", "ffffffff"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0019]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+D/RILJ    (  217): setCurrentPreferredNetworkType: 0
+D/RILJ    (  217): [0021]> REQUEST_SET_PREFERRED_NETWORK_TYPE : 0
+D/RIL     (   35): onRequest: QUERY_NETWORK_SELECTION_MODE
+D/AT      (   35): AT> AT+COPS?
+D/AT      (   35): AT< +COPS: 0,2,310260
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0020]< QUERY_NETWORK_SELECTION_MODE {0}
+D/RIL     (   35): onRequest: SET_PREFERRED_NETWORK_TYPE
+D/RILJ    (  217): [0021]< REQUEST_SET_PREFERRED_NETWORK_TYPE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0022]> SET_NETWORK_SELECTION_AUTOMATIC
+D/RIL     (   35): onRequest: SET_NETWORK_SELECTION_AUTOMATIC
+D/AT      (   35): AT> AT+COPS=0
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0023]> OPERATOR
+D/RIL     (   35): onRequest: OPERATOR
+D/AT      (   35): AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+D/AT      (   35): AT< +COPS: 0,0,"Android"
+D/AT      (   35): AT< +COPS: 0,1,"Android"
+D/AT      (   35): AT< +COPS: 0,2,"310260"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0023]< OPERATOR {Android, Android, 310260}
+D/RILJ    (  217): [0024]> DATA_REGISTRATION_STATE
+D/RIL     (   35): onRequest: DATA_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CGREG?
+D/AT      (   35): AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0024]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+D/RILJ    (  217): [0025]> VOICE_REGISTRATION_STATE
+D/RIL     (   35): onRequest: VOICE_REGISTRATION_STATE
+D/AT      (   35): AT> AT+CREG?
+D/AT      (   35): AT< +CREG: 2,1, "ffffffff", "ffffffff"
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0025]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+D/RILJ    (  217): [0026]> QUERY_NETWORK_SELECTION_MODE
+D/RIL     (   35): onRequest: QUERY_NETWORK_SELECTION_MODE
+D/AT      (   35): AT> AT+COPS?
+D/AT      (   35): AT< +COPS: 0,2,310260
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0026]< QUERY_NETWORK_SELECTION_MODE {0}
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/GSM     (  217): [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED READY reason null
+V/GSM     (  217): SIMRecords:fetchSimRecords 0
+D/RILJ    (  217): [0027]> GET_IMSI
+D/RIL     (   35): onRequest: GET_IMSI
+D/AT      (   35): AT> AT+CIMI
+D/AT      (   35): AT< 310260000000000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0027]< GET_IMSI 
+D/RILJ    (  217): [0028]> iccIO: SIM_IO 0xc0 0x2fe2  path: 3F00,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,12258,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,0000000a2fe204000fa0aa01020000
+D/RILJ    (  217): [0029]> iccIO: SIM_IO 0xc0 0x6f40  path: 3F007F10,0,0,15
+D/RILJ    (  217): [0030]> iccIO: SIM_IO 0xc0 0x6fc9  path: 3F007F20,0,0,15
+D/RILJ    (  217): [0031]> iccIO: SIM_IO 0xc0 0x6fad  path: 3F007F20,0,0,15
+D/RILJ    (  217): [0032]> iccIO: SIM_IO 0xc0 0x6fca  path: 3F007F20,0,0,15
+D/RILJ    (  217): [0033]> iccIO: SIM_IO 0xc0 0x6f11  path: 3F007F20,0,0,15
+D/RILJ    (  217): [0034]> iccIO: SIM_IO 0xc0 0x6fcb  path: 3F007F20,0,0,15
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0028]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28480,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000806f40040011a0aa01020120
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0029]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28617,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000086fc9040011a0aa01020104
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0030]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28589,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000046fad04000aa0aa01020000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0031]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0035]> iccIO: SIM_IO 0xc0 0x6f13  path: 3F007F20,0,0,15
+D/RILJ    (  217): [0036]> iccIO: SIM_IO 0xc0 0x6f46  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28618,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,0000000a6fca040011a0aa01020105
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0032]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28433,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000016f11040011a0aa01020000
+D/AT      (   35): AT< OK
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28619,0,0,15
+D/AT      (   35): AT< ERROR: BAD COMMAND
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28435,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000016f13040011a0aa01020000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0033]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0034]< SIM_IO error: com.android.internal.telephony.CommandException: GENERIC_FAILURE
+D/RILJ    (  217): [0035]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28486,0,0,15
+D/AT      (   35): AT< +CRSM: 148,4
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0036]< SIM_IO IccIoResponse sw1:0x94 sw2:0x4
+D/RILJ    (  217): [0037]> iccIO: SIM_IO 0xc0 0x6fcd  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28621,0,0,15
+D/AT      (   35): AT< +CRSM: 148,4
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0037]< SIM_IO IccIoResponse sw1:0x94 sw2:0x4
+D/RILJ    (  217): [0038]> iccIO: SIM_IO 0xc0 0x6fc5  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28613,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000f06fc504000aa0aa01020118
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0038]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0039]> iccIO: SIM_IO 0xc0 0x6f38  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28472,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,0000000f6f3804001aa0aa01020000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0039]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0040]> iccIO: SIM_IO 0xc0 0x6f16  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28438,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000026f1604001aa0aa01020000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0040]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0041]> iccIO: SIM_IO 0xc0 0x6f15  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28437,0,0,15
+D/AT      (   35): AT< ERROR: BAD COMMAND
+D/RILJ    (  217): [0041]< SIM_IO error: com.android.internal.telephony.CommandException: GENERIC_FAILURE
+D/RILJ    (  217): [0042]> GET_SIM_STATUS
+D/RIL     (   35): onRequest: GET_SIM_STATUS
+D/AT      (   35): AT> AT+CPIN?
+D/AT      (   35): AT< +CPIN: READY
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0042]< GET_SIM_STATUS IccCardState {CARDSTATE_PRESENT,PINSTATE_UNKNOWN,num_apps=1,gsm_id=0{APPTYPE_SIM,APPSTATE_READY},cmda_id=8,ism_id=8}
+D/RILJ    (  217): [0043]> QUERY_FACILITY_LOCK
+D/RIL     (   35): onRequest: QUERY_FACILITY_LOCK
+D/RILJ    (  217): [0043]< QUERY_FACILITY_LOCK error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0044]> QUERY_FACILITY_LOCK
+D/RIL     (   35): onRequest: QUERY_FACILITY_LOCK
+D/RILJ    (  217): [0044]< QUERY_FACILITY_LOCK error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0045]> RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING
+D/RIL     (   35): onRequest: REPORT_STK_SERVICE_IS_RUNNING
+D/RILJ    (  217): [0045]< RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+E/GSM     (  217): [GsmSST] error parsing RegistrationState: java.lang.NumberFormatException: Invalid int: "ffffffff"
+D/GSM     (  217): [GsmSST] Poll ServiceState done:  oldSS=[1 home null null null  Unknown:0 CSS not supported 0 0 RoamInd=0 DefRoamInd=0 EmergOnly=false] newSS=[0 home Android Android 310260  UMTS:3 CSS not supported 0 0 RoamInd=0 DefRoamInd=0 EmergOnly=false] oldGprs=1 newData=0 oldMaxDataCalls=1 mNewMaxDataCalls=1 oldReasonDataDenied=-1 mNewReasonDataDenied=-1 oldType=Unknown:0 newType=UMTS:3
+D/GSM     (  217): [GsmSST] RAT switched Unknown:0 -> UMTS:3 at cell -1
+D/GSM     (  217): [GsmSST] updateSpnDisplay: changed sending intent rule=2 showPlmn='true' plmn='Android' showSpn='false' spn='null'
+D/GSM     (  217): [GsmDCT] get all active apn types
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=true apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): IMSI: xxxxxxx
+D/GSM     (  217): [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED IMSI reason null
+D/RILJ    (  217): [0046]> iccIO: SIM_IO 0xb0 0x2fe2  path: 3F00,0,0,10
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,12258,0,0,10
+D/AT      (   35): AT< +CRSM: 144,0,98101430121181157002
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0046]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0047]> iccIO: SIM_IO 0xb2 0x6f40  path: 3F007F10,1,4,32
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=178,28480,1,4,32
+D/AT      (   35): AT< +CRSM: 144,0,ffffffffffffffffffffffffffffffffffff07815155255155f4ffffffffffff
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0047]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0048]> iccIO: SIM_IO 0xb2 0x6fc9  path: 3F007F20,1,4,4
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=178,28617,1,4,4
+D/AT      (   35): AT< +CRSM: 144,0,01000000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0048]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0049]> iccIO: SIM_IO 0xb0 0x6fad  path: 3F007F20,0,0,4
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28589,0,0,4
+D/AT      (   35): AT< +CRSM: 144,0,00000003
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0049]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0050]> iccIO: SIM_IO 0xb2 0x6fca  path: 3F007F20,1,4,5
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=178,28618,1,4,5
+D/AT      (   35): AT< +CRSM: 144,0,0000000000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0050]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0051]> iccIO: SIM_IO 0xb0 0x6f11  path: 3F007F20,0,0,1
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28433,0,0,1
+D/AT      (   35): AT< +CRSM: 144,0,55
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0051]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0052]> iccIO: SIM_IO 0xb0 0x6f13  path: 3F007F20,0,0,1
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28435,0,0,1
+D/AT      (   35): AT< +CRSM: 144,0,55
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0052]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0053]> iccIO: SIM_IO 0xb2 0x6fc5  path: 3F007F20,1,4,24
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=178,28613,1,4,24
+D/AT      (   35): AT< +CRSM: 144,0,43058441aa890affffffffffffffffffffffffffffffffff
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0053]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0054]> iccIO: SIM_IO 0xb0 0x6f38  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28472,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,ff30ffff3c003c03000c0000f03f00
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0054]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/RILJ    (  217): [0055]> iccIO: SIM_IO 0xb0 0x6f16  path: 3F007F20,0,0,2
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28438,0,0,2
+D/AT      (   35): AT< +CRSM: 144,0,0233
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0055]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+E/GSM     (  217): [IccCard] Invalid Subscription Application index:8
+D/GSM     (  217): [IccCard] USIM=READY CSIM=ABSENT
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/GSM     (  217): [IccCard] Error in querying facility lock:com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [IccCard] Error in querying facility lock:com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270352 when=-358ms obj=android.os.AsyncResult@41341a08 }
+D/GSM     (  217): [GsmDCT] onDataConnectionAttached
+D/GSM     (  217): [GsmDCT] overall state is IDLE
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [ApnContext] set reason as dataAttached, for type default,current state IDLE
+D/GSM     (  217): [GsmDCT] trySetupData for type:default due to dataAttached
+D/GSM     (  217): [GsmDCT] trySetupData with mIsPsRestricted=false
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/RILJ    (  217): [0056]> iccIO: SIM_IO 0xc0 0x6f14  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28436,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000146f1404001aa0aa01020000
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0056]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+E/GSM     (  217): Exception in fetching EF_CSP data com.android.internal.telephony.CommandException: GENERIC_FAILURE
+D/GSM     (  217): iccid: 89014103211118510720
+D/GSM     (  217): EF_MBI: 01000000
+D/GSM     (  217): Got valid mailbox number for MBDN
+D/RILJ    (  217): [0057]> iccIO: SIM_IO 0xc0 0x6fc7  path: 3F007F20,0,0,15
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=192,28615,0,0,15
+D/AT      (   35): AT< +CRSM: 144,0,000000406fc7040011a0aa01020120
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0057]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/GSM     (  217): EF_AD: 00000003
+D/GSM     (  217): EF_MWIS: 0000000000
+D/GSM     (  217): EF_CFF_CPHS: 55
+D/RILJ    (  217): [0058]> iccIO: SIM_IO 0xb0 0x6f14  path: 3F007F20,0,0,20
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=176,28436,0,0,20
+D/AT      (   35): AT< +CRSM: 144,0,416e64726f6964ffffffffffffffffffffffffff
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0058]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/GSM     (  217): [SIMRecords] SST: UsimServiceTable[120]={ PHONEBOOK, FDN, FDN_EXTENSION, SDN, SDN_EXTENSION, BDN, BDN_EXTENSION, OUTGOING_CALL_INFO, ADVICE_OF_CHARGE, CAP_CONFIG_PARAMS_2, GROUP_ID_LEVEL_1, GROUP_ID_LEVEL_2, SPN, USER_PLMN_SELECT, MSISDN, IMAGE, LOCALISED_SERVICE_AREAS, EMLPP, EMLPP_AUTO_ANSWER, RFU, GSM_ACCESS, DATA_DL_VIA_SMS_PP, DATA_DL_VIA_SMS_CB, CALL_CONTROL_BY_USIM, MO_SMS_CONTROL_BY_USIM, RUN_AT_COMMAND, APN_CONTROL_LIST, DEPERSONALISATION_CONTROL_KEYS, COOPERATIVE_NETWORK_LIST, GSM_SECURITY_CONTEXT, SERVICE_PROVIDER_DISPLAY_INFO, MMS_NOTIFICATION, MMS_NOTIFICATION_EXTENSION, GPRS_CALL_CONTROL_BY_USIM, VGCS_GROUP_ID_LIST, VBS_GROUP_ID_LIST, OMA_BCAST_PROFILE, GBA_LOCAL_KEY_ESTABLISHMENT, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110 }
+D/GSM     (  217): [SIMRecords] iCPHS: 0233
+D/GSM     (  217): MSISDN: xxxxxxx
+D/RILJ    (  217): [0059]> iccIO: SIM_IO 0xb2 0x6fc7  path: 3F007F20,1,4,32
+D/RIL     (   35): onRequest: SIM_IO
+D/AT      (   35): AT> AT+CRSM=178,28615,1,4,32
+D/AT      (   35): AT< +CRSM: 144,0,566f6963656d61696cffffffffffffffffff07915155125740f9ffffffffffff
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0059]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+D/GSM     (  217): [SIMRecords] Load EF_SPN_CPHS: Android
+D/GSM     (  217): VM: ADN Record 'Voicemail' '+15552175049 null' EF[MBDN]
+D/GSM     (  217): SIMRecords: record load complete
+D/GSM     (  217): [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED LOADED reason null
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270338 when=-32ms obj=android.os.AsyncResult@412a23b8 }
+D/GSM     (  217): [GsmDCT] onRecordsLoaded: createAllApnList
+D/GSM     (  217): [GsmDCT] createAllApnList: selection=numeric = '310260' and carrier_enabled = 1
+D/GSM     (  217): [GsmDCT] createApnList: X result=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] createAllApnList: mPreferredApn=null
+D/GSM     (  217): [GsmDCT] createAllApnList: X mAllApns=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] onRecordsLoaded: notifying data availability
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [ApnContext] set reason as simLoaded, for type default,current state IDLE
+D/GSM     (  217): [GsmDCT] trySetupData for type:default due to simLoaded
+D/GSM     (  217): [GsmDCT] trySetupData with mIsPsRestricted=false
+D/GSM     (  217): [GsmDCT] isEmergency: result=false
+D/GSM     (  217): [GsmDCT] apn info : [ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+D/GSM     (  217): [GsmDCT] buildWaitingApns: X apnList=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] trySetupData: Create from mAllApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] Setup watingApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] setupData: apnContext=state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] checkForConnectionForApnContext: apnContext=state=IDLE apnType=default NO conn
+D/GSM     (  217): [GsmDCT] findReadyDataConnection: apn string <[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0>
+D/GSM     (  217): [GsmDCT] setupData: No ready GsmDataConnection found!
+D/GSM     (  217): [GsmDCT] findFreeDataConnection: NO free GsmDataConnection
+D/GSM     (  217): [GsmDCT] createDataConnection E
+D/GSM     (  217): [GsmDC-1] DataConnection constructor E
+D/GSM     (  217): [GsmDC-1] DataConnection constructor X
+D/RILB    (  217): registerForRilConnected h=Handler (com.android.internal.util.StateMachine$SmHandler) {41344460} w=262149
+D/RILB    (  217): Notifying: ril connected mRilVersion=6
+D/GSM     (  217): [GsmDC-1] clearSettings
+D/GSM     (  217): [GsmDC-1] Made GsmDC-1
+D/GSM     (  217): [GsmDC-1] DcDefaultState: msg.what=EVENT_RIL_CONNECTED mRilVersion=6
+D/GSM     (  217): [GsmDCT] createDataConnection() X id=0
+D/GSM     (  217): [GsmDCT] setupData: init dc and apnContext refCount=0
+D/GSM     (  217): [ApnContext] setState: INITING for type default, previous state:IDLE
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=INITING
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): [GsmDC-1] DcInactiveState msg.what=EVENT_CONNECT.RefCount = 0
+D/GSM     (  217): [GsmDC-1] Connecting to carrier: 'TelKila' APN: 'internet' proxy: 'null' port: 'null
+D/RILJ    (  217): [0060]> SETUP_DATA_CALL 5 0 internet * * 3 IP
+D/RIL     (   35): onRequest: SETUP_DATA_CALL
+D/RIL     (   35): requesting data connection to APN 'internet'
+D/AT      (   35): AT> AT+CGDCONT=1,"IP","internet",,0,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGQREQ=1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGQMIN=1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGEREP=1,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGACT=1,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> ATD*99***1#
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGACT?
+D/AT      (   35): AT< +CGACT: 1,1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGDCONT?
+D/AT      (   35): AT< +CGDCONT: 1,"IP","internet","10.0.2.15",0,0
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0060]< SETUP_DATA_CALL DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+D/GSM     (  217): [GsmDC-1] DcActivatingState msg.what=EVENT_SETUP_DATA_CONNECTION_DONE
+D/GSM     (  217): [GsmDC-1] onSetupConnectionCompleted received DataCallState: DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+D/GSM     (  217): addr/pl=10.0.2.15/32
+D/GSM     (  217): [GsmDC-1] updateLinkProperty old != new
+D/GSM     (  217): [GsmDC-1] DcActivatingState onSetupConnectionCompleted result=SUCCESS  SetupResult.mFailCause=NONE
+D/GSM     (  217): [GsmDC-1] notifyConnectionCompleted at 1333808346440 cause=NONE
+D/GSM     (  217): [GsmDCT] setupData: initing!
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=INITING apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [GsmSST] updateSpnDisplay: changed sending intent rule=2 showPlmn='true' plmn='Android' showSpn='false' spn='Android'
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270336 when=-254ms arg1=1 obj=android.os.AsyncResult@412e3270 }
+D/GSM     (  217): [GsmDCT] isDataSetupCompleteOk return true
+D/GSM     (  217): [GsmDCT] onDataSetupComplete: success apn=internet
+D/GSM     (  217): [GsmDCT] onDataSetupComplete: PREFERED APN is null
+D/GSM     (  217): [GsmDCT] notifyDefaultData: type=default, reason:simLoaded
+D/GSM     (  217): [ApnContext] setState: CONNECTED for type default, previous state:INITING
+D/GSM     (  217): [GsmDCT] return link properites for default
+D/GSM     (  217): [GsmDCT] get active pdp is not null, return link Capabilities for default
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=CONNECTED
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): [GsmDCT] overall state is CONNECTED
+D/GSM     (  217): [GsmDCT] startNetStatPoll
+D/GSM     (  217): [GsmDCT] startDataStallAlarm: tag=83937 delay=360s
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270355 when=-88ms }
+D/GSM     (  217): [GsmDCT] overall state is CONNECTED
+D/GSM     (  217): [GsmDCT] onApnChanged: createAllApnList and cleanUpAllConnections
+D/GSM     (  217): [GsmDCT] createAllApnList: selection=numeric = '310260' and carrier_enabled = 1
+D/GSM     (  217): [GsmDCT] createApnList: X result=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] createAllApnList: mPreferredApn=[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+D/GSM     (  217): [GsmDCT] createAllApnList: X mAllApns=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] cleanUpAllConnections: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type fota,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type fota, previous state:IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type supl,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type supl, previous state:IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type hipri,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type hipri, previous state:IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type ims,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type ims, previous state:IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type default,current state CONNECTED
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearing down
+D/GSM     (  217): [GsmDC-1] DcActiveState msg.what=EVENT_DISCONNECT RefCount=0
+D/GSM     (  217): [GsmDC-1] tearDownData radio is on, call deactivateDataCall
+D/RILJ    (  217): [0061]> DEACTIVATE_DATA_CALL 1 0
+D/RIL     (   35): onRequest: DEACTIVATE_DATA_CALL
+D/RILJ    (  217): [0061]< DEACTIVATE_DATA_CALL error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GsmDC-1] DcDisconnectingState msg.what=EVENT_DEACTIVATE_DONE
+D/GSM     (  217): [GsmDC-1] NotifyDisconnectCompleted DisconnectParams=com.android.internal.telephony.DataConnection$DisconnectParams@413073a0
+D/GSM     (  217): [GsmDC-1] clearSettings
+D/GSM     (  217): [ApnContext] setState: DISCONNECTING for type default, previous state:CONNECTED
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type mms,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type mms, previous state:IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type cbs,current state IDLE
+D/GSM     (  217): [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+D/GSM     (  217): [ApnContext] setState: IDLE for type cbs, previous state:IDLE
+D/GSM     (  217): [GsmDCT] stopNetStatPoll
+D/GSM     (  217): [GsmDCT] stopDataStallAlarm: current tag=83937 mDataStallAlarmIntent=PendingIntent{4135fe58: android.os.BinderProxy@4135fde8}
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270351 when=-68ms obj=android.os.AsyncResult@412e01c8 }
+D/GSM     (  217): [GsmDCT] DataConnectoinTracker.handleMessage: EVENT_DISCONNECT_DONE msg={ what=270351 when=-68ms obj=android.os.AsyncResult@412e01c8 }
+D/GSM     (  217): [GsmDCT] onDisconnectDone: EVENT_DISCONNECT_DONE connId=0
+D/GSM     (  217): [ApnContext] setState: IDLE for type default, previous state:DISCONNECTING
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): [GsmDCT] Schedule alarm for reconnect: activate failed. Scheduling next attempt for 5s
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270368 when=0 arg1=1 }
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270368 when=0 arg1=1 }
+D/GSM     (  217): [GsmDCT] onReceive: action=com.android.internal.telephony.gprs-reconnect.0
+D/GSM     (  217): [GsmDCT] Reconnect alarm. Previous state was IDLE
+D/GSM     (  217): [GsmDCT] GPRS reconnect alarm. Previous state was IDLE
+D/GSM     (  217): [ApnContext] set reason as apnChanged, for type default,current state IDLE
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270339 when=-2ms obj=state=IDLE apnType=default }
+D/GSM     (  217): [GsmDCT] onTrySetupData: apnContext=state=IDLE apnType=default
+D/GSM     (  217): [GsmDCT] trySetupData for type:default due to apnChanged
+D/GSM     (  217): [GsmDCT] trySetupData with mIsPsRestricted=false
+D/GSM     (  217): [GsmDCT] isEmergency: result=false
+D/GSM     (  217): [GsmDCT] buildWaitingApns: Preferred APN:310260:310260:[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+D/GSM     (  217): [GsmDCT] buildWaitingApns: X added preferred apnList=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] trySetupData: Create from mAllApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] Setup watingApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+D/GSM     (  217): [GsmDCT] setupData: apnContext=state=IDLE apnType=default
+D/GSM     (  217): [ApnContext] setState: INITING for type default, previous state:IDLE
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=INITING
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): [GsmDC-1] DcInactiveState msg.what=EVENT_CONNECT.RefCount = 0
+D/GSM     (  217): [GsmDC-1] Connecting to carrier: 'TelKila' APN: 'internet' proxy: 'null' port: 'null
+D/RILJ    (  217): [0062]> SETUP_DATA_CALL 5 0 internet * * 3 IP
+D/RIL     (   35): onRequest: SETUP_DATA_CALL
+D/RIL     (   35): requesting data connection to APN 'internet'
+D/AT      (   35): AT> AT+CGDCONT=1,"IP","internet",,0,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGQREQ=1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGQMIN=1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGEREP=1,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGACT=1,0
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> ATD*99***1#
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGACT?
+D/AT      (   35): AT< +CGACT: 1,1
+D/AT      (   35): AT< OK
+D/AT      (   35): AT> AT+CGDCONT?
+D/AT      (   35): AT< +CGDCONT: 1,"IP","internet","10.0.2.15",0,0
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0062]< SETUP_DATA_CALL DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+D/GSM     (  217): [GsmDC-1] DcActivatingState msg.what=EVENT_SETUP_DATA_CONNECTION_DONE
+D/GSM     (  217): [GsmDC-1] onSetupConnectionCompleted received DataCallState: DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+D/GSM     (  217): addr/pl=10.0.2.15/32
+D/GSM     (  217): [GsmDC-1] updateLinkProperty old != new
+D/GSM     (  217): [GsmDC-1] DcActivatingState onSetupConnectionCompleted result=SUCCESS  SetupResult.mFailCause=NONE
+D/GSM     (  217): [GsmDC-1] notifyConnectionCompleted at 1333808356347 cause=NONE
+D/GSM     (  217): [GsmDCT] setupData: initing!
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:fota
+D/GSM     (  217): [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:fota
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:supl
+D/GSM     (  217): [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:supl
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:hipri
+D/GSM     (  217): [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:hipri
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:ims
+D/GSM     (  217): [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:ims
+D/GSM     (  217): [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=INITING apnType=default
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:mms
+D/GSM     (  217): [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:mms
+D/GSM     (  217): [GsmDCT] notifyOffApnOfAvailability type:cbs
+D/GSM     (  217): [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+D/GSM     (  217): [GsmDCT] get active apn string for type:cbs
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270336 when=-130ms arg1=1 obj=android.os.AsyncResult@41361bf0 }
+D/GSM     (  217): [GsmDCT] isDataSetupCompleteOk return true
+D/GSM     (  217): [GsmDCT] onDataSetupComplete: success apn=internet
+D/GSM     (  217): [GsmDCT] notifyDefaultData: type=default, reason:apnChanged
+D/GSM     (  217): [ApnContext] setState: CONNECTED for type default, previous state:INITING
+D/GSM     (  217): [GsmDCT] return link properites for default
+D/GSM     (  217): [GsmDCT] get active pdp is not null, return link Capabilities for default
+D/GSM     (  217): [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=CONNECTED
+D/GSM     (  217): [GsmDCT] get active apn string for type:default
+D/GSM     (  217): [GsmDCT] overall state is CONNECTED
+D/GSM     (  217): [GsmDCT] startNetStatPoll
+D/GSM     (  217): [GsmDCT] startDataStallAlarm: tag=83939 delay=360s
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270368 when=-1ms arg1=1 }
+D/RILJ    (  217): [0063]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0063]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0064]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0064]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0065]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0065]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/GSM     (  217): isTwoDigitShortCode
+D/GSM     (  217): dialing w/ mmi 'null'...
+D/GSM     (  217): [GSMConn] acquireWakeLock
+D/RILJ    (  217): [0066]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0066]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0067]> DIAL
+D/RIL     (   35): onRequest: DIAL
+D/AT      (   35): AT> ATD123;
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0067]< DIAL 
+D/RILJ    (  217): [0068]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,2,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0068]< GET_CURRENT_CALLS  [id=1,DIALING,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270343 when=-113ms obj=android.os.AsyncResult@413216d8 }
+D/GSM     (  217): [GsmDCT] onVoiceCallStarted
+D/RILJ    (  217): [0069]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0069]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GSMConn] update: parent=DIALING, hasNewParent=false, wasConnectingInOrOut=true, wasHolding=false, isConnectingInOrOut=true, changed=false
+D/RILJ    (  217): [0070]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0070]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [UNSL]< UNSOL_RESPONSE_CALL_STATE_CHANGED
+D/AT      (   35): AT< RING
+D/RILJ    (  217): [UNSL]< UNSOL_RESPONSE_CALL_STATE_CHANGED
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/RILJ    (  217): [0071]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,3,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0071]< GET_CURRENT_CALLS  [id=1,ALERTING,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/RILJ    (  217): [0072]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,3,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0072]< GET_CURRENT_CALLS  [id=1,ALERTING,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/RILJ    (  217): [0073]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0073]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GSMConn] update: parent=ALERTING, hasNewParent=false, wasConnectingInOrOut=true, wasHolding=false, isConnectingInOrOut=true, changed=true
+D/AT      (   35): AT< RING
+D/RILJ    (  217): [UNSL]< UNSOL_RESPONSE_CALL_STATE_CHANGED
+D/RILJ    (  217): [0074]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0074]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [UNSL]< UNSOL_RESPONSE_CALL_STATE_CHANGED
+D/RILJ    (  217): [UNSL]< UNSOL_RESPONSE_CALL_STATE_CHANGED
+D/RILJ    (  217): [0075]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,0,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0075]< GET_CURRENT_CALLS  [id=1,ACTIVE,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/RILJ    (  217): [0076]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,0,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0076]< GET_CURRENT_CALLS  [id=1,ACTIVE,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/RILJ    (  217): [0077]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< +CLCC: 1,0,0,0,0,"123",129
+D/AT      (   35): AT< OK
+V/RILJ    (  217): Incoming UUS : NOT present!
+D/RILJ    (  217): InCall VoicePrivacy is disabled
+D/RILJ    (  217): [0077]< GET_CURRENT_CALLS  [id=1,ACTIVE,toa=129,norm,mo,0,voc,noevp,,cli=1,,0] 
+D/RILJ    (  217): [0078]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0078]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GSMConn] update: parent=ACTIVE, hasNewParent=false, wasConnectingInOrOut=true, wasHolding=false, isConnectingInOrOut=false, changed=true
+D/GSM     (  217): [GSMConn] onConnectedInOrOut: connectTime=1333808420632
+D/GSM     (  217): [GSMConn] releaseWakeLock
+D/RILJ    (  217): [0079]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0079]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/RILJ    (  217): [0080]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0080]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/GSM     (  217): [GsmCallTracker] hangupForegroundResumeBackground
+D/RILJ    (  217): [0081]> HANGUP_FOREGROUND_RESUME_BACKGROUND
+D/RIL     (   35): onRequest: HANGUP_FOREGROUND_RESUME_BACKGROUND
+D/AT      (   35): AT> AT+CHLD=1
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0081]< HANGUP_FOREGROUND_RESUME_BACKGROUND 
+D/RILJ    (  217): [0082]> GET_CURRENT_CALLS
+D/RIL     (   35): onRequest: GET_CURRENT_CALLS
+D/AT      (   35): AT> AT+CLCC
+D/AT      (   35): AT< OK
+D/RILJ    (  217): [0082]< GET_CURRENT_CALLS  
+D/RILJ    (  217): [0083]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0083]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/GSM     (  217): [GsmDCT] handleMessage msg={ what=270344 when=-59ms obj=android.os.AsyncResult@415c0df8 }
+D/GSM     (  217): [GsmDCT] onVoiceCallEnded
+D/RILJ    (  217): [0084]> SET_MUTE false
+D/RIL     (   35): onRequest: SET_MUTE
+D/RILJ    (  217): [0084]< SET_MUTE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/PHONE   (  217): VM: PhoneSubInfo.getVoiceMailNUmber: 
+D/RILJ    (  217): [0085]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0085]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0086]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0086]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0087]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0087]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0088]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0088]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0089]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0089]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0090]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0090]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0091]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0091]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILJ    (  217): [0092]> SIGNAL_STRENGTH
+D/RIL     (   35): onRequest: SIGNAL_STRENGTH
+D/AT      (   35): AT> AT+CSQ
+D/AT      (   35): AT< +CSQ: 7,99
+D/AT      (   35): AT< OK
+E/RILC    (   35): invalid response length
+D/RILJ    (  217): [0092]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+D/RILB    (  217): getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''

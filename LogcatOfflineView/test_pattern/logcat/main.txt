@@ -1,0 +1,681 @@
+I/ActivityManager(   91): Removing system update proc: ProcessRecord{414bfaf8 145:android.process.acore/10020}
+I/ActivityManager(   91): Killing proc 145:android.process.acore/10020: system update done
+I/ActivityManager(   91): Removing system update proc: ProcessRecord{415652d8 159:android.process.media/10004}
+I/ActivityManager(   91): Killing proc 159:android.process.media/10004: system update done
+I/ActivityManager(   91): Removing system update proc: ProcessRecord{41927430 175:com.android.providers.calendar/10031}
+I/ActivityManager(   91): Killing proc 175:com.android.providers.calendar/10031: system update done
+I/ActivityManager(   91): System now ready
+I/SystemServer(   91): Making services ready
+D/SystemServer(   91): Starting service: Intent { cmp=com.android.systemui/.SystemUIService }
+I/ActivityManager(   91): Start proc com.android.systemui for service com.android.systemui/.SystemUIService: pid=189 uid=1000 gids={1015, 3002, 3001, 3003}
+D/NetworkManagementService(   91): not enabling bandwidth control
+W/NetworkStats(   91): problem reading network stats: java.lang.IllegalStateException: problem parsing idx 1
+D/NetworkManagementService(   91): Registering observer
+D/dalvikvm(   91): GC_CONCURRENT freed 382K, 44% free 10890K/19335K, paused 36ms+18ms
+D/NetworkManagementService(   91): Registering observer
+I/ActivityManager(   91): Config changed: {1.0 0mcc0mnc en_US layoutdir=0 sw320dp w320dp h508dp nrml long port finger qwerty/v/v tball/v s.3}
+W/RecognitionManagerService(   91): no available voice recognition services found
+D/SystemUIService(  189): loading: class com.android.systemui.statusbar.phone.PhoneStatusBar
+D/SystemUIService(  189): running: com.android.systemui.statusbar.phone.PhoneStatusBar@412e4fe8
+W/AppWidgetService(   91): Failed to read state: java.io.FileNotFoundException: /data/system/appwidgets.xml: open failed: ENOENT (No such file or directory)
+W/InputManagerService(   91): Ignoring setImeWindowStatus of uid 1000 token: null
+I/ActivityManager(   91): Start proc com.android.inputmethod.latin for service com.android.inputmethod.latin/.LatinIME: pid=203 uid=10022 gids={}
+D/NetworkManagementService(   91): Registering observer
+E/ThrottleService(   91): Error reading data file
+I/ActivityManager(   91): Start proc com.android.phone for added application com.android.phone: pid=217 uid=1001 gids={3002, 3001, 3003, 1015}
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=com.android.settings/.CryptKeeper} from pid 0
+W/ThrottleService(   91): unable to find stats for iface rmnet0
+I/ActivityManager(   91): Start proc com.android.settings for activity com.android.settings/.CryptKeeper: pid=232 uid=1000 gids={1015, 3002, 3001, 3003}
+D/dalvikvm(  189): GC_CONCURRENT freed 135K, 3% free 9325K/9543K, paused 5ms+3ms
+W/ThrottleService(   91): unable to find stats for iface rmnet0
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 1) failed with errno -2
+I/ActivityThread(  217): Pub mms: com.android.providers.telephony.MmsProvider
+I/ActivityThread(  217): Pub sms: com.android.providers.telephony.SmsProvider
+I/ActivityThread(  217): Pub telephony: com.android.providers.telephony.TelephonyProvider
+I/StatusBarManagerService(   91): registerStatusBar bar=com.android.internal.statusbar.IStatusBar$Stub$Proxy@415ac640
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info back home recent clock >
+W/TelephonyProvider(  217): onCreate: confFile=/system/etc/apns-conf.xml oldCheckSum=-1
+D/dalvikvm(   91): GREF has increased to 201
+D/StorageNotification(  189): Startup with UMS connection false (media state unmounted)
+I/StorageNotification(  189): UMS connection changed to false (media state unmounted)
+E/ActivityThread(  203): Failed to find provider info for com.android.inputmethod.latin.dictionarypack
+E/BinaryDictionaryGetter(  203): Could not find a dictionary pack
+I/ActivityThread(  217): Pub icc: com.android.phone.IccProvider
+I/ActivityThread(  217): Pub mms-sms: com.android.providers.telephony.MmsSmsProvider
+D/SystemUIService(  189): loading: class com.android.systemui.power.PowerUI
+D/SystemUIService(  189): running: com.android.systemui.power.PowerUI@4133b930
+D/dalvikvm(  203): GC_CONCURRENT freed 172K, 3% free 9352K/9607K, paused 5ms+81ms
+I/ActivityManager(   91): Start proc android.process.acore for content provider com.android.providers.userdictionary/.UserDictionaryProvider: pid=267 uid=10020 gids={3003, 1015}
+D/dalvikvm(  217): GC_CONCURRENT freed 215K, 4% free 9214K/9543K, paused 5ms+131ms
+D/dalvikvm(  189): GC_CONCURRENT freed 104K, 3% free 9654K/9863K, paused 4ms+5ms
+D/dalvikvm(   91): GC_CONCURRENT freed 353K, 43% free 11049K/19335K, paused 7ms+9ms
+W/GpsLocationProvider(   91): Could not open GPS configuration file /etc/gps.conf
+D/WifiService(   91): New client listening to asynchronous messages
+D/dalvikvm(   91): GC_CONCURRENT freed 533K, 43% free 11027K/19335K, paused 12ms+9ms
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=com.android.sdksetup/.DefaultActivity} from pid 0
+I/ActivityThread(  267): Pub com.android.voicemail: com.android.providers.contacts.VoicemailContentProvider
+I/ActivityManager(   91): Start proc com.android.sdksetup for activity com.android.sdksetup/.DefaultActivity: pid=289 uid=10028 gids={}
+D/dalvikvm(  232): GC_CONCURRENT freed 242K, 4% free 9268K/9607K, paused 7ms+124ms
+I/ActivityThread(  267): Pub com.android.social: com.android.providers.contacts.SocialProvider
+I/ActivityThread(  267): Pub applications: com.android.providers.applications.ApplicationsProvider
+D/dalvikvm(   37): GC_EXPLICIT freed 34K, 4% free 9031K/9347K, paused 3ms+4ms
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10028, 1) failed with errno -2
+W/ActivityManager(   91): Unable to start service Intent { act=com.android.internal.telephony.IWapPushManager }: not found
+D/dalvikvm(   37): GC_EXPLICIT freed <1K, 4% free 9030K/9347K, paused 4ms+3ms
+D/dalvikvm(  189): GC_FOR_ALLOC freed 35K, 2% free 9696K/9863K, paused 186ms
+I/dalvikvm-heap(  189): Grow heap (frag case) to 10.707MB for 1228816-byte allocation
+D/        (  217): [ApnContext] set reason as dataEnabled, for type default,current state IDLE
+D/        (  217): [ApnContext] set reason as dataEnabled, for type mms,current state IDLE
+D/dalvikvm(  189): GC_CONCURRENT freed 1K, 2% free 10895K/11079K, paused 4ms+98ms
+D/        (  217): [ApnContext] set reason as dataEnabled, for type supl,current state IDLE
+D/        (  217): [ApnContext] set reason as dataEnabled, for type hipri,current state IDLE
+D/        (  217): [ApnContext] set reason as dataEnabled, for type fota,current state IDLE
+D/        (  217): [ApnContext] set reason as dataEnabled, for type ims,current state IDLE
+D/dalvikvm(   37): GC_EXPLICIT freed <1K, 4% free 9030K/9347K, paused 2ms+3ms
+D/        (  217): [ApnContext] set reason as dataEnabled, for type cbs,current state IDLE
+D/dalvikvm(  267): GC_CONCURRENT freed 319K, 5% free 9169K/9607K, paused 5ms+4ms
+I/ActivityThread(  267): Pub contacts;com.android.contacts: com.android.providers.contacts.ContactsProvider2
+D/dalvikvm(   91): GC_CONCURRENT freed 556K, 44% free 10987K/19335K, paused 6ms+48ms
+D/CAT     (  217): CatService: Is running
+D/CAT     (  217): CatService: NEW sInstance
+D/CallManager(  217): registerPhone(GSM Handler (com.android.internal.telephony.PhoneProxy) {412b9360})
+D/dalvikvm(  189): GC_FOR_ALLOC freed 0K, 2% free 10895K/11079K, paused 321ms
+D/dalvikvm(  289): GC_CONCURRENT freed 281K, 5% free 9135K/9543K, paused 6ms+4ms
+I/dalvikvm-heap(  189): Grow heap (frag case) to 13.146MB for 2560016-byte allocation
+D/dalvikvm(  189): GC_CONCURRENT freed 0K, 2% free 13395K/13639K, paused 4ms+32ms
+D/gralloc_goldfish(  189): Emulator without GPU emulation detected.
+I/ActivityThread(  267): Pub call_log: com.android.providers.contacts.CallLogProvider
+I/ActivityThread(  267): Pub user_dictionary: com.android.providers.userdictionary.UserDictionaryProvider
+D/dalvikvm(   91): GC_CONCURRENT freed 465K, 43% free 11031K/19335K, paused 6ms+44ms
+W/ActivityManager(   91): Unable to start service Intent { act=com.android.ussd.IExtendedNetworkService }: not found
+I/ActivityManager(   91): Force stopping package com.android.sdksetup uid=10028
+I/ActivityManager(   91): Killing proc 289:com.android.sdksetup/10028: force stop
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10028, 0) failed with errno -2
+W/ActivityManager(   91): Force removing ActivityRecord{4156efb8 com.android.sdksetup/.DefaultActivity}: app died, no saved state
+I/ContactsDatabaseHelper(  267): Bootstrapping database version: 625
+D/PackageManager(   91): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   91): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/dalvikvm(   91): GC_CONCURRENT freed 497K, 43% free 11046K/19335K, paused 6ms+72ms
+D/dalvikvm(  217): GC_CONCURRENT freed 223K, 4% free 9399K/9735K, paused 4ms+4ms
+D/AlarmManagerService(   91): Kernel timezone updated to 0 minutes west of GMT
+I/ActivityManager(   91): Start proc com.android.deskclock for broadcast com.android.deskclock/.AlarmInitReceiver: pid=321 uid=10008 gids={}
+W/SystemClock(  217): Unable to set rtc to 1333808340: Invalid argument
+D/SystemClock(  217): Setting time of day to sec=1333808340
+D/dalvikvm(   91): GC_CONCURRENT freed 552K, 44% free 10994K/19335K, paused 7ms+33ms
+I/ActivityThread(  321): Pub com.android.deskclock: com.android.deskclock.AlarmProvider
+W/ActivityManager(   91): Activity idle timeout for ActivityRecord{414a1df8 com.android.settings/.CryptKeeper}
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 0) failed with errno -2
+I/SurfaceFlinger(   36): Boot is finished (85615 ms)
+D/PowerManagerService(   91): bootCompleted
+V/DevicePolicyManagerService(   91): Sending password expiration notifications for action android.intent.action.BOOT_COMPLETED
+D/VoldCmdListener(   31): volume mount /mnt/sdcard
+I/Vold    (   31): /dev/block/vold/179:0 being considered for volume sdcard
+D/Vold    (   31): Volume sdcard state changing 1 (Idle-Unmounted) -> 3 (Checking)
+D/MountService(   91): volume state changed for /mnt/sdcard (unmounted -> checking)
+I/StorageNotification(  189): Media {/mnt/sdcard} state changed from {unmounted} -> {checking}
+D/MountService(   91): sendStorageIntent Intent { act=android.intent.action.MEDIA_CHECKING dat=file:///mnt/sdcard (has extras) }
+V/WiredAccessoryObserver(   91): init()
+W/WiredAccessoryObserver(   91): This kernel does not have wired headset support
+I//system/bin/fsck_msdos(   31): ** /dev/block/vold/179:0
+W/WiredAccessoryObserver(   91): This kernel does not have wired headset support
+E/SoundPool(   91): error loading /system/media/audio/ui/Effect_Tick.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/Effect_Tick.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/Effect_Tick.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/Effect_Tick.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/Effect_Tick.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/Effect_Tick.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/Effect_Tick.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/Effect_Tick.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/Effect_Tick.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/Effect_Tick.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/KeypressStandard.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/KeypressStandard.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/KeypressSpacebar.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/KeypressSpacebar.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/KeypressDelete.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/KeypressDelete.ogg
+E/SoundPool(   91): error loading /system/media/audio/ui/KeypressReturn.ogg
+W/AudioService(   91): Soundpool could not load file: /system/media/audio/ui/KeypressReturn.ogg
+W/AudioService(   91): loadSoundEffects(), Error -1 while loading samples
+W/WiredAccessoryObserver(   91): This kernel does not have wired headset support
+D/dalvikvm(   91): GC_EXPLICIT freed 171K, 44% free 11000K/19335K, paused 5ms+21ms
+W/BackupManagerService(   91): dataChanged but no participant pkg='com.android.providers.settings' uid=10008
+V/AlarmClock(  321): AlarmInitReceiver finished
+I/ActivityManager(   91): Start proc com.android.calendar for broadcast com.android.calendar/.widget.CalendarAppWidgetService$CalendarFactory: pid=342 uid=10032 gids={3003}
+D/CAT     (  217): CatService: SIM ready. Reporting STK service running now...
+I/ActivityThread(  342): Pub com.android.calendar.CalendarRecentSuggestionsProvider: com.android.calendar.CalendarRecentSuggestionsProvider
+I/SearchManagerService(   91): Building list of searchable activities
+D/dalvikvm(  217): GC_CONCURRENT freed 410K, 6% free 9426K/9927K, paused 5ms+5ms
+D/MccTable(  217): updateMccMncConfiguration: mcc=310, mnc=260
+D/MccTable(  217): locale set to en_us
+I/ActivityManager(   91): Config changed: {1.0 0mcc0mnc en_US layoutdir=0 sw320dp w320dp h508dp nrml long port finger qwerty/v/v tball/v s.4}
+F/NetworkStats(   91): problem reading network stats
+F/NetworkStats(   91): java.lang.IllegalStateException: problem parsing idx 1
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:300)
+F/NetworkStats(   91): 	at com.android.server.NetworkManagementService.getNetworkStatsUidDetail(NetworkManagementService.java:1282)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.performPollLocked(NetworkStatsService.java:831)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfacesLocked(NetworkStatsService.java:743)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfaces(NetworkStatsService.java:721)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.access$000(NetworkStatsService.java:128)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService$8.handleMessage(NetworkStatsService.java:1633)
+F/NetworkStats(   91): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+F/NetworkStats(   91): 	at android.os.Looper.loop(Looper.java:137)
+F/NetworkStats(   91): 	at android.os.HandlerThread.run(HandlerThread.java:60)
+F/NetworkStats(   91): Caused by: java.io.FileNotFoundException: /proc/net/xt_qtaguid/stats: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:406)
+F/NetworkStats(   91): 	at java.io.FileInputStream.<init>(FileInputStream.java:78)
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:269)
+F/NetworkStats(   91): 	... 9 more
+F/NetworkStats(   91): Caused by: libcore.io.ErrnoException: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.Posix.open(Native Method)
+F/NetworkStats(   91): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:390)
+F/NetworkStats(   91): 	... 11 more
+D/MccTable(  217): WIFI_COUNTRY_CODE set to us
+I/WifiService(   91): WifiService trying to set country code to us with persist set to true
+W/BackupManagerService(   91): dataChanged but no participant pkg='com.android.providers.settings' uid=1001
+I/ActivityManager(   91): Config changed: {1.0 310mcc260mnc en_US layoutdir=0 sw320dp w320dp h508dp nrml long port finger qwerty/v/v tball/v s.5}
+D/dalvikvm(   91): GC_CONCURRENT freed 415K, 43% free 11075K/19335K, paused 6ms+10ms
+V/OtaStartupReceiver(  217): onReceive: intent action=android.intent.action.BOOT_COMPLETED  mOtaspMode=-1
+D/OtaStartupReceiver(  217): OTASP not supported, nothing to do.
+I/ActivityManager(   91): Start proc com.android.contacts for broadcast com.android.contacts/.calllog.CallLogReceiver: pid=362 uid=10020 gids={3003, 1015}
+I/ActivityManager(   91): Start proc com.android.providers.calendar for content provider com.android.providers.calendar/.CalendarProvider2: pid=375 uid=10031 gids={3003, 1015}
+V/AlarmClock(  321): AlarmInitReceiver finished
+D/dalvikvm(  217): GC_CONCURRENT freed 370K, 5% free 9616K/10055K, paused 5ms+5ms
+I/ActivityThread(  375): Pub com.android.calendar: com.android.providers.calendar.CalendarProvider2
+I//system/bin/fsck_msdos(   31): ** Phase 1 - Read and Compare FATs
+I//system/bin/fsck_msdos(   31): Attempting to allocate 238 KB for FAT
+I/CalendarDatabaseHelper(  375): Bootstrapping database
+D/dalvikvm(  375): GC_CONCURRENT freed 373K, 5% free 9162K/9607K, paused 6ms+4ms
+D/dalvikvm(  217): GC_CONCURRENT freed 587K, 7% free 9592K/10247K, paused 5ms+6ms
+D/dalvikvm(   91): GC_CONCURRENT freed 290K, 43% free 11180K/19335K, paused 6ms+24ms
+D/dalvikvm(   91): GREF has increased to 301
+D/dalvikvm(   91): GC_CONCURRENT freed 195K, 41% free 11414K/19335K, paused 6ms+30ms
+I/AccountTypeManager(  362): Loaded meta-data for 1 account types, 0 accounts in 1002ms(wall) 35ms(cpu)
+I//system/bin/fsck_msdos(   31): Attempting to allocate 238 KB for FAT
+D/dalvikvm(  267): GC_CONCURRENT freed 248K, 4% free 9424K/9799K, paused 5ms+5ms
+I//system/bin/fsck_msdos(   31): ** Phase 2 - Check Cluster Chains
+I//system/bin/fsck_msdos(   31): ** Phase 3 - Checking Directories
+I//system/bin/fsck_msdos(   31): ** Phase 4 - Checking for Lost Files
+I//system/bin/fsck_msdos(   31): Next free cluster in FSInfo block (15) not free
+I//system/bin/fsck_msdos(   31): FIXED
+I//system/bin/fsck_msdos(   31): 12 files, 30220 free (60441 clusters)
+I/Vold    (   31): Filesystem check completed OK
+I/Vold    (   31): Device /dev/block/vold/179:0, target /mnt/sdcard mounted @ /mnt/secure/staging
+D/Vold    (   31): Volume sdcard state changing 3 (Checking) -> 4 (Mounted)
+D/MountService(   91): volume state changed for /mnt/sdcard (checking -> mounted)
+I/PackageManager(   91): Updating external media status from unmounted to mounted
+D/MountService(   91): sendStorageIntent Intent { act=android.intent.action.MEDIA_MOUNTED dat=file:///mnt/sdcard (has extras) }
+I/StorageNotification(  189): Media {/mnt/sdcard} state changed from {checking} -> {mounted}
+D/VoldCmdListener(   31): asec list
+I/PackageManager(   91): No secure containers on sdcard
+I/PackageManager(   91): Platform changed from 0 to 15; regranting permissions for external storage
+D/dalvikvm(  267): JIT unchain all for threadid=12
+D/dalvikvm(  189): GC_CONCURRENT freed 4922K, 34% free 9891K/14919K, paused 4ms+6ms
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.mail in package com.android.contacts
+D/dalvikvm(  267): GC_CONCURRENT freed 433K, 6% free 9451K/9991K, paused 4ms+4ms
+I/ContactsProviderV1(  267): Bootstrapping database legacy support
+W/PackageManager(   91): Unknown permission android.permission.ADD_SYSTEM_SERVICE in package com.android.phone
+W/PackageManager(   91): Unknown permission com.android.smspush.WAPPUSH_MANAGER_BIND in package com.android.phone
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH in package com.android.providers.calendar
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.cl in package com.android.providers.calendar
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.mail in package com.android.calendar
+W/PackageManager(   91): Not granting permission android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS to package com.android.browser (protectionLevel=2 flags=0x9be45)
+W/PackageManager(   91): Not granting permission android.permission.BIND_APPWIDGET to package com.android.widgetpreview (protectionLevel=3 flags=0x28be44)
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH in package com.android.providers.contacts
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.cp in package com.android.providers.contacts
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH in package com.android.settings
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.ACCESS_GOOGLE_PASSWORD in package com.android.development
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH in package com.android.development
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.ALL_SERVICES in package com.android.development
+W/PackageManager(   91): Unknown permission com.google.android.googleapps.permission.GOOGLE_AUTH.YouTubeUser in package com.android.development
+W/PackageManager(   91): Not granting permission android.permission.DEVICE_POWER to package com.android.deskclock (protectionLevel=2 flags=0x8be45)
+D/dalvikvm(   91): GC_CONCURRENT freed 740K, 43% free 11155K/19335K, paused 6ms+7ms
+D/PackageManager(   91): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   91): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/dalvikvm(  342): GC_CONCURRENT freed 277K, 4% free 9229K/9607K, paused 5ms+4ms
+V/ContactsProvider(  267): Importing legacy contacts
+W/ActivityManager(   91): Launch timeout has expired, giving up wake lock!
+D/ConnectivityService(   91): ConnectivityChange for mobile: CONNECTED/CONNECTED
+I/ContactsDatabaseHelper(  267): Switching to locale en_US
+I/RecoverySystem(   91): No recovery log file
+I/ActivityManager(   91): Start proc android.process.media for content provider com.android.providers.downloads/.DownloadProvider: pid=408 uid=10004 gids={1015, 1023, 1024, 1006, 2001, 3003, 3007}
+D/ConnectivityService(   91): ConnectivityChange for mobile: DISCONNECTED/DISCONNECTED
+D/ConnectivityService(   91): Attempting to switch to wifi
+D/ConnectivityService(   91): resetConnections(eth0, 3)
+D/NetUtils(   91): android_net_utils_resetConnections in env=0x18e4d8 clazz=0x2d200001 iface=eth0 mask=0x3
+D/dalvikvm(   91): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  189): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  203): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  217): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  321): Debugger has detached; object registry had 1 entries
+F/NetworkStats(   91): problem reading network stats
+F/NetworkStats(   91): java.lang.IllegalStateException: problem parsing idx 1
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:300)
+F/NetworkStats(   91): 	at com.android.server.NetworkManagementService.getNetworkStatsUidDetail(NetworkManagementService.java:1282)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.performPollLocked(NetworkStatsService.java:831)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfacesLocked(NetworkStatsService.java:743)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfaces(NetworkStatsService.java:721)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.access$000(NetworkStatsService.java:128)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService$1.onReceive(NetworkStatsService.java:612)
+F/NetworkStats(   91): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:728)
+F/NetworkStats(   91): 	at android.os.Handler.handleCallback(Handler.java:605)
+F/NetworkStats(   91): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+F/NetworkStats(   91): 	at android.os.Looper.loop(Looper.java:137)
+F/NetworkStats(   91): 	at android.os.HandlerThread.run(HandlerThread.java:60)
+F/NetworkStats(   91): Caused by: java.io.FileNotFoundException: /proc/net/xt_qtaguid/stats: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:406)
+F/NetworkStats(   91): 	at java.io.FileInputStream.<init>(FileInputStream.java:78)
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:269)
+F/NetworkStats(   91): 	... 11 more
+F/NetworkStats(   91): Caused by: libcore.io.ErrnoException: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.Posix.open(Native Method)
+F/NetworkStats(   91): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:390)
+F/NetworkStats(   91): 	... 13 more
+D/dalvikvm(  232): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  267): Debugger has detached; object registry had 1 entries
+D/dalvikvm(  342): Debugger has detached; object registry had 1 entries
+D/dalvikvm(   91): GC_CONCURRENT freed 571K, 43% free 11120K/19335K, paused 8ms+23ms
+D/dalvikvm(  362): Debugger has detached; object registry had 1 entries
+V/AlarmClock(  321): AlarmInitReceiver finished
+I/ActivityThread(  408): Pub media: com.android.providers.media.MediaProvider
+I/NetworkPolicy(   91): no policy for active mobile network; generating default policy
+F/NetworkStats(   91): problem reading network stats
+F/NetworkStats(   91): java.lang.IllegalStateException: problem parsing idx 1
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:300)
+F/NetworkStats(   91): 	at com.android.server.NetworkManagementService.getNetworkStatsUidDetail(NetworkManagementService.java:1282)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.performPollLocked(NetworkStatsService.java:831)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfacesLocked(NetworkStatsService.java:743)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfaces(NetworkStatsService.java:721)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.access$000(NetworkStatsService.java:128)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService$1.onReceive(NetworkStatsService.java:612)
+F/NetworkStats(   91): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:728)
+F/NetworkStats(   91): 	at android.os.Handler.handleCallback(Handler.java:605)
+F/NetworkStats(   91): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+F/NetworkStats(   91): 	at android.os.Looper.loop(Looper.java:137)
+F/NetworkStats(   91): 	at android.os.HandlerThread.run(HandlerThread.java:60)
+F/NetworkStats(   91): Caused by: java.io.FileNotFoundException: /proc/net/xt_qtaguid/stats: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:406)
+F/NetworkStats(   91): 	at java.io.FileInputStream.<init>(FileInputStream.java:78)
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:269)
+F/NetworkStats(   91): 	... 11 more
+F/NetworkStats(   91): Caused by: libcore.io.ErrnoException: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.Posix.open(Native Method)
+F/NetworkStats(   91): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:390)
+F/NetworkStats(   91): 	... 13 more
+I/CalendarProvider2(  375): Sending notification intent: Intent { act=android.intent.action.PROVIDER_CHANGED dat=content://com.android.calendar }
+W/ContentResolver(  375): Failed to get type for: content://com.android.calendar (Unknown URL content://com.android.calendar)
+I/ActivityManager(   91): Start proc com.android.email for broadcast com.android.email/.service.EmailBroadcastReceiver: pid=424 uid=10011 gids={3003, 1015}
+D/dalvikvm(  375): Debugger has detached; object registry had 1 entries
+I/MediaProvider(  408): Upgrading media database from version 0 to 408, which will destroy all old data
+D/dalvikvm(  408): GC_CONCURRENT freed 375K, 5% free 9160K/9607K, paused 4ms+12ms
+I/ActivityThread(  424): Pub com.android.email.provider;com.android.email.notifier: com.android.email.provider.EmailProvider
+I/ActivityThread(  424): Pub com.android.email.attachmentprovider: com.android.email.provider.AttachmentProvider
+I/ActivityManager(   91): Start proc com.android.exchange for service com.android.exchange/.ExchangeService: pid=440 uid=10021 gids={3003, 1015}
+I/ActivityThread(  440): Pub com.android.exchange.directory.provider: com.android.exchange.provider.ExchangeDirectoryProvider
+I/SqliteDatabaseCpp(  408): sqlite returned: error code = 17, msg = statement aborts at 71: [UPDATE files SET date_modified=0 WHERE media_type=2;] database schema has changed, db=/data/data/com.android.providers.media/databases/external.db
+I/SqliteDatabaseCpp(  408): sqlite returned: error code = 17, msg = statement aborts at 71: [UPDATE files SET date_modified=0 WHERE media_type=2;] database schema has changed, db=/data/data/com.android.providers.media/databases/external.db
+D/ExchangeService(  440): !!! EAS ExchangeService, onCreate
+D/ExchangeService(  440): !!! EAS ExchangeService, onStartCommand, startingUp = false, running = false
+I/SqliteDatabaseCpp(  408): sqlite returned: error code = 17, msg = statement aborts at 71: [UPDATE files SET date_modified=0;] database schema has changed, db=/data/data/com.android.providers.media/databases/external.db
+I/Email   (  424): Onetime initialization: 1
+I/ActivityThread(  408): Pub downloads: com.android.providers.downloads.DownloadProvider
+I/ActivityThread(  408): Pub drm: com.android.providers.drm.DrmProvider
+I/DownloadManager(  408): in removeSpuriousFiles
+I/DownloadManager(  408): Upgrading downloads database from version 0 to version 107, which will destroy all old data
+D/dalvikvm(  408): GC_CONCURRENT freed 298K, 5% free 9336K/9735K, paused 4ms+5ms
+D/ExchangeService(  440): !!! EAS ExchangeService, onStartCommand, startingUp = true, running = false
+D/dalvikvm(   91): GC_CONCURRENT freed 507K, 43% free 11140K/19335K, paused 6ms+20ms
+I/ActivityManager(   91): Start proc com.android.mms for broadcast com.android.mms/.transaction.MmsSystemEventReceiver: pid=465 uid=10025 gids={3003, 1015}
+I/Email   (  424): Onetime initialization: 2
+I/ActivityThread(  465): Pub mms_temp_file: com.android.mms.TempFileProvider
+I/ActivityThread(  465): Pub com.android.mms.SuggestionsProvider: com.android.mms.SuggestionsProvider
+D/Tethering(   91): MasterInitialState.processMessage what=3
+V/MmsConfig(  465): mnc/mcc: 310260
+V/MmsConfig(  465): tag: bool value: enabledMMS - true
+V/MmsConfig(  465): tag: int value: maxMessageSize - 307200
+V/MmsConfig(  465): tag: int value: maxImageHeight - 480
+V/MmsConfig(  465): tag: int value: maxImageWidth - 640
+V/MmsConfig(  465): tag: int value: defaultSMSMessagesPerThread - 500
+V/MmsConfig(  465): tag: int value: defaultMMSMessagesPerThread - 50
+V/MmsConfig(  465): tag: int value: minMessageCountPerThread - 10
+V/MmsConfig(  465): tag: int value: maxMessageCountPerThread - 5000
+V/MmsConfig(  465): tag: string value: uaProfUrl - http://www.google.com/oha/rdf/ua-profile-kila.xml
+V/MmsConfig(  465): tag: int value: recipientLimit - -1
+V/MmsConfig(  465): tag: int value: smsToMmsTextThreshold - 4
+V/MmsConfig(  465): tag: bool value: enableMultipartSMS - true
+V/MmsConfig(  465): tag: bool value: enableSlideDuration - true
+V/MmsConfig(  465): tag: int value: maxMessageTextSize - -1
+D/Tethering(   91): MasterInitialState.processMessage what=3
+D/MmsSmsDatabaseHelper(  217): [MmsSmsDb] tableName: threads hasAutoIncrement: CREATE TABLE threads (_id INTEGER PRIMARY KEY AUTOINCREMENT,date INTEGER DEFAULT 0,message_count INTEGER DEFAULT 0,recipient_ids TEXT,snippet TEXT,snippet_cs INTEGER DEFAULT 0,read INTEGER DEFAULT 1,type INTEGER DEFAULT 0,error INTEGER DEFAULT 0,has_attachment INTEGER DEFAULT 0) result: true
+D/MmsSmsDatabaseHelper(  217): [MmsSmsDb] tableName: canonical_addresses hasAutoIncrement: CREATE TABLE canonical_addresses (_id INTEGER PRIMARY KEY AUTOINCREMENT,address TEXT) result: true
+D/MmsSmsDatabaseHelper(  217): [getWritableDatabase] hasAutoIncrementThreads: true hasAutoIncrementAddresses: true
+D/CountryDetectorService(   91): The first listener is added
+D/Eas Debug(  440): Logging: 
+V/AlarmClock(  321): AlarmInitReceiver finished
+D/MediaScannerReceiver(  408): action: android.intent.action.MEDIA_MOUNTED path: /mnt/sdcard
+I/ActivityManager(   91): Start proc com.android.quicksearchbox for broadcast com.android.quicksearchbox/.CorporaUpdateReceiver: pid=495 uid=10029 gids={3003}
+I/ActivityThread(  495): Pub com.android.quicksearchbox.google: com.android.quicksearchbox.google.GoogleSuggestionProvider
+I/ActivityThread(  495): Pub com.android.quicksearchbox.shortcuts: com.android.quicksearchbox.ShortcutsProvider
+D/ConnectivityService(   91): ConnectivityChange for mobile: CONNECTED/CONNECTED
+F/NetworkStats(   91): problem reading network stats
+F/NetworkStats(   91): java.lang.IllegalStateException: problem parsing idx 1
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:300)
+F/NetworkStats(   91): 	at com.android.server.NetworkManagementService.getNetworkStatsUidDetail(NetworkManagementService.java:1282)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.performPollLocked(NetworkStatsService.java:831)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfacesLocked(NetworkStatsService.java:743)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.updateIfaces(NetworkStatsService.java:721)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService.access$000(NetworkStatsService.java:128)
+F/NetworkStats(   91): 	at com.android.server.net.NetworkStatsService$1.onReceive(NetworkStatsService.java:612)
+F/NetworkStats(   91): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:728)
+F/NetworkStats(   91): 	at android.os.Handler.handleCallback(Handler.java:605)
+F/NetworkStats(   91): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+F/NetworkStats(   91): 	at android.os.Looper.loop(Looper.java:137)
+F/NetworkStats(   91): 	at android.os.HandlerThread.run(HandlerThread.java:60)
+F/NetworkStats(   91): Caused by: java.io.FileNotFoundException: /proc/net/xt_qtaguid/stats: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:406)
+F/NetworkStats(   91): 	at java.io.FileInputStream.<init>(FileInputStream.java:78)
+F/NetworkStats(   91): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:269)
+F/NetworkStats(   91): 	... 11 more
+F/NetworkStats(   91): Caused by: libcore.io.ErrnoException: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   91): 	at libcore.io.Posix.open(Native Method)
+F/NetworkStats(   91): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+F/NetworkStats(   91): 	at libcore.io.IoBridge.open(IoBridge.java:390)
+F/NetworkStats(   91): 	... 13 more
+D/NetworkPolicy(   91): applying policy NetworkPolicy[NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260000000000]: cycleDay=7, warningBytes=2147483648, limitBytes=-1, lastSnooze=-1 to ifaces [eth0]
+D/dalvikvm(   91): GC_CONCURRENT freed 375K, 42% free 11231K/19335K, paused 6ms+8ms
+D/dalvikvm(  465): GC_CONCURRENT freed 304K, 5% free 9223K/9607K, paused 5ms+5ms
+D/EmailProvider(  424): Creating EmailProvider database
+D/dalvikvm(  217): GC_CONCURRENT freed 381K, 7% free 9596K/10247K, paused 4ms+5ms
+D/ExchangeService(  440): Received deviceId from Email app: androidc259148960
+D/ExchangeService(  440): Reconciling accounts...
+D/ExchangeService(  440): !!! EAS ExchangeService, onStartCommand, startingUp = true, running = false
+D/dalvikvm(  424): GC_CONCURRENT freed 216K, 4% free 9279K/9607K, paused 5ms+8ms
+D/EmailProvider(  424): Creating EmailProviderBody database
+D/Eas Debug(  440): Logging: 
+D/EmailProvider(  424): Creating EmailProvider database
+I/MediaProvider(  408): Upgrading media database from version 0 to 408, which will destroy all old data
+I/Email   (  424): Onetime initialization: completed.
+D/dalvikvm(   91): GC_CONCURRENT freed 492K, 42% free 11291K/19335K, paused 6ms+8ms
+D/dalvikvm(   91): GC_EXPLICIT freed 427K, 43% free 11097K/19335K, paused 6ms+9ms
+D/ExchangeService(  440): !!! EAS ExchangeService, onStartCommand, startingUp = false, running = false
+D/dalvikvm(  267): GC_CONCURRENT freed 318K, 5% free 9546K/9991K, paused 4ms+5ms
+D/ExchangeService(  440): Reconciling accounts...
+D/Tethering(   91): MasterInitialState.processMessage what=3
+D/GpsLocationProvider(   91): NTP server returned: 1333808363533 (Sat Apr 07 14:19:23 GMT+00:00 2012) reference: 107044 certainty: 19 system time offset: 3718
+I/SqliteDatabaseCpp(  408): sqlite returned: error code = 17, msg = statement aborts at 9: [DELETE from albums] database schema has changed, db=/data/data/com.android.providers.media/databases/external.db
+I/SqliteDatabaseCpp(  408): sqlite returned: error code = 17, msg = statement aborts at 71: [UPDATE files SET date_modified=0;] database schema has changed, db=/data/data/com.android.providers.media/databases/external.db
+D/dalvikvm(  267): GC_CONCURRENT freed 517K, 7% free 9485K/10119K, paused 4ms+5ms
+I/ContactsDatabaseHelper(  267): Locale change completed in 9406ms
+I/LegacyContactImporter(  267): Legacy contacts database does not exist at /data/data/com.android.providers.contacts/databases/contacts.db
+V/ContactsProvider(  267): Completed import of legacy contacts
+I/ContactDirectoryManager(  267): deleted 0 stale rows which don't have any relevant directory
+I/ContactDirectoryManager(  267): Discovered 0 contact directories in 76ms
+I/ContactsProvider(  267): Upgrading aggregation algorithm
+I/ContactsProvider(  267): Aggregation algorithm upgraded for 0 contacts, in 13ms
+E/WVMExtractor(   38): Failed to open libwvm.so
+I/ContactsFTS(  267): Rebuild contact search index in 55ms, 0 contacts
+E/WVMExtractor(   38): Failed to open libwvm.so
+E/WVMExtractor(   38): Failed to open libwvm.so
+E/MetadataRetrieverClient(   38): failed to extract an album art
+D/dalvikvm(  408): GC_CONCURRENT freed 373K, 6% free 9357K/9863K, paused 8ms+11ms
+W/MediaScanner(  408): Error opening directory '/mnt/sdcard/.android_secure/', skipping: Permission denied.
+V/MediaScanner(  408): pruneDeadThumbnailFiles... android.database.sqlite.SQLiteCursor@4131d0c8
+V/MediaScanner(  408): /pruneDeadThumbnailFiles... android.database.sqlite.SQLiteCursor@4131d0c8
+D/PackageManager(   91): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   91): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+I/AccountTypeManager(  362): Loaded meta-data for 1 account types, 0 accounts in 99ms(wall) 7ms(cpu)
+D/dalvikvm(  362): GC_CONCURRENT freed 175K, 3% free 9296K/9543K, paused 10ms+4ms
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher/com.android.launcher2.Launcher} from pid 91
+I/ActivityManager(   91): Start proc com.android.launcher for activity com.android.launcher/com.android.launcher2.Launcher: pid=535 uid=10009 gids={}
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 1) failed with errno -2
+I/ActivityThread(  535): Pub com.android.launcher2.settings: com.android.launcher2.LauncherProvider
+W/Resources(  535): Converting to int: TypedValue{t=0x3/d=0x12 "4" a=-1}
+W/Resources(  535): Converting to int: TypedValue{t=0x3/d=0xf "1" a=-1}
+D/dalvikvm(  535): GC_CONCURRENT freed 318K, 5% free 9217K/9607K, paused 10ms+15ms
+D/dalvikvm(   91): GC_CONCURRENT freed 424K, 43% free 11191K/19335K, paused 6ms+10ms
+W/Resources(  535): Converting to int: TypedValue{t=0x3/d=0x15 "2" a=-1}
+W/Resources(  535): Converting to int: TypedValue{t=0x3/d=0x15 "2" a=-1}
+D/dalvikvm(   91): GC_CONCURRENT freed 591K, 43% free 11144K/19335K, paused 11ms+9ms
+W/Launcher.LauncherProvider(  535): Unable to add favorite: com.android.gallery3d/com.android.gallery3d.app.Gallery
+W/Launcher.LauncherProvider(  535): android.content.pm.PackageManager$NameNotFoundException: ComponentInfo{com.android.gallery3d/com.android.gallery3d.app.Gallery}
+W/Launcher.LauncherProvider(  535): 	at android.app.ApplicationPackageManager.getActivityInfo(ApplicationPackageManager.java:223)
+W/Launcher.LauncherProvider(  535): 	at com.android.launcher2.LauncherProvider$DatabaseHelper.addAppShortcut(LauncherProvider.java:850)
+W/Launcher.LauncherProvider(  535): 	at com.android.launcher2.LauncherProvider$DatabaseHelper.loadFavorites(LauncherProvider.java:754)
+W/Launcher.LauncherProvider(  535): 	at com.android.launcher2.LauncherProvider$DatabaseHelper.onCreate(LauncherProvider.java:271)
+W/Launcher.LauncherProvider(  535): 	at android.database.sqlite.SQLiteOpenHelper.getWritableDatabase(SQLiteOpenHelper.java:165)
+W/Launcher.LauncherProvider(  535): 	at com.android.launcher2.LauncherProvider$DatabaseHelper.<init>(LauncherProvider.java:221)
+W/Launcher.LauncherProvider(  535): 	at com.android.launcher2.LauncherProvider.onCreate(LauncherProvider.java:87)
+W/Launcher.LauncherProvider(  535): 	at android.content.ContentProvider.attachInfo(ContentProvider.java:944)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread.installProvider(ActivityThread.java:4237)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:3992)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:3946)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread.access$1300(ActivityThread.java:123)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1185)
+W/Launcher.LauncherProvider(  535): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+W/Launcher.LauncherProvider(  535): 	at android.os.Looper.loop(Looper.java:137)
+W/Launcher.LauncherProvider(  535): 	at android.app.ActivityThread.main(ActivityThread.java:4424)
+W/Launcher.LauncherProvider(  535): 	at java.lang.reflect.Method.invokeNative(Native Method)
+W/Launcher.LauncherProvider(  535): 	at java.lang.reflect.Method.invoke(Method.java:511)
+W/Launcher.LauncherProvider(  535): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:784)
+W/Launcher.LauncherProvider(  535): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:551)
+W/Launcher.LauncherProvider(  535): 	at dalvik.system.NativeStart.main(Native Method)
+D/dalvikvm(  535): GC_CONCURRENT freed 419K, 6% free 9302K/9799K, paused 8ms+3ms
+D/dalvikvm(  535): GC_CONCURRENT freed 146K, 3% free 9595K/9863K, paused 8ms+9ms
+I/ActivityManager(   91): START {act=android.settings.SETTINGS flg=0x10000000 cmp=com.android.settings/.Settings} from pid 189
+D/dalvikvm(  535): GC_FOR_ALLOC freed 26K, 3% free 9650K/9863K, paused 53ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 10.866MB for 1440016-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 4K, 2% free 11052K/11271K, paused 178ms
+D/dalvikvm(  535): GC_CONCURRENT freed <1K, 2% free 11052K/11271K, paused 4ms+84ms
+W/ActivityManager(   91): Activity pause timeout for ActivityRecord{41488cf8 com.android.launcher/com.android.launcher2.Launcher}
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 1) failed with errno -2
+D/dalvikvm(   91): GC_CONCURRENT freed 373K, 42% free 11245K/19335K, paused 7ms+26ms
+I/ARMAssembler(   36): generated scanline__00000077:03515104_00009001_00000000 [131 ipp] (153 ins) at [0x418dc1e8:0x418dc44c] in 6499027 ns
+W/System.err(  232): Removed 2131231170
+W/System.err(  232): Removed 2131231177
+D/dalvikvm(  232): GC_CONCURRENT freed 211K, 4% free 9493K/9799K, paused 4ms+4ms
+D/gralloc_goldfish(  232): Emulator without GPU emulation detected.
+I/ActivityManager(   91): Displayed com.android.settings/.Settings: +1s400ms (total +55s300ms)
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 0) failed with errno -2
+I/Launcher(  535): setLoadOnResume
+I/Launcher(  535): setLoadOnResume
+I/Launcher(  535): setLoadOnResume
+D/dalvikvm(  535): GC_FOR_ALLOC freed 249K, 4% free 11222K/11591K, paused 35ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 13K, 4% free 11547K/11975K, paused 34ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed <1K, 4% free 11886K/12359K, paused 34ms
+I/Launcher(  535): setLoadOnResume
+I/Launcher(  535): setLoadOnResume
+D/dalvikvm(  535): GC_CONCURRENT freed 194K, 3% free 12566K/12871K, paused 9ms+12ms
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher/com.android.launcher2.Launcher} from pid 91
+D/PermissionCache(   36): checking android.permission.READ_FRAME_BUFFER for uid=1000 => granted (1008 us)
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21010
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 1) failed with errno -2
+D/gralloc_goldfish(  535): Emulator without GPU emulation detected.
+D/dalvikvm(  535): GC_FOR_ALLOC freed 161K, 3% free 12698K/12999K, paused 59ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 13.865MB for 1463056-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 6K, 3% free 14120K/14471K, paused 59ms
+D/dalvikvm(  535): GC_CONCURRENT freed <1K, 2% free 15645K/15943K, paused 5ms+16ms
+I/ActivityManager(   91): Displayed com.android.launcher/com.android.launcher2.Launcher: +8s927ms
+I/ARMAssembler(   36): generated scanline__00000077:03515104_00009002_00000000 [127 ipp] (149 ins) at [0x418dc450:0x418dc6a4] in 609514 ns
+D/dalvikvm(  189): GC_FOR_ALLOC freed 181K, 35% free 9739K/14919K, paused 231ms
+I/dalvikvm-heap(  189): Grow heap (frag case) to 10.749MB for 1228816-byte allocation
+D/dalvikvm(  189): GC_FOR_ALLOC freed 8K, 27% free 10931K/14919K, paused 217ms
+D/dalvikvm(  189): GC_CONCURRENT freed <1K, 27% free 10932K/14919K, paused 5ms+5ms
+D/dalvikvm(  189): GC_FOR_ALLOC freed 0K, 27% free 10932K/14919K, paused 35ms
+I/dalvikvm-heap(  189): Grow heap (frag case) to 13.671MB for 3072016-byte allocation
+D/dalvikvm(  189): GC_CONCURRENT freed 0K, 23% free 13932K/17927K, paused 5ms+7ms
+D/dalvikvm(  189): GC_FOR_ALLOC freed 4200K, 40% free 10932K/17927K, paused 169ms
+I/dalvikvm-heap(  189): Grow heap (frag case) to 13.671MB for 3072016-byte allocation
+W/InputManagerService(   91): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@41bf9928 (uid=1000 pid=232)
+D/dalvikvm(  189): GC_CONCURRENT freed <1K, 23% free 13932K/17927K, paused 5ms+32ms
+D/PackageManager(   91): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   91): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/dalvikvm(  535): GREF has increased to 201
+D/dalvikvm(   91): GC_CONCURRENT freed 615K, 43% free 11182K/19335K, paused 7ms+28ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 2903K, 18% free 14288K/17415K, paused 172ms
+I/AccountTypeManager(  362): Loaded meta-data for 1 account types, 0 accounts in 887ms(wall) 6ms(cpu)
+D/dalvikvm(  535): GC_CONCURRENT freed 4631K, 35% free 11411K/17415K, paused 6ms+8ms
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 0) failed with errno -2
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=Browser)
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=People)
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=Phone)
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=Messaging)
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=Camera)
+D/Launcher.Model(  535): going to save icon bitmap for info=ShortcutInfo(title=Settings)
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.contacts/.activities.DialtactsActivity bnds=[0,706][96,802]} from pid 535
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21010
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10020, 1) failed with errno -2
+D/dalvikvm(   91): GC_FOR_ALLOC freed 196K, 42% free 11260K/19335K, paused 83ms
+I/dalvikvm-heap(   91): Grow heap (frag case) to 12.070MB for 1048592-byte allocation
+D/dalvikvm(   91): GC_FOR_ALLOC freed 29K, 37% free 12254K/19335K, paused 95ms
+D/dalvikvm(   91): GC_CONCURRENT freed 2K, 37% free 12268K/19335K, paused 11ms+9ms
+D/dalvikvm(  362): GC_FOR_ALLOC freed 36K, 3% free 9362K/9607K, paused 254ms
+I/dalvikvm-heap(  362): Grow heap (frag case) to 10.211MB for 1048592-byte allocation
+D/dalvikvm(  362): GC_CONCURRENT freed <1K, 3% free 10385K/10695K, paused 5ms+3ms
+D/dalvikvm(  362): GC_CONCURRENT freed 41K, 2% free 10870K/11015K, paused 9ms+5ms
+I/ContactPhotoManager(  362): Cache adj: 0.5
+D/dalvikvm(   91): GREF has increased to 401
+D/dalvikvm(  362): GC_CONCURRENT freed 75K, 2% free 11342K/11527K, paused 5ms+11ms
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+D/gralloc_goldfish(  362): Emulator without GPU emulation detected.
+I/ActivityManager(   91): Displayed com.android.contacts/.activities.DialtactsActivity: +2s952ms
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 0) failed with errno -2
+I/ActivityManager(   91): START {act=android.intent.action.CALL_BUTTON flg=0x10000000 cmp=com.android.contacts/.activities.DialtactsActivity} from pid 362
+D/dalvikvm(  267): GC_CONCURRENT freed 323K, 6% free 9552K/10119K, paused 4ms+12ms
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+I/ActivityManager(   91): START {act=android.intent.action.CALL_BUTTON flg=0x10000000 cmp=com.android.contacts/.activities.DialtactsActivity} from pid 362
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+I/ActivityManager(   91): START {act=android.intent.action.CALL_PRIVILEGED dat=tel:xxxx flg=0x10000000 cmp=com.android.phone/.PrivilegedOutgoingCallBroadcaster (has extras)} from pid 362
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21015
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 1) failed with errno -2
+D/dalvikvm(  217): GC_CONCURRENT freed 391K, 6% free 9706K/10247K, paused 9ms+10ms
+D/dalvikvm(  217): GC_CONCURRENT freed 370K, 5% free 9798K/10247K, paused 10ms+9ms
+D/PhoneUtils(  217): checkAndCopyPhoneProviderExtras: some or all extras are missing.
+D/PhoneUtils(  217): checkAndCopyPhoneProviderExtras: some or all extras are missing.
+I/ActivityManager(   91): START {act=com.android.phone.SIP_SELECT_PHONE dat=tel:xxxx flg=0x10000000 cmp=com.android.phone/.SipCallOptionHandler (has extras)} from pid 217
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 0) failed with errno -2
+D/CallController(  217): placeCall()...  intent = Intent { act=android.intent.action.CALL dat=tel:xxxx (has extras) }
+D/AudioHardwareInterface(   38): setMode(IN_CALL)
+I/AudioService(   91):  AudioFocus  requestAudioFocus() from AudioFocus_For_Phone_Ring_And_Calls
+I/ActivityManager(   91): START {act=android.intent.action.MAIN flg=0x10840000 cmp=com.android.phone/.InCallScreen} from pid 217
+D/PhoneStatusBar(  189): disable: < expand icons ALERTS* ticker system_info back home recent clock >
+D/AccelerometerListener(  217): enable(true)
+I/InCallScreen(  217): onCreate()...  this = com.android.phone.InCallScreen@413830a0
+D/InCallScreen(  217): - onCreate: phone state = OFFHOOK
+D/dalvikvm(  217): GC_FOR_ALLOC freed 222K, 4% free 10015K/10375K, paused 41ms
+D/dalvikvm(  217): GC_FOR_ALLOC freed 19K, 4% free 10208K/10631K, paused 37ms
+D/dalvikvm(  217): GC_FOR_ALLOC freed 2K, 4% free 10414K/10759K, paused 38ms
+D/dalvikvm(  217): GC_FOR_ALLOC freed 1K, 4% free 10622K/11015K, paused 39ms
+D/dalvikvm(  217): GC_FOR_ALLOC freed 21K, 3% free 11028K/11271K, paused 42ms
+D/dalvikvm(  217): GC_FOR_ALLOC freed 13K, 2% free 11565K/11783K, paused 44ms
+D/PhoneStatusBar(  189): disable: < EXPAND* icons ALERTS ticker system_info back home recent clock >
+W/InputManagerService(   91): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@412f04d0 (uid=10020 pid=362)
+D/gralloc_goldfish(  217): Emulator without GPU emulation detected.
+I/ActivityManager(   91): Displayed com.android.phone/.InCallScreen: +2s235ms (total +3s951ms)
+D/dalvikvm(  267): GC_CONCURRENT freed 288K, 4% free 9743K/10119K, paused 6ms+16ms
+W/CallerInfo(  217): getGeoDescription: NumberParseException for incoming number '123'
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10020, 0) failed with errno -2
+W/ThrottleService(   91): unable to find stats for iface rmnet0
+E/ThrottleService(   91): Error reading data file
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+D/InCallScreen(  217): internalHangup()...  phone state = OFFHOOK
+D/PhoneUtils(  217): hangup(): hanging up foreground call
+D/PhoneUtils(  217): - hangup(Call): regular hangup()...
+D/PhoneStatusBar(  189): disable: < EXPAND icons alerts* ticker system_info back home recent clock >
+D/AccelerometerListener(  217): enable(false)
+D/CallNotifier(  217): onDisconnect: cause = LOCAL, incoming = false, date = 1333808417625
+I/PowerManagerService(   91): clearUserActivity for 10000ms from now
+D/CallNotifier(  217): SignalInfoTonePlayer.run(toneId = 98)...
+D/CallNotifier(  217): InCallTonePlayer.run(toneId = 5)...
+D/dalvikvm(  217): GC_CONCURRENT freed 213K, 3% free 12098K/12423K, paused 21ms+19ms
+D/InCallScreen(  217): delayedCleanupAfterDisconnect()...  Phone state = IDLE
+D/dalvikvm(   91): GC_CONCURRENT freed 1608K, 41% free 11409K/19335K, paused 42ms+35ms
+D/dalvikvm(   91): GC_EXPLICIT freed 39K, 42% free 11369K/19335K, paused 5ms+10ms
+I/ActivityManager(   91): START {flg=0x10000 cmp=com.android.contacts/.activities.DialtactsActivity} from pid 217
+D/AudioHardwareInterface(   38): setMode(NORMAL)
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21015
+D/InCallScreen(  217): endInCallScreenSession(false)...  phone state = IDLE
+I/ActivityManager(   91): moveTaskToBack: 8
+D/PhoneStatusBar(  189): disable: < expand* icons alerts ticker system_info back home recent clock >
+I/AudioService(   91):  AudioFocus  abandonAudioFocus() from AudioFocus_For_Phone_Ring_And_Calls
+D/dalvikvm(   91): GC_FOR_ALLOC freed 13K, 40% free 11735K/19335K, paused 81ms
+I/dalvikvm-heap(   91): Grow heap (frag case) to 12.535MB for 1048592-byte allocation
+D/dalvikvm(   91): GC_FOR_ALLOC freed 2K, 35% free 12757K/19335K, paused 80ms
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10020, 1) failed with errno -2
+V/TransportControlView(   91): Create TCV com.android.internal.widget.TransportControlView@41c3a648
+D/dalvikvm(   91): GC_CONCURRENT freed 17K, 33% free 13068K/19335K, paused 12ms+61ms
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info back home RECENT* clock >
+D/dalvikvm(  362): GC_CONCURRENT freed 363K, 4% free 11717K/12167K, paused 4ms+41ms
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info BACK* HOME* RECENT clock >
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info BACK HOME RECENT CLOCK* >
+W/SoundPool(   91):   sample 0 not READY
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info BACK HOME recent* CLOCK >
+I/ActivityManager(   91): Displayed com.android.contacts/.activities.DialtactsActivity: +4s7ms
+D/PhoneStatusBar(  189): disable: < expand icons alerts ticker system_info back* home* recent clock* >
+I/ActivityManager(   91): moveTaskToBack: 9
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21020
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 1) failed with errno -2
+W/InputManagerService(   91): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@412f04d0 (uid=10020 pid=362)
+W/IInputConnectionWrapper(  362): showStatusIcon on inactive InputConnection
+I/ARMAssembler(   36): generated scanline__00000077:03515104_00008001_00000000 [113 ipp] (134 ins) at [0x418dc6a8:0x418dc8c0] in 785952 ns
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10020, 0) failed with errno -2
+E/DefaultVoicemailNotifier(  362): No voicemails to notify about: clear the notification.
+D/dalvikvm(  535): GC_CONCURRENT freed 707K, 35% free 11425K/17415K, paused 9ms+20ms
+I/ActivityManager(   91): START {act=android.settings.SETTINGS flg=0x10200000 cmp=com.android.settings/.Settings} from pid 535
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21025
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 1) failed with errno -2
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 0) failed with errno -2
+I/dalvikvm(   91): Jit: resizing JitTable from 4096 to 8192
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cmp=com.android.settings/.SubSettings (has extras)} from pid 232
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21020
+V/NFC     (  232): this device does not have NFC support
+I/ActivityManager(   91): Displayed com.android.settings/.SubSettings: +725ms
+I/ARMAssembler(   36): generated scanline__00000077:03010104_00008001_00000000 [ 89 ipp] (110 ins) at [0x418dc8c8:0x418dca80] in 926141 ns
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21025
+W/WindowManager(   91): Failure taking screenshot for (180x300) to layer 21020
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(10009, 1) failed with errno -2
+W/InputManagerService(   91): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@41bf9928 (uid=1000 pid=232)
+W/NetworkManagementSocketTagger(   91): setKernelCountSet(1000, 0) failed with errno -2
+D/InputEventConsistencyVerifier(  535): KeyEvent: ACTION_UP but key was not down.
+D/InputEventConsistencyVerifier(  535):   in com.android.launcher2.Workspace@4130f2e8
+D/InputEventConsistencyVerifier(  535):   0: sent at 198827000000, KeyEvent { action=ACTION_UP, keyCode=KEYCODE_DPAD_DOWN, scanCode=108, metaState=0, flags=0x8, repeatCount=0, eventTime=198827, downTime=198827, deviceId=0, source=0x301 }
+D/InputEventConsistencyVerifier(  535): KeyEvent: ACTION_UP but key was not down.
+D/InputEventConsistencyVerifier(  535):   in com.android.launcher2.Hotseat@41295000
+D/InputEventConsistencyVerifier(  535):   0: sent at 198845000000, KeyEvent { action=ACTION_UP, keyCode=KEYCODE_DPAD_DOWN, scanCode=108, metaState=0, flags=0x8, repeatCount=0, eventTime=198845, downTime=198845, deviceId=0, source=0x301 }
+D/InputEventConsistencyVerifier(  535):   -- recent events --
+D/InputEventConsistencyVerifier(  535):   1: sent at 142404995000, MotionEvent { action=ACTION_UP, id[0]=0, x[0]=57.0, y[0]=55.0, toolType[0]=TOOL_TYPE_FINGER, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=142404, downTime=142387, deviceId=0, source=0x1002 }
+D/InputEventConsistencyVerifier(  535):   2: sent at 142387007000, MotionEvent { action=ACTION_DOWN, id[0]=0, x[0]=57.0, y[0]=55.0, toolType[0]=TOOL_TYPE_FINGER, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=142387, downTime=142387, deviceId=0, source=0x1002 }
+D/dalvikvm(  535): GC_FOR_ALLOC freed 544K, 34% free 11530K/17415K, paused 44ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 12.433MB for 1157776-byte allocation
+D/dalvikvm(  535): GC_CONCURRENT freed 6K, 28% free 12654K/17415K, paused 9ms+6ms
+D/dalvikvm(  535): GC_CONCURRENT freed 0K, 21% free 13830K/17415K, paused 9ms+14ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 4K, 15% free 14958K/17415K, paused 43ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 15.780MB for 1157776-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 0K, 14% free 16088K/18567K, paused 43ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed <1K, 14% free 16089K/18567K, paused 62ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 17.155MB for 1440016-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 0K, 13% free 17496K/19975K, paused 44ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 363K, 11% free 17820K/19975K, paused 49ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 18.867MB for 1463056-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 4K, 11% free 19244K/21447K, paused 63ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 0K, 11% free 19245K/21447K, paused 64ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 20.258MB for 1463056-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 0K, 10% free 20674K/22919K, paused 70ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 25K, 9% free 20862K/22919K, paused 80ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 21.324MB for 925072-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed <1K, 9% free 21765K/23879K, paused 70ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 1763K, 13% free 20949K/23879K, paused 66ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 1048K, 11% free 21453K/23879K, paused 67ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 9K, 3% free 23239K/23879K, paused 64ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 2534K, 12% free 22297K/25287K, paused 60ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 1127K, 10% free 22797K/25287K, paused 73ms
+I/dalvikvm-heap(  535): Grow heap (frag case) to 23.727MB for 1463056-byte allocation
+D/dalvikvm(  535): GC_FOR_ALLOC freed 3K, 10% free 24222K/26759K, paused 69ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 2797K, 19% free 21716K/26759K, paused 53ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 4971K, 32% free 18351K/26759K, paused 54ms
+D/dalvikvm(  535): GC_FOR_ALLOC freed 6K, 27% free 19628K/26759K, paused 54ms
+I/ActivityManager(   91): START {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher/com.android.launcher2.Launcher} from pid 91
