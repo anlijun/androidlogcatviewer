@@ -1151,10 +1151,13 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     
     public void synSelected(String synTime){
     	if (!mIsSynFromHere){
+    		Object input = mViewer.getInput();
+    		if (input == null){
+    			return;
+    		}
     		int low = 0;
     		int high = mViewer.getTable().getItemCount() - 1;
     		int mid = (low + high) / 2;
-    		Object input = mViewer.getInput();
 	        List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
     		while (low <= high){
     			mid = (low + high) / 2;

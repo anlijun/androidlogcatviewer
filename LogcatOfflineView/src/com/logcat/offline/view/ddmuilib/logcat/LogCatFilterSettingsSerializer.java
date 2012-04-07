@@ -77,9 +77,9 @@ public final class LogCatFilterSettingsSerializer {
             sb.append(KW_LOGLEVEL); sb.append(KW_DELIM); 
             	sb.append(quoteString(f.getLogLevel().getStringValue())); sb.append(ATTR_DELIM);
             sb.append(KW_HIDE_PID); sb.append(KW_DELIM);
-            	sb.append(f.getPIDHideList().toString().replaceAll(", ", KW_LIST_VALUE)); sb.append(ATTR_DELIM);
+            	sb.append(quoteString(f.getPIDHideList().toString().replaceAll(", ", KW_LIST_VALUE))); sb.append(ATTR_DELIM);
             sb.append(KW_HIDE_TAG); sb.append(KW_DELIM);
-            	sb.append(f.getTagHideList().toString().replaceAll(", ", KW_LIST_VALUE)); sb.append(ATTR_DELIM);
+            	sb.append(quoteString(f.getTagHideList().toString().replaceAll(", ", KW_LIST_VALUE))); sb.append(ATTR_DELIM);
         }
         return sb.toString();
     }

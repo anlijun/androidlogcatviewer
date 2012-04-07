@@ -282,6 +282,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	mTvPIDHide = new TableViewer(tableH);
     	mTvPIDHide.setContentProvider(new ListContentProvider());
     	mTvPIDHide.setLabelProvider(new ListLabelProvider());
+    	Collections.sort(mPIDHideList, mPIDSort);
     	mTvPIDHide.setInput(mPIDHideList);
     	
     	Button showToHide = new Button(pidG, SWT.PUSH);
@@ -430,6 +431,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	mTvTagHide = new TableViewer(tableH);
     	mTvTagHide.setContentProvider(new ListContentProvider());
     	mTvTagHide.setLabelProvider(new ListLabelProvider());
+    	Collections.sort(mTagHideList, mTagSort);
     	mTvTagHide.setInput(mTagHideList);
     	
     	Button showToHide = new Button(tagG, SWT.PUSH);
@@ -518,6 +520,9 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     private List<String> getPIDShowList(){
     	mPIDShowList = new ArrayList<String>();
     	for (String PID : mPIDList){
+    		if (PID.equals("?")){
+    			continue;
+    		}
     		boolean isHide = false;
     		for (String PIDHide : mPIDHideList){
     			if (PID.equals(PIDHide)){
@@ -536,6 +541,9 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     private List<String> getTagShowList(){
     	mTagShowList = new ArrayList<String>();
     	for (String tag : mTagList){
+    		if (tag.equals("?")){
+    			continue;
+    		}
     		boolean isHide = false;
     		for (String tagHide : mTagHideList){
     			if (tag.equals(tagHide)){
