@@ -186,11 +186,11 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	tabF.setLayoutData(gd);
     	
     	TabItem tabI1 = new TabItem(tabF, SWT.NONE);
-    	tabI1.setText("Original");
+    	tabI1.setText("Advanced");
     	tabI1.setControl(createTabItem1(tabF));
     	
     	TabItem tabI2 = new TabItem(tabF, SWT.NONE);
-    	tabI2.setText("Advanced");
+    	tabI2.setText("Original");
     	tabI2.setControl(createTabItem2(tabF));
     	
     }

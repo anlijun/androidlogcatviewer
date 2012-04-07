@@ -61,7 +61,7 @@ public final class LogCatMessageParser {
     
     private static Pattern sTimeHeaderPattern = Pattern.compile(
             "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)" 
-          + "\\s([VDIWEAF])/(.*)\\((.*)\\):\\s+(.*)$");
+          + "\\s([VDIWEAF])/(.*)\\((\\s*\\d+)\\):\\s+(.*)$");
 
     private LogCatMessageParser(){
     }
@@ -89,58 +89,38 @@ public final class LogCatMessageParser {
         String curTime = "?:??";
         String curMesssage = "?";
         List<LogCatMessage> messages = new ArrayList<LogCatMessage>(lines.length);
-//        boolean isTimePattern = false;
+        boolean isTimePattern = true;
         for (String line : lines) {
             if (line.length() == 0) {
                 continue;
             }
             
             Matcher matcher = null;
-
-//            if (isTimePattern){
-//            	matcher = sTimeHeaderPattern.matcher(line);
-//            	if (matcher.matches()) {
-//                    curTime = matcher.group(1);
-//                    curLogLevel = LogLevel.getByLetterString(matcher.group(2));
-//                    curTag = matcher.group(3).trim();
-//                    curPid = matcher.group(4);
-//                    curMesssage = matcher.group(5);
-//                    curTid = "";
-//                    /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
-//                     * to generate "A", but generates "F". */
-//                    if (curLogLevel == null && matcher.group(4).equals("F")) {
-//                    	curLogLevel = LogLevel.ASSERT;
-//                    }
-//                    
-//                    LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,
-//                            curTag, curTime, curMesssage);
-//                    messages.add(m);
-//            	}
-//            	continue; 
-//            }
-            matcher = sTimeHeaderPattern.matcher(line);
-            if (matcher.matches()) {
-//            	isTimePattern = true;
-                curTime = matcher.group(1);
-                curLogLevel = LogLevel.getByLetterString(matcher.group(2));
-                curTag = matcher.group(3).trim();
-                curPid = matcher.group(4).trim();
-                curMesssage = matcher.group(5);
-                curTid = "";
-                /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
-                 * to generate "A", but generates "F". */
-                if (curLogLevel == null && matcher.group(4).equals("F")) {
-                	curLogLevel = LogLevel.ASSERT;
-                }
-                
-                LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,
-                        curTag, curTime, curMesssage);
-                messages.add(m);
-                continue; 
-        	}
+            if (isTimePattern){
+	            matcher = sTimeHeaderPattern.matcher(line);
+	            if (matcher.matches()) {
+	                curTime = matcher.group(1);
+	                curLogLevel = LogLevel.getByLetterString(matcher.group(2));
+	                curTag = matcher.group(3).trim();
+	                curPid = matcher.group(4).trim();
+	                curMesssage = matcher.group(5);
+	                curTid = "";
+	                /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
+	                 * to generate "A", but generates "F". */
+	                if (curLogLevel == null && matcher.group(4).equals("F")) {
+	                	curLogLevel = LogLevel.ASSERT;
+	                }
+	                
+	                LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,
+	                        curTag, curTime, curMesssage);
+	                messages.add(m);
+	                continue; 
+	        	}
+            }
             
             matcher = sLogHeaderPattern.matcher(line);
             if (matcher.matches()) {
+            	isTimePattern = false;
                 curTime = matcher.group(1);
                 curPid = matcher.group(2);
                 curTid = matcher.group(3);
