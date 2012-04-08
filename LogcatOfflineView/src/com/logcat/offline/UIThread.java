@@ -2,6 +2,7 @@ package com.logcat.offline;
 
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
@@ -23,6 +24,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Sash;
 import org.eclipse.swt.widgets.Shell;
 
+import com.android.ddmuilib.ITableFocusListener;
 import com.android.ddmuilib.ImageLoader;
 import com.logcat.offline.view.ddmuilib.logcat.LogCatMessageParser;
 import com.logcat.offline.view.ddmuilib.logcat.LogCatPanel;
@@ -47,6 +49,11 @@ public class UIThread {
 	private LogCatPanel mLogCatPanel_event;
 	private LogCatPanel mLogCatPanel_radio;
 	
+	private Clipboard mClipboard;
+    private MenuItem mCopyMenuItem;
+    private MenuItem mSelectAllMenuItem;
+    private TableFocusListener mTableListener;
+	
 	private UIThread(){
 	}
 	
@@ -56,6 +63,46 @@ public class UIThread {
 		}
 		return uiThread;
 	}
+	
+	private class TableFocusListener implements ITableFocusListener {
+
+        private IFocusedTableActivator mCurrentActivator;
+
+        @Override
+        public void focusGained(IFocusedTableActivator activator) {
+            mCurrentActivator = activator;
+            if (mCopyMenuItem.isDisposed() == false) {
+                mCopyMenuItem.setEnabled(true);
+                mSelectAllMenuItem.setEnabled(true);
+            }
+        }
+
+        @Override
+        public void focusLost(IFocusedTableActivator activator) {
+            // if we move from one table to another, it's unclear
+            // if the old table lose its focus before the new
+            // one gets the focus, so we need to check.
+            if (activator == mCurrentActivator) {
+                activator = null;
+                if (mCopyMenuItem.isDisposed() == false) {
+                    mCopyMenuItem.setEnabled(false);
+                    mSelectAllMenuItem.setEnabled(false);
+                }
+            }
+        }
+
+        public void copy(Clipboard clipboard) {
+            if (mCurrentActivator != null) {
+                mCurrentActivator.copy(clipboard);
+            }
+        }
+
+        public void selectAll() {
+            if (mCurrentActivator != null) {
+                mCurrentActivator.selectAll();
+            }
+        }
+    }
 	
 	public void runUI() {
         Display.setAppName(APP_NAME);
@@ -85,8 +132,12 @@ public class UIThread {
         // create top-level items
         MenuItem fileItem = new MenuItem(menuBar, SWT.CASCADE);
         fileItem.setText("&File");
+        MenuItem editItem = new MenuItem(menuBar, SWT.CASCADE);
+        editItem.setText("&Edit");
         Menu fileMenu = new Menu(menuBar);
         fileItem.setMenu(fileMenu);
+        Menu editMenu = new Menu(menuBar);
+        editItem.setMenu(editMenu);
 
         MenuItem item;
         // create File menu items
@@ -123,6 +174,29 @@ public class UIThread {
                 shell.close();
             }
         });
+        
+     // create edit menu items
+        mCopyMenuItem = new MenuItem(editMenu, SWT.NONE);
+        mCopyMenuItem.setText("&Copy\tCtrl-C");
+        mCopyMenuItem.setAccelerator('C' | SWT.MOD1);
+        mCopyMenuItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                mTableListener.copy(mClipboard);
+            }
+        });
+
+        new MenuItem(editMenu, SWT.SEPARATOR);
+
+        mSelectAllMenuItem = new MenuItem(editMenu, SWT.NONE);
+        mSelectAllMenuItem.setText("Select &All\tCtrl-A");
+        mSelectAllMenuItem.setAccelerator('A' | SWT.MOD1);
+        mSelectAllMenuItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                mTableListener.selectAll();
+            }
+        });
         // tell the shell to use this menu
         shell.setMenuBar(menuBar);
 	}
@@ -148,6 +222,8 @@ public class UIThread {
         createMainPanel(mainPanel);
         createEventPanel(eventPanel);
         createRadioPanel(radioPanel);
+        
+        mClipboard = new Clipboard(panelArea.getDisplay());
 
         // form layout data
         FormData data = new FormData();
@@ -226,6 +302,13 @@ public class UIThread {
                 }
             }
         });
+        
+     // add a global focus listener for all the tables
+        mTableListener = new TableFocusListener();
+
+        mLogCatPanel_main.setTableFocusListener(mTableListener);
+        mLogCatPanel_event.setTableFocusListener(mTableListener);
+        mLogCatPanel_radio.setTableFocusListener(mTableListener);
 
         mStatusLine.setText("");
     }

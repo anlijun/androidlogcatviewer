@@ -18,6 +18,7 @@ package com.logcat.offline.view.ddmuilib.logcat;
 
 import com.android.ddmlib.DdmConstants;
 import com.android.ddmlib.Log.LogLevel;
+import com.android.ddmuilib.ITableFocusListener.IFocusedTableActivator;
 import com.android.ddmuilib.actions.ToolItemAction;
 import com.android.ddmuilib.logcat.ILogCatMessageSelectionListener;
 import com.android.ddmuilib.logcat.LogCatFilterContentProvider;
@@ -25,12 +26,14 @@ import com.android.ddmuilib.logcat.LogCatFilterLabelProvider;
 import com.android.ddmuilib.logcat.LogCatFilterSettingsDialog;
 import com.android.ddmuilib.logcat.LogCatMessage;
 import com.android.ddmuilib.logcat.LogCatViewerFilter;
+import com.android.ddmuilib.ITableFocusListener;
 import com.android.ddmuilib.ImageLoader;
 import com.android.ddmuilib.TableHelper;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
@@ -44,8 +47,13 @@ import org.eclipse.jface.window.ToolTip;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
+import org.eclipse.swt.dnd.Clipboard;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -61,6 +69,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
@@ -72,6 +81,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -120,6 +132,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private static final String IMAGE_ADD_FILTER = "add.png"; //$NON-NLS-1$
     private static final String IMAGE_DELETE_FILTER = "delete.png"; //$NON-NLS-1$
     private static final String IMAGE_EDIT_FILTER = "edit.png"; //$NON-NLS-1$
+    private static final String IMAGE_SAVE_LOG_TO_FILE = "save.png"; //$NON-NLS-1$
     private static final String IMAGE_DISPLAY_FILTERS = "displayfilters.png"; //$NON-NLS-1$
     
     private static final String ACTION_SHOW_TAG = "Show Selected Tag(s)";
@@ -168,6 +181,8 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private Action mHideSelectedPID;
     private Action mHighlightSelectedPID;
     private Action mResetPID;
+
+    private String mLogFileExportFolder;
     
     private Color mYellow;
     private Color mGreen;
@@ -546,6 +561,17 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                     toolBar.getDisplay()));
         }
 
+        ToolItem saveToLog = new ToolItem(toolBar, SWT.PUSH);
+        saveToLog.setImage(ImageLoader.getDdmUiLibLoader().loadImage(IMAGE_SAVE_LOG_TO_FILE,
+                toolBar.getDisplay()));
+        saveToLog.setToolTipText("Export Selected Items To Text File..");
+        saveToLog.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent arg0) {
+                saveLogToFile();
+            }
+        });
+        
         final ToolItem showFiltersColumn = new ToolItem(toolBar, SWT.CHECK);
         showFiltersColumn.setImage(
                 ImageLoader.getDdmUiLibLoader().loadImage(IMAGE_DISPLAY_FILTERS,
@@ -562,6 +588,80 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         });
 
     }
+    
+    /**
+     * Save logcat messages selected in the table to a file.
+     */
+    private void saveLogToFile() {
+        /* show dialog box and get target file name */
+        final String fName = getLogFileTargetLocation();
+        if (fName == null) {
+            return;
+        }
+
+        /* obtain list of selected messages */
+        final List<LogCatMessage> selectedMessages = getSelectedLogCatMessages();
+        if (selectedMessages == null){
+        	return;
+        }
+
+        /* save messages to file in a different (non UI) thread */
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    BufferedWriter w = new BufferedWriter(new FileWriter(fName));
+                    for (LogCatMessage m : selectedMessages) {
+                        w.append(m.toString());
+                        w.newLine();
+                    }
+                    w.close();
+                } catch (final IOException e) {
+                    Display.getDefault().asyncExec(new Runnable() {
+                        @Override
+                        public void run() {
+                            MessageDialog.openError(Display.getCurrent().getActiveShell(),
+                                    "Unable to export selection to file.",
+                                    "Unexpected error while saving selected messages to file: "
+                                            + e.getMessage());
+                        }
+                    });
+                }
+            }
+        });
+        t.setName("Saving selected items to logfile..");
+        t.start();
+    }
+    
+    /**
+     * Display a {@link FileDialog} to the user and obtain the location for the log file.
+     * @return path to target file, null if user canceled the dialog
+     */
+    private String getLogFileTargetLocation() {
+        FileDialog fd = new FileDialog(Display.getCurrent().getActiveShell(), SWT.SAVE);
+
+        fd.setText("Save Log..");
+        fd.setFileName("log.txt");
+
+        if (mLogFileExportFolder == null) {
+            mLogFileExportFolder = System.getProperty("user.home");
+        }
+        fd.setFilterPath(mLogFileExportFolder);
+
+        fd.setFilterNames(new String[] {
+                "Text Files (*.txt)"
+        });
+        fd.setFilterExtensions(new String[] {
+                "*.txt"
+        });
+
+        String fName = fd.open();
+        if (fName != null) {
+            mLogFileExportFolder = fd.getFilterPath();  /* save path to restore on future calls */
+        }
+
+        return fName;
+    }
 
     private void updateFiltersColumn(boolean showFilters) {
         if (showFilters) {
@@ -572,6 +672,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     }
     
     private List<LogCatMessage> getSelectedLogCatMessages() {
+    	Object input = mViewer.getInput();
+    	if (input == null){
+    		return null;
+    	}
         Table table = mViewer.getTable();
         int[] indices = table.getSelectionIndices();
         Arrays.sort(indices);  //Table.getSelectionIndices() does not specify an order 
@@ -579,8 +683,6 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         // Get items from the table's input as opposed to getting each table item's data.
         // Retrieving table item's data can return NULL in case of a virtual table if the item
         // has not been displayed yet.
-        Object input = mViewer.getInput();
-
         List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
         List<LogCatMessage> selectedMessages = new ArrayList<LogCatMessage>(indices.length);
         for (int i : indices) {
@@ -594,10 +696,6 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     }
 
     private List<LogCatMessage> applyCurrentFilters(List<?> msgList) {
-    	if(msgList == null){
-    		return new ArrayList<LogCatMessage>();
-    	}
-    	
         Object[] items = msgList.toArray();
         List<LogCatMessage> filteredItems = new ArrayList<LogCatMessage>(items.length);
         List<LogCatViewerFilter> filters = getFiltersToApply();
@@ -1292,5 +1390,65 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 
     public void addLogCatMessageSelectionListener(ILogCatMessageSelectionListener l) {
         mMessageSelectionListeners.add(l);
+    }
+    
+    private ITableFocusListener mTableFocusListener;
+
+    /**
+     * Specify the listener to be called when the logcat view gets focus. This interface is
+     * required by DDMS to hook up the menu items for Copy and Select All.
+     * @param listener listener to be notified when logcat view is in focus
+     */
+    public void setTableFocusListener(ITableFocusListener listener) {
+        mTableFocusListener = listener;
+
+        final Table table = mViewer.getTable();
+        final IFocusedTableActivator activator = new IFocusedTableActivator() {
+            @Override
+            public void copy(Clipboard clipboard) {
+                copySelectionToClipboard(clipboard);
+            }
+
+            @Override
+            public void selectAll() {
+                table.selectAll();
+            }
+        };
+
+        table.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                mTableFocusListener.focusGained(activator);
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                mTableFocusListener.focusLost(activator);
+            }
+        });
+    }
+
+    /** Copy all selected messages to clipboard. */
+    public void copySelectionToClipboard(Clipboard clipboard) {
+        StringBuilder sb = new StringBuilder();
+
+        List<LogCatMessage> selectedList = getSelectedLogCatMessages();
+        if (selectedList == null){
+        	return;
+        }
+        for (LogCatMessage m : selectedList) {
+            sb.append(m.toString());
+            sb.append('\n');
+        }
+
+        clipboard.setContents(
+                new Object[] {sb.toString()},
+                new Transfer[] {TextTransfer.getInstance()}
+                );
+    }
+
+    /** Select all items in the logcat table. */
+    public void selectAll() {
+        mViewer.getTable().selectAll();
     }
 }

@@ -167,6 +167,12 @@ public final class LogCatMessageParser {
 			if (matcher.matches()) {
 				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
 				curTag = matcher.group(2).trim();
+				if (curTag == null || curTag.equals("")){
+					continue;
+				}
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
 				curMesssage = matcher.group(4);
 				/*
 				 * LogLevel doesn't support messages with severity "F".
@@ -211,6 +217,12 @@ public final class LogCatMessageParser {
 				curTid = matcher.group(3).trim();
 				curLogLevel = LogLevel.getByLetterString(matcher.group(4));
 				curTag = matcher.group(5).trim();
+				if (curTag == null || curTag.equals("")){
+					continue;
+				}
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
 				curMesssage = matcher.group(6);
 				/*
 				 * LogLevel doesn't support messages with severity "F".
@@ -251,6 +263,12 @@ public final class LogCatMessageParser {
 				curTime = matcher.group(1);
 				curLogLevel = LogLevel.getByLetterString(matcher.group(2));
 				curTag = matcher.group(3).trim();
+				if (curTag == null || curTag.equals("")){
+					continue;
+				}
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
 				curPid = matcher.group(4).trim();
 				curMesssage = matcher.group(5);
 				curTid = "";
@@ -291,7 +309,6 @@ public final class LogCatMessageParser {
 				curTid = matcher.group(3);
 				curLogLevel = LogLevel.getByLetterString(matcher.group(4));
 				curTag = matcher.group(5).trim();
-
 				/*
 				 * LogLevel doesn't support messages with severity "F".
 				 * Log.wtf() is supposed to generate "A", but generates "F".
@@ -300,6 +317,12 @@ public final class LogCatMessageParser {
 					curLogLevel = LogLevel.ASSERT;
 				}
 			} else {
+				if (curTag == null || curTag.equals("")){
+					continue;
+				}
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
 				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
 						curTid, curTag, curTime, line);
 				messages.add(m);
