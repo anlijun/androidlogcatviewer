@@ -29,6 +29,7 @@ import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -226,10 +227,10 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	pidG.setLayoutData(gd);
     	pidG.setText("By PID");
     	
-    	createLabel(pidG, "Show");
+    	createLabel(pidG, "Show", true);
     	createLabel(pidG, "");
     	createLabel(pidG, "");
-    	createLabel(pidG, "Hide");
+    	createLabel(pidG, "Hide", false);
     	createLabel(pidG, "");
     	
     	SashForm sash = new SashForm(pidG, SWT.HORIZONTAL);
@@ -375,10 +376,10 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     	tagG.setLayoutData(gd);
     	tagG.setText("By Tag");
     	
-    	createLabel(tagG, "Show");
+    	createLabel(tagG, "Show", true);
     	createLabel(tagG, "");
     	createLabel(tagG, "");
-    	createLabel(tagG, "Hide");
+    	createLabel(tagG, "Hide", false);
     	createLabel(tagG, "");
     	
     	SashForm sash = new SashForm(tagG, SWT.HORIZONTAL);
@@ -585,6 +586,7 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
 
         DialogStatus status = validateDialog();
         mOkButton.setEnabled(status.valid);
+        setErrorMessage(status.message);
     }
 
     /**
@@ -675,6 +677,18 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
         GridData gd = new GridData();
         gd.horizontalAlignment = SWT.RIGHT;
         l.setLayoutData(gd);
+    }
+    private void createLabel(Composite c, String text, boolean show) {
+        Label l = new Label(c, SWT.NONE);
+        l.setText(text);
+        GridData gd = new GridData();
+        gd.horizontalAlignment = SWT.RIGHT;
+        l.setLayoutData(gd);
+        if(show){
+        	l.setBackground(new Color(null, 127, 255, 127));
+        }else{
+        	l.setBackground(new Color(null, 255, 127, 127));
+        }
     }
 
     @Override

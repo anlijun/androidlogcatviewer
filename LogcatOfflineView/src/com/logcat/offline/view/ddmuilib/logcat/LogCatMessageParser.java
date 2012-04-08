@@ -55,14 +55,14 @@ public final class LogCatMessageParser {
      * Note: the fraction of second value can have any number of digit.<br>
      * Note: the tag should be trimmed as it may have spaces at the end.
      */
-    private static Pattern sLogHeaderPattern = Pattern.compile(
+    private static final Pattern sLogHeaderPattern = Pattern.compile(
             "^\\[\\s(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)"
           + "\\s+(\\d*):\\s*(\\S+)\\s([VDIWEAF])/(.*)\\]$");
     
-    private static Pattern sTimeHeaderPattern = Pattern.compile(
-            "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)" 
-          + "\\s([VDIWEAF])/(.*)\\((\\s*\\d+)\\):\\s+(.*)$");
-
+	private enum PatternType {
+		LOGCAT_BRIEF, LOGCAT_V_LONG, LOGCAT_V_TIME, LOGCAT_V_THREADTIME, UNKNOWN,
+	};
+    
     private LogCatMessageParser(){
     }
 
@@ -73,78 +73,27 @@ public final class LogCatMessageParser {
     	}
     	return logCatMessageParser;
     }
-    /**
-     * Parse a list of strings into {@link LogCatMessage} objects. This method
-     * maintains state from previous calls regarding the last seen header of
-     * logcat messages.
-     * @param lines list of raw strings obtained from logcat -v long
-     * @param pidToNameMapper mapper to obtain the app name given a pid
-     * @return list of LogMessage objects parsed from the input
-     */
-    private List<LogCatMessage> processLogLines(String[] lines) {
-    	LogLevel curLogLevel = LogLevel.WARN;
-        String curPid = "?";
-        String curTid = "?";
-        String curTag = "?";
-        String curTime = "?:??";
-        String curMesssage = "?";
-        List<LogCatMessage> messages = new ArrayList<LogCatMessage>(lines.length);
-        boolean isTimePattern = true;
-        for (String line : lines) {
-            if (line.length() == 0) {
-                continue;
-            }
-            
-            Matcher matcher = null;
-            if (isTimePattern){
-	            matcher = sTimeHeaderPattern.matcher(line);
-	            if (matcher.matches()) {
-	                curTime = matcher.group(1);
-	                curLogLevel = LogLevel.getByLetterString(matcher.group(2));
-	                curTag = matcher.group(3).trim();
-	                curPid = matcher.group(4).trim();
-	                curMesssage = matcher.group(5);
-	                curTid = "";
-	                /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
-	                 * to generate "A", but generates "F". */
-	                if (curLogLevel == null && matcher.group(2).equals("F")) {
-	                	curLogLevel = LogLevel.ASSERT;
-	                }
-	                if(curLogLevel == null){
-	                	continue;
-	                }
-	                
-	                LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,
-	                        curTag, curTime, curMesssage);
-	                messages.add(m);
-	                continue; 
-	        	}
-            }
-            
-            matcher = sLogHeaderPattern.matcher(line);
-            if (matcher.matches()) {
-            	isTimePattern = false;
-                curTime = matcher.group(1);
-                curPid = matcher.group(2);
-                curTid = matcher.group(3);
-                curLogLevel = LogLevel.getByLetterString(matcher.group(4));
-                curTag = matcher.group(5).trim();
-
-                /* LogLevel doesn't support messages with severity "F". Log.wtf() is supposed
-                 * to generate "A", but generates "F". */
-                if (curLogLevel == null && matcher.group(4).equals("F")) {
-                	curLogLevel = LogLevel.ASSERT;
-                }
-            } else {
-                LogCatMessage m = new LogCatMessage(curLogLevel, curPid, curTid,
-                        curTag, curTime, line);
-                messages.add(m);
-            }
-        }
-
-        return messages;
-    }
     
+    private PatternType PatternRecognition(String str){
+    	Matcher matcher = sLogHeaderPattern.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_LONG;
+    	}
+    	matcher = p_LOGCAT_V_TIME.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_TIME;
+    	}
+    	matcher = p_LOGCAT_BRIEF.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_BRIEF;
+    	}
+    	matcher = p_LOGCAT_V_THREADTIME.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_THREADTIME;
+    	}
+    	return PatternType.UNKNOWN;
+    }
+ 
     public void parseLogFile(String filePath, int panelID){
     	if (filePath == null || "".equals(filePath)){
     		return;
@@ -153,15 +102,45 @@ public final class LogCatMessageParser {
     	if (!file.exists()){
     		return;
     	}
+    	System.gc();
 		try {
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			List<String> linesList = new ArrayList<String>();
+			PatternType logType = PatternType.UNKNOWN;
 			while (br.ready()){
-				linesList.add(br.readLine());
+				String strLine = br.readLine();
+				
+				if(logType == PatternType.UNKNOWN){
+					logType = PatternRecognition(strLine);
+				}
+				if(logType != PatternType.UNKNOWN){
+					linesList.add(strLine);
+				}
+			}
+			
+			List<LogCatMessage> logMessage;
+			switch (logType) {
+			case LOGCAT_V_LONG:
+				logMessage = process_LOGCAT_V_LONG(linesList);
+				break;
+
+			case LOGCAT_V_TIME:
+				logMessage = process_LOGCAT_V_TIME(linesList);
+				break;
+			case LOGCAT_V_THREADTIME:
+				logMessage = process_LOGCAT_V_THREADTIME(linesList);
+				break;
+			case LOGCAT_BRIEF:
+				logMessage = process_LOGCAT_BRIEF(linesList);
+				break;
+
+			case UNKNOWN:
+			default:
+				return;
 			}
 			sendMessageReceivedEvent(
-					processLogLines(linesList.toArray(new String[]{})), panelID);
+					logMessage, panelID);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -169,7 +148,167 @@ public final class LogCatMessageParser {
 		}
     }
     
-    public void parseLogFolder(String folderPath){
+    //I/MediaUploader(22541): No need to wake up
+    private static final Pattern p_LOGCAT_BRIEF = Pattern.compile(
+            "^([VDIWEAF])/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
+    private List<LogCatMessage> process_LOGCAT_BRIEF(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_BRIEF.matcher(line);
+			if (matcher.matches()) {
+				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
+				curTag = matcher.group(2).trim();
+				curMesssage = matcher.group(4);
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(1).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}
+		}
+		return messages;
+	}
+    
+    //04-08 12:57:40.370    89   103 I Installer: connecting...
+    private static final Pattern p_LOGCAT_V_THREADTIME = Pattern.compile(
+            "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)" 
+            + "\\s*(\\d+)\\s*(\\d+)"
+            + "\\s([VDIWEAF])\\s(.*?):\\s+(.*)$");
+    private List<LogCatMessage> process_LOGCAT_V_THREADTIME(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_V_THREADTIME.matcher(line);
+			if (matcher.matches()) {
+				curTime = matcher.group(1);
+				curPid = matcher.group(2).trim();
+				curTid = matcher.group(3).trim();
+				curLogLevel = LogLevel.getByLetterString(matcher.group(4));
+				curTag = matcher.group(5).trim();
+				curMesssage = matcher.group(6);
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(4).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}
+		}
+		return messages;
+	}
+    
+    private static final Pattern p_LOGCAT_V_TIME = Pattern.compile(
+            "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)" 
+          + "\\s([VDIWEAF])/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
+	private List<LogCatMessage> process_LOGCAT_V_TIME(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_V_TIME.matcher(line);
+			if (matcher.matches()) {
+				curTime = matcher.group(1);
+				curLogLevel = LogLevel.getByLetterString(matcher.group(2));
+				curTag = matcher.group(3).trim();
+				curPid = matcher.group(4).trim();
+				curMesssage = matcher.group(5);
+				curTid = "";
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(2).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}
+		}
+		return messages;
+	}
+
+	private List<LogCatMessage> process_LOGCAT_V_LONG(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = sLogHeaderPattern.matcher(line);
+			if (matcher.matches()) {
+				curTime = matcher.group(1);
+				curPid = matcher.group(2);
+				curTid = matcher.group(3);
+				curLogLevel = LogLevel.getByLetterString(matcher.group(4));
+				curTag = matcher.group(5).trim();
+
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(4).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+			} else {
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, line);
+				messages.add(m);
+			}
+		}
+		return messages;
+	}
+
+	public void parseLogFolder(String folderPath){
     	if (folderPath == null || "".equals(folderPath)){
     		return;
     	}
@@ -177,7 +316,8 @@ public final class LogCatMessageParser {
     	if (!fileFolder.exists() || !fileFolder.isDirectory()){
     		return;
     	}
-    	
+
+    	System.gc();
     	File[] files = fileFolder.listFiles();
     	for(File file : files){
     		if (file.getName().toLowerCase().indexOf("main") != -1){

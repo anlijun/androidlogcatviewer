@@ -102,6 +102,8 @@ public final class LogCatMessageLabelProvider extends ColumnLabelProvider {
             return DEBUG_MSG_COLOR;
         } else if (l.equals(LogLevel.ERROR)) {
             return ERROR_MSG_COLOR;
+        } else if (l.equals(LogLevel.ASSERT)) {
+            return ERROR_MSG_COLOR;
         } else if (l.equals(LogLevel.WARN)) {
             return WARN_MSG_COLOR;
         }

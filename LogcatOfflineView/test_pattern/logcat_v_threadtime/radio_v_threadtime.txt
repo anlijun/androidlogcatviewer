@@ -1,0 +1,901 @@
+04-08 13:04:37.440   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - gprs= 1 - SIM not loaded
+04-08 13:04:37.440   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:37.450   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:37.461   218   218 D GSM     : [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED NOT_READY reason null
+04-08 13:04:37.470   218   218 D RILJ    : [0009]> BASEBAND_VERSION
+04-08 13:04:37.550   218   218 D RILJ    : [0010]> GET_IMEI
+04-08 13:04:37.560   218   218 D RILJ    : [0011]> GET_IMEISV
+04-08 13:04:37.560    35    64 D RIL     : onRequest: BASEBAND_VERSION
+04-08 13:04:37.560   218   274 D RILJ    : [0009]< BASEBAND_VERSION error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:37.560    35    64 D RIL     : onRequest: GET_IMEI
+04-08 13:04:37.560    35    64 D AT      : AT> AT+CGSN
+04-08 13:04:37.560    35    66 D AT      : AT< 000000000000000
+04-08 13:04:37.560    35    66 D AT      : AT< OK
+04-08 13:04:37.571    35    64 D RIL     : onRequest: GET_IMEISV
+04-08 13:04:37.571   218   274 D RILJ    : [0010]< GET_IMEI 
+04-08 13:04:37.571   218   274 D RILJ    : [0011]< GET_IMEISV error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:37.571   218   218 D RILJ    : [0012]> OPERATOR
+04-08 13:04:37.590    35    64 D RIL     : onRequest: OPERATOR
+04-08 13:04:37.590    35    64 D AT      : AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+04-08 13:04:37.590    35    66 D AT      : AT< +COPS: 0,0,"Android"
+04-08 13:04:37.590    35    66 D AT      : AT< +COPS: 0,1,"Android"
+04-08 13:04:37.590    35    66 D AT      : AT< +COPS: 0,2,"310260"
+04-08 13:04:37.590    35    66 D AT      : AT< OK
+04-08 13:04:37.600   218   274 D RILJ    : [0012]< OPERATOR {Android, Android, 310260}
+04-08 13:04:37.600   218   218 D RILJ    : [0013]> DATA_REGISTRATION_STATE
+04-08 13:04:37.600    35    64 D RIL     : onRequest: DATA_REGISTRATION_STATE
+04-08 13:04:37.600    35    64 D AT      : AT> AT+CGREG?
+04-08 13:04:37.600    35    66 D AT      : AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+04-08 13:04:37.600    35    66 D AT      : AT< OK
+04-08 13:04:37.610   218   274 D RILJ    : [0013]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+04-08 13:04:37.610   218   218 D RILJ    : [0014]> VOICE_REGISTRATION_STATE
+04-08 13:04:37.620    35    64 D RIL     : onRequest: VOICE_REGISTRATION_STATE
+04-08 13:04:37.620    35    64 D AT      : AT> AT+CREG?
+04-08 13:04:37.620    35    66 D AT      : AT< +CREG: 2,1, "ffffffff", "ffffffff"
+04-08 13:04:37.620    35    66 D AT      : AT< OK
+04-08 13:04:37.620   218   274 D RILJ    : [0014]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+04-08 13:04:37.631   218   218 D RILJ    : [0015]> QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:37.631    35    64 D RIL     : onRequest: QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:37.631    35    64 D AT      : AT> AT+COPS?
+04-08 13:04:37.631    35    66 D AT      : AT< +COPS: 0,2,310260
+04-08 13:04:37.631    35    66 D AT      : AT< OK
+04-08 13:04:37.631   218   274 D RILJ    : [0015]< QUERY_NETWORK_SELECTION_MODE {0}
+04-08 13:04:37.660   218   218 D RILJ    : [0016]> GET_CURRENT_CALLS
+04-08 13:04:37.710    35    64 D RIL     : onRequest: GET_CURRENT_CALLS
+04-08 13:04:37.710    35    64 D AT      : AT> AT+CLCC
+04-08 13:04:37.710    35    66 D AT      : AT< OK
+04-08 13:04:37.710   218   274 D RILJ    : [0016]< GET_CURRENT_CALLS  
+04-08 13:04:37.710   218   218 D RILJ    : [0017]> OPERATOR
+04-08 13:04:37.730    35    64 D RIL     : onRequest: OPERATOR
+04-08 13:04:37.730    35    64 D AT      : AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+04-08 13:04:37.730    35    66 D AT      : AT< +COPS: 0,0,"Android"
+04-08 13:04:37.730    35    66 D AT      : AT< +COPS: 0,1,"Android"
+04-08 13:04:37.730    35    66 D AT      : AT< +COPS: 0,2,"310260"
+04-08 13:04:37.730    35    66 D AT      : AT< OK
+04-08 13:04:37.730   218   274 D RILJ    : [0017]< OPERATOR {Android, Android, 310260}
+04-08 13:04:37.740   218   218 D RILJ    : [0018]> DATA_REGISTRATION_STATE
+04-08 13:04:37.740    35    64 D RIL     : onRequest: DATA_REGISTRATION_STATE
+04-08 13:04:37.740    35    64 D AT      : AT> AT+CGREG?
+04-08 13:04:37.740    35    66 D AT      : AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+04-08 13:04:37.740    35    66 D AT      : AT< OK
+04-08 13:04:37.740   218   274 D RILJ    : [0018]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+04-08 13:04:37.770   218   218 D RILJ    : [0019]> VOICE_REGISTRATION_STATE
+04-08 13:04:37.780    35    64 D RIL     : onRequest: VOICE_REGISTRATION_STATE
+04-08 13:04:37.780    35    64 D AT      : AT> AT+CREG?
+04-08 13:04:37.780    35    66 D AT      : AT< +CREG: 2,1, "ffffffff", "ffffffff"
+04-08 13:04:37.780    35    66 D AT      : AT< OK
+04-08 13:04:37.780   218   274 D RILJ    : [0019]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+04-08 13:04:37.821   218   218 D RILJ    : [0020]> QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:37.830    35    64 D RIL     : onRequest: QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:37.830    35    64 D AT      : AT> AT+COPS?
+04-08 13:04:37.830    35    66 D AT      : AT< +COPS: 0,2,310260
+04-08 13:04:37.830    35    66 D AT      : AT< OK
+04-08 13:04:37.830   218   274 D RILJ    : [0020]< QUERY_NETWORK_SELECTION_MODE {0}
+04-08 13:04:37.841   218   218 D RILJ    : setCurrentPreferredNetworkType: 0
+04-08 13:04:37.841   218   218 D RILJ    : [0021]> REQUEST_SET_PREFERRED_NETWORK_TYPE : 0
+04-08 13:04:38.710   218   218 D RILJ    : [0022]> SET_NETWORK_SELECTION_AUTOMATIC
+04-08 13:04:38.710    35    64 D RIL     : onRequest: SET_PREFERRED_NETWORK_TYPE
+04-08 13:04:38.710   218   274 D RILJ    : [0021]< REQUEST_SET_PREFERRED_NETWORK_TYPE error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:38.731   218   218 D RILJ    : [0023]> OPERATOR
+04-08 13:04:38.731   218   218 D RILJ    : [0024]> DATA_REGISTRATION_STATE
+04-08 13:04:38.741    35    64 D RIL     : onRequest: SET_NETWORK_SELECTION_AUTOMATIC
+04-08 13:04:38.741    35    64 D AT      : AT> AT+COPS=0
+04-08 13:04:38.741    35    66 D AT      : AT< OK
+04-08 13:04:38.741    35    64 D RIL     : onRequest: OPERATOR
+04-08 13:04:38.741    35    64 D AT      : AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+04-08 13:04:38.741    35    66 D AT      : AT< +COPS: 0,0,"Android"
+04-08 13:04:38.741    35    66 D AT      : AT< +COPS: 0,1,"Android"
+04-08 13:04:38.741    35    66 D AT      : AT< +COPS: 0,2,"310260"
+04-08 13:04:38.741    35    66 D AT      : AT< OK
+04-08 13:04:38.741   218   274 D RILJ    : [0023]< OPERATOR {Android, Android, 310260}
+04-08 13:04:38.741   218   218 D RILJ    : [0025]> VOICE_REGISTRATION_STATE
+04-08 13:04:38.741    35    64 D RIL     : onRequest: DATA_REGISTRATION_STATE
+04-08 13:04:38.741    35    64 D AT      : AT> AT+CGREG?
+04-08 13:04:38.741    35    66 D AT      : AT< +CGREG: 1,1,"ffffffff","ffffffff","0003"
+04-08 13:04:38.741    35    66 D AT      : AT< OK
+04-08 13:04:38.751   218   274 D RILJ    : [0024]< DATA_REGISTRATION_STATE {1, ffffffff, ffffffff, 3}
+04-08 13:04:38.761    35    64 D RIL     : onRequest: VOICE_REGISTRATION_STATE
+04-08 13:04:38.761    35    64 D AT      : AT> AT+CREG?
+04-08 13:04:38.761    35    66 D AT      : AT< +CREG: 2,1, "ffffffff", "ffffffff"
+04-08 13:04:38.761    35    66 D AT      : AT< OK
+04-08 13:04:38.761   218   274 D RILJ    : [0025]< VOICE_REGISTRATION_STATE {1, ffffffff, ffffffff}
+04-08 13:04:38.761   218   218 D RILJ    : [0026]> QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:38.761    35    64 D RIL     : onRequest: QUERY_NETWORK_SELECTION_MODE
+04-08 13:04:38.761    35    64 D AT      : AT> AT+COPS?
+04-08 13:04:38.761    35    66 D AT      : AT< +COPS: 0,2,310260
+04-08 13:04:38.761    35    66 D AT      : AT< OK
+04-08 13:04:38.761   218   274 D RILJ    : [0026]< QUERY_NETWORK_SELECTION_MODE {0}
+04-08 13:04:38.771   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:04:38.771   218   218 D GSM     : [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED READY reason null
+04-08 13:04:38.800   218   218 V GSM     : SIMRecords:fetchSimRecords 0
+04-08 13:04:38.800   218   218 D RILJ    : [0027]> GET_IMSI
+04-08 13:04:38.800    35    64 D RIL     : onRequest: GET_IMSI
+04-08 13:04:38.800    35    64 D AT      : AT> AT+CIMI
+04-08 13:04:38.800    35    66 D AT      : AT< 310260000000000
+04-08 13:04:38.800    35    66 D AT      : AT< OK
+04-08 13:04:38.800   218   274 D RILJ    : [0027]< GET_IMSI 
+04-08 13:04:38.800   218   218 D RILJ    : [0028]> iccIO: SIM_IO 0xc0 0x2fe2  path: 3F00,0,0,15
+04-08 13:04:38.811    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.811    35    64 D AT      : AT> AT+CRSM=192,12258,0,0,15
+04-08 13:04:38.811    35    66 D AT      : AT< +CRSM: 144,0,0000000a2fe204000fa0aa01020000
+04-08 13:04:38.811    35    66 D AT      : AT< OK
+04-08 13:04:38.811   218   274 D RILJ    : [0028]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.821   218   218 D RILJ    : [0029]> iccIO: SIM_IO 0xc0 0x6f40  path: 3F007F10,0,0,15
+04-08 13:04:38.821    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.821    35    64 D AT      : AT> AT+CRSM=192,28480,0,0,15
+04-08 13:04:38.821    35    66 D AT      : AT< +CRSM: 144,0,000000806f40040011a0aa01020120
+04-08 13:04:38.821    35    66 D AT      : AT< OK
+04-08 13:04:38.821   218   274 D RILJ    : [0029]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.831   218   218 D RILJ    : [0030]> iccIO: SIM_IO 0xc0 0x6fc9  path: 3F007F20,0,0,15
+04-08 13:04:38.841    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.841    35    64 D AT      : AT> AT+CRSM=192,28617,0,0,15
+04-08 13:04:38.841    35    66 D AT      : AT< +CRSM: 144,0,000000086fc9040011a0aa01020104
+04-08 13:04:38.841    35    66 D AT      : AT< OK
+04-08 13:04:38.841   218   274 D RILJ    : [0030]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.841   218   218 D RILJ    : [0031]> iccIO: SIM_IO 0xc0 0x6fad  path: 3F007F20,0,0,15
+04-08 13:04:38.851    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.851    35    64 D AT      : AT> AT+CRSM=192,28589,0,0,15
+04-08 13:04:38.851    35    66 D AT      : AT< +CRSM: 144,0,000000046fad04000aa0aa01020000
+04-08 13:04:38.851    35    66 D AT      : AT< OK
+04-08 13:04:38.851   218   274 D RILJ    : [0031]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.861   218   218 D RILJ    : [0032]> iccIO: SIM_IO 0xc0 0x6fca  path: 3F007F20,0,0,15
+04-08 13:04:38.871    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.871    35    64 D AT      : AT> AT+CRSM=192,28618,0,0,15
+04-08 13:04:38.871    35    66 D AT      : AT< +CRSM: 144,0,0000000a6fca040011a0aa01020105
+04-08 13:04:38.871    35    66 D AT      : AT< OK
+04-08 13:04:38.871   218   274 D RILJ    : [0032]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.891   218   218 D RILJ    : [0033]> iccIO: SIM_IO 0xc0 0x6f11  path: 3F007F20,0,0,15
+04-08 13:04:38.891    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.891    35    64 D AT      : AT> AT+CRSM=192,28433,0,0,15
+04-08 13:04:38.891    35    66 D AT      : AT< +CRSM: 144,0,000000016f11040011a0aa01020000
+04-08 13:04:38.891    35    66 D AT      : AT< OK
+04-08 13:04:38.891   218   274 D RILJ    : [0033]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.941   218   218 D RILJ    : [0034]> iccIO: SIM_IO 0xc0 0x6fcb  path: 3F007F20,0,0,15
+04-08 13:04:38.941    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.941    35    64 D AT      : AT> AT+CRSM=192,28619,0,0,15
+04-08 13:04:38.941    35    66 D AT      : AT< ERROR: BAD COMMAND
+04-08 13:04:38.941   218   274 D RILJ    : [0034]< SIM_IO error: com.android.internal.telephony.CommandException: GENERIC_FAILURE
+04-08 13:04:38.971   218   218 D RILJ    : [0035]> iccIO: SIM_IO 0xc0 0x6f13  path: 3F007F20,0,0,15
+04-08 13:04:38.981    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.981    35    64 D AT      : AT> AT+CRSM=192,28435,0,0,15
+04-08 13:04:38.981    35    66 D AT      : AT< +CRSM: 144,0,000000016f13040011a0aa01020000
+04-08 13:04:38.981    35    66 D AT      : AT< OK
+04-08 13:04:38.981   218   274 D RILJ    : [0035]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:38.981   218   218 D RILJ    : [0036]> iccIO: SIM_IO 0xc0 0x6f46  path: 3F007F20,0,0,15
+04-08 13:04:38.981    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:38.981    35    64 D AT      : AT> AT+CRSM=192,28486,0,0,15
+04-08 13:04:38.981    35    66 D AT      : AT< +CRSM: 148,4
+04-08 13:04:38.981    35    66 D AT      : AT< OK
+04-08 13:04:38.981   218   274 D RILJ    : [0036]< SIM_IO IccIoResponse sw1:0x94 sw2:0x4
+04-08 13:04:39.031   218   218 D RILJ    : [0037]> iccIO: SIM_IO 0xc0 0x6fcd  path: 3F007F20,0,0,15
+04-08 13:04:39.041    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.041    35    64 D AT      : AT> AT+CRSM=192,28621,0,0,15
+04-08 13:04:39.041    35    66 D AT      : AT< +CRSM: 148,4
+04-08 13:04:39.041    35    66 D AT      : AT< OK
+04-08 13:04:39.041   218   274 D RILJ    : [0037]< SIM_IO IccIoResponse sw1:0x94 sw2:0x4
+04-08 13:04:39.051   218   218 D RILJ    : [0038]> iccIO: SIM_IO 0xc0 0x6fc5  path: 3F007F20,0,0,15
+04-08 13:04:39.051    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.051    35    64 D AT      : AT> AT+CRSM=192,28613,0,0,15
+04-08 13:04:39.051    35    66 D AT      : AT< +CRSM: 144,0,000000f06fc504000aa0aa01020118
+04-08 13:04:39.051    35    66 D AT      : AT< OK
+04-08 13:04:39.051   218   274 D RILJ    : [0038]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.061   218   218 D RILJ    : [0039]> iccIO: SIM_IO 0xc0 0x6f38  path: 3F007F20,0,0,15
+04-08 13:04:39.061    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.061    35    64 D AT      : AT> AT+CRSM=192,28472,0,0,15
+04-08 13:04:39.061    35    66 D AT      : AT< +CRSM: 144,0,0000000f6f3804001aa0aa01020000
+04-08 13:04:39.061    35    66 D AT      : AT< OK
+04-08 13:04:39.071   218   274 D RILJ    : [0039]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.081   218   218 D RILJ    : [0040]> iccIO: SIM_IO 0xc0 0x6f16  path: 3F007F20,0,0,15
+04-08 13:04:39.091    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.091    35    64 D AT      : AT> AT+CRSM=192,28438,0,0,15
+04-08 13:04:39.091    35    66 D AT      : AT< +CRSM: 144,0,000000026f1604001aa0aa01020000
+04-08 13:04:39.091    35    66 D AT      : AT< OK
+04-08 13:04:39.091   218   274 D RILJ    : [0040]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.091   218   218 D RILJ    : [0041]> iccIO: SIM_IO 0xc0 0x6f15  path: 3F007F20,0,0,15
+04-08 13:04:39.091    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.091    35    64 D AT      : AT> AT+CRSM=192,28437,0,0,15
+04-08 13:04:39.091    35    66 D AT      : AT< ERROR: BAD COMMAND
+04-08 13:04:39.091   218   274 D RILJ    : [0041]< SIM_IO error: com.android.internal.telephony.CommandException: GENERIC_FAILURE
+04-08 13:04:39.111   218   218 D RILJ    : [0042]> GET_SIM_STATUS
+04-08 13:04:39.111    35    64 D RIL     : onRequest: GET_SIM_STATUS
+04-08 13:04:39.111    35    64 D AT      : AT> AT+CPIN?
+04-08 13:04:39.111    35    66 D AT      : AT< +CPIN: READY
+04-08 13:04:39.111    35    66 D AT      : AT< OK
+04-08 13:04:39.121   218   274 D RILJ    : [0042]< GET_SIM_STATUS IccCardState {CARDSTATE_PRESENT,PINSTATE_UNKNOWN,num_apps=1,gsm_id=0{APPTYPE_SIM,APPSTATE_READY},cmda_id=8,ism_id=8}
+04-08 13:04:39.121   218   218 D RILJ    : [0043]> QUERY_FACILITY_LOCK
+04-08 13:04:39.131    35    64 D RIL     : onRequest: QUERY_FACILITY_LOCK
+04-08 13:04:39.131   218   274 D RILJ    : [0043]< QUERY_FACILITY_LOCK error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:39.131   218   218 D RILJ    : [0044]> QUERY_FACILITY_LOCK
+04-08 13:04:39.131    35    64 D RIL     : onRequest: QUERY_FACILITY_LOCK
+04-08 13:04:39.131   218   274 D RILJ    : [0044]< QUERY_FACILITY_LOCK error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:39.141   218   218 D RILJ    : [0045]> RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING
+04-08 13:04:39.141    35    64 D RIL     : onRequest: REPORT_STK_SERVICE_IS_RUNNING
+04-08 13:04:39.141   218   274 D RILJ    : [0045]< RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:39.291   218   218 E GSM     : [GsmSST] error parsing RegistrationState: java.lang.NumberFormatException: Invalid int: "ffffffff"
+04-08 13:04:39.291   218   218 D GSM     : [GsmSST] Poll ServiceState done:  oldSS=[1 home null null null  Unknown:0 CSS not supported 0 0 RoamInd=0 DefRoamInd=0 EmergOnly=false] newSS=[0 home Android Android 310260  UMTS:3 CSS not supported 0 0 RoamInd=0 DefRoamInd=0 EmergOnly=false] oldGprs=1 newData=0 oldMaxDataCalls=1 mNewMaxDataCalls=1 oldReasonDataDenied=-1 mNewReasonDataDenied=-1 oldType=Unknown:0 newType=UMTS:3
+04-08 13:04:39.291   218   218 D GSM     : [GsmSST] RAT switched Unknown:0 -> UMTS:3 at cell -1
+04-08 13:04:39.311   218   218 D GSM     : [GsmSST] updateSpnDisplay: changed sending intent rule=2 showPlmn='true' plmn='Android' showSpn='false' spn='null'
+04-08 13:04:39.401   218   218 D GSM     : [GsmDCT] get all active apn types
+04-08 13:04:39.401   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.411   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=true apnContextState()=IDLE
+04-08 13:04:39.411   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:39.441   218   218 D GSM     : IMSI: xxxxxxx
+04-08 13:04:39.441   218   218 D GSM     : [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED IMSI reason null
+04-08 13:04:39.461   218   218 D RILJ    : [0046]> iccIO: SIM_IO 0xb0 0x2fe2  path: 3F00,0,0,10
+04-08 13:04:39.461    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.461    35    64 D AT      : AT> AT+CRSM=176,12258,0,0,10
+04-08 13:04:39.461    35    66 D AT      : AT< +CRSM: 144,0,98101430121181157002
+04-08 13:04:39.461    35    66 D AT      : AT< OK
+04-08 13:04:39.461   218   274 D RILJ    : [0046]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.471   218   218 D RILJ    : [0047]> iccIO: SIM_IO 0xb2 0x6f40  path: 3F007F10,1,4,32
+04-08 13:04:39.471    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.471    35    64 D AT      : AT> AT+CRSM=178,28480,1,4,32
+04-08 13:04:39.471    35    66 D AT      : AT< +CRSM: 144,0,ffffffffffffffffffffffffffffffffffff07815155255155f4ffffffffffff
+04-08 13:04:39.471    35    66 D AT      : AT< OK
+04-08 13:04:39.471   218   274 D RILJ    : [0047]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.481   218   218 D RILJ    : [0048]> iccIO: SIM_IO 0xb2 0x6fc9  path: 3F007F20,1,4,4
+04-08 13:04:39.491    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.491    35    64 D AT      : AT> AT+CRSM=178,28617,1,4,4
+04-08 13:04:39.491    35    66 D AT      : AT< +CRSM: 144,0,01000000
+04-08 13:04:39.491    35    66 D AT      : AT< OK
+04-08 13:04:39.491   218   274 D RILJ    : [0048]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.501   218   218 D RILJ    : [0049]> iccIO: SIM_IO 0xb0 0x6fad  path: 3F007F20,0,0,4
+04-08 13:04:39.501    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.501    35    64 D AT      : AT> AT+CRSM=176,28589,0,0,4
+04-08 13:04:39.501    35    66 D AT      : AT< +CRSM: 144,0,00000003
+04-08 13:04:39.501    35    66 D AT      : AT< OK
+04-08 13:04:39.501   218   274 D RILJ    : [0049]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.511   218   218 D RILJ    : [0050]> iccIO: SIM_IO 0xb2 0x6fca  path: 3F007F20,1,4,5
+04-08 13:04:39.511    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.511    35    64 D AT      : AT> AT+CRSM=178,28618,1,4,5
+04-08 13:04:39.511    35    66 D AT      : AT< +CRSM: 144,0,0000000000
+04-08 13:04:39.511    35    66 D AT      : AT< OK
+04-08 13:04:39.511   218   274 D RILJ    : [0050]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.521   218   218 D RILJ    : [0051]> iccIO: SIM_IO 0xb0 0x6f11  path: 3F007F20,0,0,1
+04-08 13:04:39.521    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.521    35    64 D AT      : AT> AT+CRSM=176,28433,0,0,1
+04-08 13:04:39.521    35    66 D AT      : AT< +CRSM: 144,0,55
+04-08 13:04:39.521    35    66 D AT      : AT< OK
+04-08 13:04:39.521   218   274 D RILJ    : [0051]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.531   218   218 D RILJ    : [0052]> iccIO: SIM_IO 0xb0 0x6f13  path: 3F007F20,0,0,1
+04-08 13:04:39.531    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.531    35    64 D AT      : AT> AT+CRSM=176,28435,0,0,1
+04-08 13:04:39.531    35    66 D AT      : AT< +CRSM: 144,0,55
+04-08 13:04:39.531    35    66 D AT      : AT< OK
+04-08 13:04:39.531   218   274 D RILJ    : [0052]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.531   218   218 D RILJ    : [0053]> iccIO: SIM_IO 0xb2 0x6fc5  path: 3F007F20,1,4,24
+04-08 13:04:39.531    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.531    35    64 D AT      : AT> AT+CRSM=178,28613,1,4,24
+04-08 13:04:39.541    35    66 D AT      : AT< +CRSM: 144,0,43058441aa890affffffffffffffffffffffffffffffffff
+04-08 13:04:39.541    35    66 D AT      : AT< OK
+04-08 13:04:39.541   218   274 D RILJ    : [0053]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.541   218   218 D RILJ    : [0054]> iccIO: SIM_IO 0xb0 0x6f38  path: 3F007F20,0,0,15
+04-08 13:04:39.551    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.551    35    64 D AT      : AT> AT+CRSM=176,28472,0,0,15
+04-08 13:04:39.551    35    66 D AT      : AT< +CRSM: 144,0,ff30ffff3c003c03000c0000f03f00
+04-08 13:04:39.551    35    66 D AT      : AT< OK
+04-08 13:04:39.551   218   274 D RILJ    : [0054]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.551   218   218 D RILJ    : [0055]> iccIO: SIM_IO 0xb0 0x6f16  path: 3F007F20,0,0,2
+04-08 13:04:39.571    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:39.571    35    64 D AT      : AT> AT+CRSM=176,28438,0,0,2
+04-08 13:04:39.571    35    66 D AT      : AT< +CRSM: 144,0,0233
+04-08 13:04:39.571    35    66 D AT      : AT< OK
+04-08 13:04:39.571   218   274 D RILJ    : [0055]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:39.571   218   218 E GSM     : [IccCard] Invalid Subscription Application index:8
+04-08 13:04:39.571   218   218 D GSM     : [IccCard] USIM=READY CSIM=ABSENT
+04-08 13:04:39.571   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:04:39.571   218   218 D GSM     : [IccCard] Error in querying facility lock:com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:39.571   218   218 D GSM     : [IccCard] Error in querying facility lock:com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270352 when=-357ms obj=android.os.AsyncResult@41322078 }
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] onDataConnectionAttached
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] overall state is IDLE
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:fota
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] isDataPossible(fota): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.761   218   218 D GSM     : [GsmDCT] get active apn string for type:fota
+04-08 13:04:39.811   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:supl
+04-08 13:04:39.811   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.811   218   218 D GSM     : [GsmDCT] isDataPossible(supl): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.811   218   218 D GSM     : [GsmDCT] get active apn string for type:supl
+04-08 13:04:39.851   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:hipri
+04-08 13:04:39.851   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.851   218   218 D GSM     : [GsmDCT] isDataPossible(hipri): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.851   218   218 D GSM     : [GsmDCT] get active apn string for type:hipri
+04-08 13:04:39.881   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:ims
+04-08 13:04:39.881   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.881   218   218 D GSM     : [GsmDCT] isDataPossible(ims): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.881   218   218 D GSM     : [GsmDCT] get active apn string for type:ims
+04-08 13:04:39.921   218   218 D GSM     : [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+04-08 13:04:39.921   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:mms
+04-08 13:04:39.921   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.921   218   218 D GSM     : [GsmDCT] isDataPossible(mms): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.921   218   218 D GSM     : [GsmDCT] get active apn string for type:mms
+04-08 13:04:39.951   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:cbs
+04-08 13:04:39.951   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:39.951   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:39.951   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:40.011   218   218 D GSM     : [ApnContext] set reason as dataAttached, for type default,current state IDLE
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] trySetupData for type:default due to dataAttached
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] trySetupData with mIsPsRestricted=false
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:fota
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] isDataPossible(fota): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.011   218   218 D GSM     : [GsmDCT] get active apn string for type:fota
+04-08 13:04:40.041   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:supl
+04-08 13:04:40.041   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.051   218   218 D GSM     : [GsmDCT] isDataPossible(supl): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.051   218   218 D GSM     : [GsmDCT] get active apn string for type:supl
+04-08 13:04:40.081   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:hipri
+04-08 13:04:40.081   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.081   218   218 D GSM     : [GsmDCT] isDataPossible(hipri): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.081   218   218 D GSM     : [GsmDCT] get active apn string for type:hipri
+04-08 13:04:40.131   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:ims
+04-08 13:04:40.131   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.131   218   218 D GSM     : [GsmDCT] isDataPossible(ims): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.131   218   218 D GSM     : [GsmDCT] get active apn string for type:ims
+04-08 13:04:40.172   218   218 D GSM     : [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+04-08 13:04:40.172   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:mms
+04-08 13:04:40.181   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.201   218   218 D GSM     : [GsmDCT] isDataPossible(mms): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.201   218   218 D GSM     : [GsmDCT] get active apn string for type:mms
+04-08 13:04:40.221   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:cbs
+04-08 13:04:40.221   218   218 D GSM     : [GsmDCT] isDataAllowed: not allowed due to - SIM not loaded
+04-08 13:04:40.231   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=false isDataAllowed=false apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:40.231   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:40.281   218   218 D RILJ    : [0056]> iccIO: SIM_IO 0xc0 0x6f14  path: 3F007F20,0,0,15
+04-08 13:04:40.292    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:40.292    35    64 D AT      : AT> AT+CRSM=192,28436,0,0,15
+04-08 13:04:40.292    35    66 D AT      : AT< +CRSM: 144,0,000000146f1404001aa0aa01020000
+04-08 13:04:40.292    35    66 D AT      : AT< OK
+04-08 13:04:40.301   218   274 D RILJ    : [0056]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:40.301   218   218 E GSM     : Exception in fetching EF_CSP data com.android.internal.telephony.CommandException: GENERIC_FAILURE
+04-08 13:04:40.391   218   218 D GSM     : iccid: 89014103211118510720
+04-08 13:04:40.591   218   218 D GSM     : EF_MBI: 01000000
+04-08 13:04:40.591   218   218 D GSM     : Got valid mailbox number for MBDN
+04-08 13:04:40.591   218   218 D RILJ    : [0057]> iccIO: SIM_IO 0xc0 0x6fc7  path: 3F007F20,0,0,15
+04-08 13:04:40.601    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:40.611    35    64 D AT      : AT> AT+CRSM=192,28615,0,0,15
+04-08 13:04:40.611    35    66 D AT      : AT< +CRSM: 144,0,000000406fc7040011a0aa01020120
+04-08 13:04:40.611    35    66 D AT      : AT< OK
+04-08 13:04:40.611   218   274 D RILJ    : [0057]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:40.631   218   218 D GSM     : EF_AD: 00000003
+04-08 13:04:41.241   218   218 D GSM     : EF_MWIS: 0000000000
+04-08 13:04:41.251   218   218 D GSM     : EF_CFF_CPHS: 55
+04-08 13:04:41.251   218   218 D RILJ    : [0058]> iccIO: SIM_IO 0xb0 0x6f14  path: 3F007F20,0,0,20
+04-08 13:04:41.251    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:41.251    35    64 D AT      : AT> AT+CRSM=176,28436,0,0,20
+04-08 13:04:41.251    35    66 D AT      : AT< +CRSM: 144,0,416e64726f6964ffffffffffffffffffffffffff
+04-08 13:04:41.251    35    66 D AT      : AT< OK
+04-08 13:04:41.261   218   274 D RILJ    : [0058]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:41.271   218   218 D GSM     : [SIMRecords] SST: UsimServiceTable[120]={ PHONEBOOK, FDN, FDN_EXTENSION, SDN, SDN_EXTENSION, BDN, BDN_EXTENSION, OUTGOING_CALL_INFO, ADVICE_OF_CHARGE, CAP_CONFIG_PARAMS_2, GROUP_ID_LEVEL_1, GROUP_ID_LEVEL_2, SPN, USER_PLMN_SELECT, MSISDN, IMAGE, LOCALISED_SERVICE_AREAS, EMLPP, EMLPP_AUTO_ANSWER, RFU, GSM_ACCESS, DATA_DL_VIA_SMS_PP, DATA_DL_VIA_SMS_CB, CALL_CONTROL_BY_USIM, MO_SMS_CONTROL_BY_USIM, RUN_AT_COMMAND, APN_CONTROL_LIST, DEPERSONALISATION_CONTROL_KEYS, COOPERATIVE_NETWORK_LIST, GSM_SECURITY_CONTEXT, SERVICE_PROVIDER_DISPLAY_INFO, MMS_NOTIFICATION, MMS_NOTIFICATION_EXTENSION, GPRS_CALL_CONTROL_BY_USIM, VGCS_GROUP_ID_LIST, VBS_GROUP_ID_LIST, OMA_BCAST_PROFILE, GBA_LOCAL_KEY_ESTABLISHMENT, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110 }
+04-08 13:04:41.271   218   218 D GSM     : [SIMRecords] iCPHS: 0233
+04-08 13:04:41.411   218   218 D GSM     : MSISDN: xxxxxxx
+04-08 13:04:41.411   218   218 D RILJ    : [0059]> iccIO: SIM_IO 0xb2 0x6fc7  path: 3F007F20,1,4,32
+04-08 13:04:41.411    35    64 D RIL     : onRequest: SIM_IO
+04-08 13:04:41.411    35    64 D AT      : AT> AT+CRSM=178,28615,1,4,32
+04-08 13:04:41.411    35    66 D AT      : AT< +CRSM: 144,0,566f6963656d61696cffffffffffffffffff07915155125740f9ffffffffffff
+04-08 13:04:41.411    35    66 D AT      : AT< OK
+04-08 13:04:41.421   218   274 D RILJ    : [0059]< SIM_IO IccIoResponse sw1:0x90 sw2:0x0
+04-08 13:04:41.511   218   218 D GSM     : [SIMRecords] Load EF_SPN_CPHS: Android
+04-08 13:04:41.511   218   218 D GSM     : VM: ADN Record 'Voicemail' '+15552175049 null' EF[MBDN]
+04-08 13:04:41.511   218   218 D GSM     : SIMRecords: record load complete
+04-08 13:04:41.541   218   218 D GSM     : [IccCard] Broadcasting intent ACTION_SIM_STATE_CHANGED LOADED reason null
+04-08 13:04:41.561   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270338 when=-18ms obj=android.os.AsyncResult@412c71b0 }
+04-08 13:04:41.561   218   218 D GSM     : [GsmDCT] onRecordsLoaded: createAllApnList
+04-08 13:04:41.561   218   218 D GSM     : [GsmDCT] createAllApnList: selection=numeric = '310260' and carrier_enabled = 1
+04-08 13:04:43.320   218   218 D GSM     : [GsmDCT] createApnList: X result=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] createAllApnList: mPreferredApn=null
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] createAllApnList: X mAllApns=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] onRecordsLoaded: notifying data availability
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:fota
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.350   218   218 D GSM     : [GsmDCT] get active apn string for type:fota
+04-08 13:04:43.400   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:supl
+04-08 13:04:43.410   218   218 D GSM     : [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.410   218   218 D GSM     : [GsmDCT] get active apn string for type:supl
+04-08 13:04:43.410   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:hipri
+04-08 13:04:43.410   218   218 D GSM     : [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.410   218   218 D GSM     : [GsmDCT] get active apn string for type:hipri
+04-08 13:04:43.450   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:ims
+04-08 13:04:43.450   218   218 D GSM     : [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.450   218   218 D GSM     : [GsmDCT] get active apn string for type:ims
+04-08 13:04:43.460   218   218 D GSM     : [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=IDLE apnType=default
+04-08 13:04:43.460   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:mms
+04-08 13:04:43.460   218   218 D GSM     : [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.460   218   218 D GSM     : [GsmDCT] get active apn string for type:mms
+04-08 13:04:43.490   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:cbs
+04-08 13:04:43.490   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:43.490   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:43.500   218   218 D GSM     : [ApnContext] set reason as simLoaded, for type default,current state IDLE
+04-08 13:04:43.500   218   218 D GSM     : [GsmDCT] trySetupData for type:default due to simLoaded
+04-08 13:04:43.500   218   218 D GSM     : [GsmDCT] trySetupData with mIsPsRestricted=false
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] isEmergency: result=false
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] apn info : [ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] buildWaitingApns: X apnList=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] trySetupData: Create from mAllApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] Setup watingApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:43.530   218   218 D GSM     : [GsmDCT] setupData: apnContext=state=IDLE apnType=default
+04-08 13:04:43.570   218   218 D GSM     : [GsmDCT] checkForConnectionForApnContext: apnContext=state=IDLE apnType=default NO conn
+04-08 13:04:43.570   218   218 D GSM     : [GsmDCT] findReadyDataConnection: apn string <[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0>
+04-08 13:04:43.570   218   218 D GSM     : [GsmDCT] setupData: No ready GsmDataConnection found!
+04-08 13:04:43.570   218   218 D GSM     : [GsmDCT] findFreeDataConnection: NO free GsmDataConnection
+04-08 13:04:43.570   218   218 D GSM     : [GsmDCT] createDataConnection E
+04-08 13:04:43.620   218   218 D GSM     : [GsmDC-1] DataConnection constructor E
+04-08 13:04:43.620   218   218 D GSM     : [GsmDC-1] DataConnection constructor X
+04-08 13:04:43.620   218   218 D RILB    : registerForRilConnected h=Handler (com.android.internal.util.StateMachine$SmHandler) {41331430} w=262149
+04-08 13:04:43.620   218   218 D RILB    : Notifying: ril connected mRilVersion=6
+04-08 13:04:43.620   218   383 D GSM     : [GsmDC-1] DcDefaultState: msg.what=EVENT_RIL_CONNECTED mRilVersion=6
+04-08 13:04:43.630   218   218 D GSM     : [GsmDC-1] clearSettings
+04-08 13:04:43.630   218   218 D GSM     : [GsmDC-1] Made GsmDC-1
+04-08 13:04:44.020   218   218 D GSM     : [GsmDCT] createDataConnection() X id=0
+04-08 13:04:44.020   218   218 D GSM     : [GsmDCT] setupData: init dc and apnContext refCount=0
+04-08 13:04:44.060   218   218 D GSM     : [ApnContext] setState: INITING for type default, previous state:IDLE
+04-08 13:04:44.060   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=INITING
+04-08 13:04:44.060   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:44.090   218   383 D GSM     : [GsmDC-1] DcInactiveState msg.what=EVENT_CONNECT.RefCount = 0
+04-08 13:04:44.090   218   383 D GSM     : [GsmDC-1] Connecting to carrier: 'TelKila' APN: 'internet' proxy: 'null' port: 'null
+04-08 13:04:44.090   218   383 D RILJ    : [0060]> SETUP_DATA_CALL 5 0 internet * * 3 IP
+04-08 13:04:44.090    35    64 D RIL     : onRequest: SETUP_DATA_CALL
+04-08 13:04:44.090    35    64 D RIL     : requesting data connection to APN 'internet'
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGDCONT=1,"IP","internet",,0,0
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGQREQ=1
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGQMIN=1
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGEREP=1,0
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGACT=1,0
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> ATD*99***1#
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGACT?
+04-08 13:04:44.090    35    66 D AT      : AT< +CGACT: 1,1
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.090    35    64 D AT      : AT> AT+CGDCONT?
+04-08 13:04:44.090    35    66 D AT      : AT< +CGDCONT: 1,"IP","internet","10.0.2.15",0,0
+04-08 13:04:44.090    35    66 D AT      : AT< OK
+04-08 13:04:44.100   218   274 D RILJ    : [0060]< SETUP_DATA_CALL DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+04-08 13:04:44.100   218   383 D GSM     : [GsmDC-1] DcActivatingState msg.what=EVENT_SETUP_DATA_CONNECTION_DONE
+04-08 13:04:44.100   218   383 D GSM     : [GsmDC-1] onSetupConnectionCompleted received DataCallState: DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+04-08 13:04:44.100   218   383 D GSM     : addr/pl=10.0.2.15/32
+04-08 13:04:44.100   218   383 D GSM     : [GsmDC-1] updateLinkProperty old != new
+04-08 13:04:44.100   218   383 D GSM     : [GsmDC-1] DcActivatingState onSetupConnectionCompleted result=SUCCESS  SetupResult.mFailCause=NONE
+04-08 13:04:44.100   218   383 D GSM     : [GsmDC-1] notifyConnectionCompleted at 1333890284109 cause=NONE
+04-08 13:04:44.110   218   218 D GSM     : [GsmDCT] setupData: initing!
+04-08 13:04:44.110   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:fota
+04-08 13:04:44.110   218   218 D GSM     : [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.110   218   218 D GSM     : [GsmDCT] get active apn string for type:fota
+04-08 13:04:44.170   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:supl
+04-08 13:04:44.170   218   218 D GSM     : [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.170   218   218 D GSM     : [GsmDCT] get active apn string for type:supl
+04-08 13:04:44.190   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:hipri
+04-08 13:04:44.190   218   218 D GSM     : [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.190   218   218 D GSM     : [GsmDCT] get active apn string for type:hipri
+04-08 13:04:44.230   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:ims
+04-08 13:04:44.230   218   218 D GSM     : [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.230   218   218 D GSM     : [GsmDCT] get active apn string for type:ims
+04-08 13:04:44.331   218   218 D GSM     : [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=INITING apnType=default
+04-08 13:04:44.331   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:mms
+04-08 13:04:44.331   218   218 D GSM     : [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.331   218   218 D GSM     : [GsmDCT] get active apn string for type:mms
+04-08 13:04:44.400   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:cbs
+04-08 13:04:44.400   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:44.400   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:44.510   218   218 D GSM     : [GsmSST] updateSpnDisplay: changed sending intent rule=2 showPlmn='true' plmn='Android' showSpn='false' spn='Android'
+04-08 13:04:45.790   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270336 when=-1s685ms arg1=1 obj=android.os.AsyncResult@41293980 }
+04-08 13:04:45.790   218   218 D GSM     : [GsmDCT] isDataSetupCompleteOk return true
+04-08 13:04:45.790   218   218 D GSM     : [GsmDCT] onDataSetupComplete: success apn=internet
+04-08 13:04:45.870   218   218 D GSM     : [GsmDCT] onDataSetupComplete: PREFERED APN is null
+04-08 13:04:45.900   218   218 D GSM     : [GsmDCT] notifyDefaultData: type=default, reason:simLoaded
+04-08 13:04:45.900   218   218 D GSM     : [ApnContext] setState: CONNECTED for type default, previous state:INITING
+04-08 13:04:45.900   218   218 D GSM     : [GsmDCT] return link properites for default
+04-08 13:04:45.920   218   218 D GSM     : [GsmDCT] get active pdp is not null, return link Capabilities for default
+04-08 13:04:45.920   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=CONNECTED
+04-08 13:04:45.920   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:45.980   218   218 D GSM     : [GsmDCT] overall state is CONNECTED
+04-08 13:04:45.980   218   218 D GSM     : [GsmDCT] startNetStatPoll
+04-08 13:04:45.980   218   218 D GSM     : [GsmDCT] startDataStallAlarm: tag=75466 delay=360s
+04-08 13:04:46.330   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270355 when=-106ms }
+04-08 13:04:46.330   218   218 D GSM     : [GsmDCT] overall state is CONNECTED
+04-08 13:04:46.650   218   218 D GSM     : [GsmDCT] onApnChanged: createAllApnList and cleanUpAllConnections
+04-08 13:04:46.650   218   218 D GSM     : [GsmDCT] createAllApnList: selection=numeric = '310260' and carrier_enabled = 1
+04-08 13:04:46.730   218   218 D GSM     : [GsmDCT] createApnList: X result=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] createAllApnList: mPreferredApn=[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] createAllApnList: X mAllApns=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpAllConnections: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type fota,current state IDLE
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] setState: IDLE for type fota, previous state:IDLE
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type supl,current state IDLE
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] setState: IDLE for type supl, previous state:IDLE
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type hipri,current state IDLE
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] setState: IDLE for type hipri, previous state:IDLE
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type ims,current state IDLE
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] setState: IDLE for type ims, previous state:IDLE
+04-08 13:04:46.790   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type default,current state CONNECTED
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.790   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearing down
+04-08 13:04:46.790   218   383 D GSM     : [GsmDC-1] DcActiveState msg.what=EVENT_DISCONNECT RefCount=0
+04-08 13:04:46.790   218   383 D GSM     : [GsmDC-1] tearDownData radio is on, call deactivateDataCall
+04-08 13:04:46.790   218   383 D RILJ    : [0061]> DEACTIVATE_DATA_CALL 1 0
+04-08 13:04:46.800    35    64 D RIL     : onRequest: DEACTIVATE_DATA_CALL
+04-08 13:04:46.800   218   274 D RILJ    : [0061]< DEACTIVATE_DATA_CALL error: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+04-08 13:04:46.800   218   383 D GSM     : [GsmDC-1] DcDisconnectingState msg.what=EVENT_DEACTIVATE_DONE
+04-08 13:04:46.800   218   383 D GSM     : [GsmDC-1] NotifyDisconnectCompleted DisconnectParams=com.android.internal.telephony.DataConnection$DisconnectParams@412c40a8
+04-08 13:04:46.800   218   383 D GSM     : [GsmDC-1] clearSettings
+04-08 13:04:46.820   218   218 D GSM     : [ApnContext] setState: DISCONNECTING for type default, previous state:CONNECTED
+04-08 13:04:46.820   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type mms,current state IDLE
+04-08 13:04:46.820   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.820   218   218 D GSM     : [ApnContext] setState: IDLE for type mms, previous state:IDLE
+04-08 13:04:46.820   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type cbs,current state IDLE
+04-08 13:04:46.820   218   218 D GSM     : [GsmDCT] cleanUpConnection: tearDown=true reason=apnChanged
+04-08 13:04:46.820   218   218 D GSM     : [ApnContext] setState: IDLE for type cbs, previous state:IDLE
+04-08 13:04:46.820   218   218 D GSM     : [GsmDCT] stopNetStatPoll
+04-08 13:04:46.820   218   218 D GSM     : [GsmDCT] stopDataStallAlarm: current tag=75466 mDataStallAlarmIntent=PendingIntent{412b5170: android.os.BinderProxy@4131a810}
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270368 when=-294ms arg1=1 }
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270351 when=-128ms obj=android.os.AsyncResult@412d05f0 }
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] DataConnectoinTracker.handleMessage: EVENT_DISCONNECT_DONE msg={ what=270351 when=-129ms obj=android.os.AsyncResult@412d05f0 }
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] onDisconnectDone: EVENT_DISCONNECT_DONE connId=0
+04-08 13:04:46.930   218   218 D GSM     : [ApnContext] setState: IDLE for type default, previous state:DISCONNECTING
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=IDLE
+04-08 13:04:46.930   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:47.000   218   218 D GSM     : [GsmDCT] Schedule alarm for reconnect: activate failed. Scheduling next attempt for 5s
+04-08 13:04:47.120   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270368 when=0 arg1=1 }
+04-08 13:04:52.010   218   218 D GSM     : [GsmDCT] onReceive: action=com.android.internal.telephony.gprs-reconnect.0
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] Reconnect alarm. Previous state was IDLE
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] GPRS reconnect alarm. Previous state was IDLE
+04-08 13:04:52.020   218   218 D GSM     : [ApnContext] set reason as apnChanged, for type default,current state IDLE
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270339 when=-2ms obj=state=IDLE apnType=default }
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] onTrySetupData: apnContext=state=IDLE apnType=default
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] trySetupData for type:default due to apnChanged
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] trySetupData with mIsPsRestricted=false
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] isEmergency: result=false
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] buildWaitingApns: Preferred APN:310260:310260:[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] buildWaitingApns: X added preferred apnList=[[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] trySetupData: Create from mAllApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] Setup watingApns : [[ApnSettingV2] TelKila, 2, 310260, internet, null, null, null, null, null, -1, *, IP, IP, true, 0]
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] setupData: apnContext=state=IDLE apnType=default
+04-08 13:04:52.020   218   218 D GSM     : [ApnContext] setState: INITING for type default, previous state:IDLE
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=INITING
+04-08 13:04:52.020   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:52.050   218   383 D GSM     : [GsmDC-1] DcInactiveState msg.what=EVENT_CONNECT.RefCount = 0
+04-08 13:04:52.050   218   383 D GSM     : [GsmDC-1] Connecting to carrier: 'TelKila' APN: 'internet' proxy: 'null' port: 'null
+04-08 13:04:52.050   218   383 D RILJ    : [0062]> SETUP_DATA_CALL 5 0 internet * * 3 IP
+04-08 13:04:52.050    35    64 D RIL     : onRequest: SETUP_DATA_CALL
+04-08 13:04:52.050    35    64 D RIL     : requesting data connection to APN 'internet'
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGDCONT=1,"IP","internet",,0,0
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGQREQ=1
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGQMIN=1
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGEREP=1,0
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGACT=1,0
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> ATD*99***1#
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGACT?
+04-08 13:04:52.050    35    66 D AT      : AT< +CGACT: 1,1
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.050    35    64 D AT      : AT> AT+CGDCONT?
+04-08 13:04:52.050    35    66 D AT      : AT< +CGDCONT: 1,"IP","internet","10.0.2.15",0,0
+04-08 13:04:52.050    35    66 D AT      : AT< OK
+04-08 13:04:52.060   218   274 D RILJ    : [0062]< SETUP_DATA_CALL DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+04-08 13:04:52.060   218   383 D GSM     : [GsmDC-1] DcActivatingState msg.what=EVENT_SETUP_DATA_CONNECTION_DONE
+04-08 13:04:52.060   218   383 D GSM     : [GsmDC-1] onSetupConnectionCompleted received DataCallState: DataCallState: {version=6 status=0 retry=-1 cid=1 active=1 type=IP' ifname='eth0' addresses=[10.0.2.15] dnses=[10.0.2.3,10.0.2.4] gateways=[10.0.2.2]}
+04-08 13:04:52.060   218   383 D GSM     : addr/pl=10.0.2.15/32
+04-08 13:04:52.060   218   383 D GSM     : [GsmDC-1] updateLinkProperty old != new
+04-08 13:04:52.060   218   383 D GSM     : [GsmDC-1] DcActivatingState onSetupConnectionCompleted result=SUCCESS  SetupResult.mFailCause=NONE
+04-08 13:04:52.060   218   383 D GSM     : [GsmDC-1] notifyConnectionCompleted at 1333890292068 cause=NONE
+04-08 13:04:52.060   218   218 D GSM     : [GsmDCT] setupData: initing!
+04-08 13:04:52.060   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:fota
+04-08 13:04:52.060   218   218 D GSM     : [GsmDCT] isDataPossible(fota): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.060   218   218 D GSM     : [GsmDCT] get active apn string for type:fota
+04-08 13:04:52.080   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:supl
+04-08 13:04:52.080   218   218 D GSM     : [GsmDCT] isDataPossible(supl): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.080   218   218 D GSM     : [GsmDCT] get active apn string for type:supl
+04-08 13:04:52.090   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:hipri
+04-08 13:04:52.090   218   218 D GSM     : [GsmDCT] isDataPossible(hipri): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.090   218   218 D GSM     : [GsmDCT] get active apn string for type:hipri
+04-08 13:04:52.110   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:ims
+04-08 13:04:52.110   218   218 D GSM     : [GsmDCT] isDataPossible(ims): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.110   218   218 D GSM     : [GsmDCT] get active apn string for type:ims
+04-08 13:04:52.131   218   218 D GSM     : [GsmDCT] notifyOffApnsOfAvailability skipped apn due to isReady==false: state=INITING apnType=default
+04-08 13:04:52.131   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:mms
+04-08 13:04:52.131   218   218 D GSM     : [GsmDCT] isDataPossible(mms): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.131   218   218 D GSM     : [GsmDCT] get active apn string for type:mms
+04-08 13:04:52.150   218   218 D GSM     : [GsmDCT] notifyOffApnOfAvailability type:cbs
+04-08 13:04:52.150   218   218 D GSM     : [GsmDCT] isDataPossible(cbs): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=false apnContextState()=IDLE
+04-08 13:04:52.150   218   218 D GSM     : [GsmDCT] get active apn string for type:cbs
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270336 when=-102ms arg1=1 obj=android.os.AsyncResult@412d8740 }
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] isDataSetupCompleteOk return true
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] onDataSetupComplete: success apn=internet
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] notifyDefaultData: type=default, reason:apnChanged
+04-08 13:04:52.170   218   218 D GSM     : [ApnContext] setState: CONNECTED for type default, previous state:INITING
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] return link properites for default
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] get active pdp is not null, return link Capabilities for default
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] isDataPossible(default): possible=true isDataAllowed=true apnTypePossible=true apnContextisEnabled=true apnContextState()=CONNECTED
+04-08 13:04:52.170   218   218 D GSM     : [GsmDCT] get active apn string for type:default
+04-08 13:04:52.220   218   218 D GSM     : [GsmDCT] overall state is CONNECTED
+04-08 13:04:52.220   218   218 D GSM     : [GsmDCT] startNetStatPoll
+04-08 13:04:52.220   218   218 D GSM     : [GsmDCT] startDataStallAlarm: tag=75468 delay=360s
+04-08 13:04:52.310   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270368 when=-24ms arg1=1 }
+04-08 13:04:58.812   218   218 D RILJ    : [0063]> SIGNAL_STRENGTH
+04-08 13:04:58.812    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:04:58.812    35    64 D AT      : AT> AT+CSQ
+04-08 13:04:58.812    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:04:58.812    35    66 D AT      : AT< OK
+04-08 13:04:58.812    35    64 E RILC    : invalid response length
+04-08 13:04:58.821   218   274 D RILJ    : [0063]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:04:58.821   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:04:58.821   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:18.882   218   218 D RILJ    : [0064]> SIGNAL_STRENGTH
+04-08 13:05:18.882    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:05:18.882    35    64 D AT      : AT> AT+CSQ
+04-08 13:05:18.882    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:05:18.882    35    66 D AT      : AT< OK
+04-08 13:05:18.882    35    64 E RILC    : invalid response length
+04-08 13:05:18.882   218   274 D RILJ    : [0064]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:05:18.890   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:18.890   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:38.935   218   218 D RILJ    : [0065]> SIGNAL_STRENGTH
+04-08 13:05:38.940    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:05:38.940    35    64 D AT      : AT> AT+CSQ
+04-08 13:05:38.940    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:05:38.940    35    66 D AT      : AT< OK
+04-08 13:05:38.940    35    64 E RILC    : invalid response length
+04-08 13:05:38.940   218   274 D RILJ    : [0065]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:05:38.940   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:38.940   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:58.985   218   218 D RILJ    : [0066]> SIGNAL_STRENGTH
+04-08 13:05:58.990    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:05:58.990    35    64 D AT      : AT> AT+CSQ
+04-08 13:05:58.990    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:05:58.990    35    66 D AT      : AT< OK
+04-08 13:05:58.990    35    64 E RILC    : invalid response length
+04-08 13:05:58.990   218   274 D RILJ    : [0066]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:05:58.990   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:05:58.990   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:19.032   218   218 D RILJ    : [0067]> SIGNAL_STRENGTH
+04-08 13:06:19.032    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:06:19.032    35    64 D AT      : AT> AT+CSQ
+04-08 13:06:19.032    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:06:19.032    35    66 D AT      : AT< OK
+04-08 13:06:19.032    35    64 E RILC    : invalid response length
+04-08 13:06:19.040   218   274 D RILJ    : [0067]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:06:19.040   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:19.040   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:39.097   218   218 D RILJ    : [0068]> SIGNAL_STRENGTH
+04-08 13:06:39.100    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:06:39.100    35    64 D AT      : AT> AT+CSQ
+04-08 13:06:39.100    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:06:39.100    35    66 D AT      : AT< OK
+04-08 13:06:39.100    35    64 E RILC    : invalid response length
+04-08 13:06:39.100   218   274 D RILJ    : [0068]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:06:39.110   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:39.110   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:59.140   218   218 D RILJ    : [0069]> SIGNAL_STRENGTH
+04-08 13:06:59.140    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:06:59.140    35    64 D AT      : AT> AT+CSQ
+04-08 13:06:59.140    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:06:59.140    35    66 D AT      : AT< OK
+04-08 13:06:59.140    35    64 E RILC    : invalid response length
+04-08 13:06:59.150   218   274 D RILJ    : [0069]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:06:59.150   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:06:59.150   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:19.174   218   218 D RILJ    : [0070]> SIGNAL_STRENGTH
+04-08 13:07:19.174    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:07:19.174    35    64 D AT      : AT> AT+CSQ
+04-08 13:07:19.180    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:07:19.180    35    66 D AT      : AT< OK
+04-08 13:07:19.180    35    64 E RILC    : invalid response length
+04-08 13:07:19.180   218   274 D RILJ    : [0070]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:07:19.180   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:19.180   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:39.209   218   218 D RILJ    : [0071]> SIGNAL_STRENGTH
+04-08 13:07:39.210    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:07:39.210    35    64 D AT      : AT> AT+CSQ
+04-08 13:07:39.210    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:07:39.210    35    66 D AT      : AT< OK
+04-08 13:07:39.210    35    64 E RILC    : invalid response length
+04-08 13:07:39.210   218   274 D RILJ    : [0071]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:07:39.220   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:39.220   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:59.264   218   218 D RILJ    : [0072]> SIGNAL_STRENGTH
+04-08 13:07:59.264    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:07:59.264    35    64 D AT      : AT> AT+CSQ
+04-08 13:07:59.264    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:07:59.270    35    66 D AT      : AT< OK
+04-08 13:07:59.270    35    64 E RILC    : invalid response length
+04-08 13:07:59.270   218   274 D RILJ    : [0072]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:07:59.270   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:07:59.270   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:19.283   218   218 D RILJ    : [0073]> SIGNAL_STRENGTH
+04-08 13:08:19.283    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:08:19.283    35    64 D AT      : AT> AT+CSQ
+04-08 13:08:19.290    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:08:19.290    35    66 D AT      : AT< OK
+04-08 13:08:19.290    35    64 E RILC    : invalid response length
+04-08 13:08:19.290   218   274 D RILJ    : [0073]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:08:19.290   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:19.290   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:39.353   218   218 D RILJ    : [0074]> SIGNAL_STRENGTH
+04-08 13:08:39.353    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:08:39.353    35    64 D AT      : AT> AT+CSQ
+04-08 13:08:39.353    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:08:39.353    35    66 D AT      : AT< OK
+04-08 13:08:39.353    35    64 E RILC    : invalid response length
+04-08 13:08:39.360   218   274 D RILJ    : [0074]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:08:39.360   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:39.360   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:59.420   218   218 D RILJ    : [0075]> SIGNAL_STRENGTH
+04-08 13:08:59.420    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:08:59.420    35    64 D AT      : AT> AT+CSQ
+04-08 13:08:59.420    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:08:59.420    35    66 D AT      : AT< OK
+04-08 13:08:59.420    35    64 E RILC    : invalid response length
+04-08 13:08:59.420   218   274 D RILJ    : [0075]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:08:59.420   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:08:59.430   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:19.430   218   218 D RILJ    : [0076]> SIGNAL_STRENGTH
+04-08 13:09:19.430    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:09:19.430    35    64 D AT      : AT> AT+CSQ
+04-08 13:09:19.430    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:09:19.430    35    66 D AT      : AT< OK
+04-08 13:09:19.430    35    64 E RILC    : invalid response length
+04-08 13:09:19.430   218   274 D RILJ    : [0076]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:09:19.430   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:19.430   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:39.485   218   218 D RILJ    : [0077]> SIGNAL_STRENGTH
+04-08 13:09:39.490    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:09:39.490    35    64 D AT      : AT> AT+CSQ
+04-08 13:09:39.490    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:09:39.490    35    66 D AT      : AT< OK
+04-08 13:09:39.490    35    64 E RILC    : invalid response length
+04-08 13:09:39.490   218   274 D RILJ    : [0077]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:09:39.490   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:39.490   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:59.564   218   218 D RILJ    : [0078]> SIGNAL_STRENGTH
+04-08 13:09:59.564    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:09:59.564    35    64 D AT      : AT> AT+CSQ
+04-08 13:09:59.570    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:09:59.570    35    66 D AT      : AT< OK
+04-08 13:09:59.570    35    64 E RILC    : invalid response length
+04-08 13:09:59.570   218   274 D RILJ    : [0078]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:09:59.570   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:09:59.581   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:19.584   218   218 D RILJ    : [0079]> SIGNAL_STRENGTH
+04-08 13:10:19.590    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:10:19.590    35    64 D AT      : AT> AT+CSQ
+04-08 13:10:19.590    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:10:19.590    35    66 D AT      : AT< OK
+04-08 13:10:19.590    35    64 E RILC    : invalid response length
+04-08 13:10:19.590   218   274 D RILJ    : [0079]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:10:19.590   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:19.590   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:39.623   218   218 D RILJ    : [0080]> SIGNAL_STRENGTH
+04-08 13:10:39.630    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:10:39.630    35    64 D AT      : AT> AT+CSQ
+04-08 13:10:39.630    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:10:39.630    35    66 D AT      : AT< OK
+04-08 13:10:39.630    35    64 E RILC    : invalid response length
+04-08 13:10:39.630   218   274 D RILJ    : [0080]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:10:39.630   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:39.630   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:52.260   218   218 D GSM     : [GsmDCT] onReceive: action=com.android.internal.telephony.gprs-data-stall
+04-08 13:10:52.270   218   218 D GSM     : [GsmDCT] handleMessage msg={ what=270353 when=-10ms arg1=75468 obj=com.android.internal.telephony.gprs-data-stall }
+04-08 13:10:52.440   218   218 D GSM     : [GsmDCT] startDataStallAlarm: tag=75469 delay=360s
+04-08 13:10:59.655   218   218 D RILJ    : [0081]> SIGNAL_STRENGTH
+04-08 13:10:59.660    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:10:59.660    35    64 D AT      : AT> AT+CSQ
+04-08 13:10:59.660    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:10:59.660    35    66 D AT      : AT< OK
+04-08 13:10:59.660    35    64 E RILC    : invalid response length
+04-08 13:10:59.660   218   274 D RILJ    : [0081]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:10:59.660   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:10:59.660   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:19.684   218   218 D RILJ    : [0082]> SIGNAL_STRENGTH
+04-08 13:11:19.684    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:11:19.684    35    64 D AT      : AT> AT+CSQ
+04-08 13:11:19.684    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:11:19.690    35    66 D AT      : AT< OK
+04-08 13:11:19.690    35    64 E RILC    : invalid response length
+04-08 13:11:19.690   218   274 D RILJ    : [0082]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:11:19.690   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:19.690   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:39.750   218   218 D RILJ    : [0083]> SIGNAL_STRENGTH
+04-08 13:11:39.750    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:11:39.750    35    64 D AT      : AT> AT+CSQ
+04-08 13:11:39.750    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:11:39.750    35    66 D AT      : AT< OK
+04-08 13:11:39.750    35    64 E RILC    : invalid response length
+04-08 13:11:39.750   218   274 D RILJ    : [0083]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:11:39.760   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:39.760   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:59.775   218   218 D RILJ    : [0084]> SIGNAL_STRENGTH
+04-08 13:11:59.781    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:11:59.781    35    64 D AT      : AT> AT+CSQ
+04-08 13:11:59.781    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:11:59.781    35    66 D AT      : AT< OK
+04-08 13:11:59.781    35    64 E RILC    : invalid response length
+04-08 13:11:59.781   218   274 D RILJ    : [0084]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:11:59.781   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:11:59.781   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:19.827   218   218 D RILJ    : [0085]> SIGNAL_STRENGTH
+04-08 13:12:19.831    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:12:19.831    35    64 D AT      : AT> AT+CSQ
+04-08 13:12:19.831    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:12:19.831    35    66 D AT      : AT< OK
+04-08 13:12:19.831    35    64 E RILC    : invalid response length
+04-08 13:12:19.831   218   274 D RILJ    : [0085]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:12:19.831   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:19.831   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:39.880   218   218 D RILJ    : [0086]> SIGNAL_STRENGTH
+04-08 13:12:39.880    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:12:39.880    35    64 D AT      : AT> AT+CSQ
+04-08 13:12:39.880    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:12:39.880    35    66 D AT      : AT< OK
+04-08 13:12:39.880    35    64 E RILC    : invalid response length
+04-08 13:12:39.880   218   274 D RILJ    : [0086]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:12:39.891   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:39.891   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:59.944   218   218 D RILJ    : [0087]> SIGNAL_STRENGTH
+04-08 13:12:59.951    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:12:59.951    35    64 D AT      : AT> AT+CSQ
+04-08 13:12:59.951    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:12:59.951    35    66 D AT      : AT< OK
+04-08 13:12:59.951    35    64 E RILC    : invalid response length
+04-08 13:12:59.951   218   274 D RILJ    : [0087]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:12:59.951   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:12:59.951   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:13:19.983   218   218 D RILJ    : [0088]> SIGNAL_STRENGTH
+04-08 13:13:19.983    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:13:19.983    35    64 D AT      : AT> AT+CSQ
+04-08 13:13:19.983    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:13:19.983    35    66 D AT      : AT< OK
+04-08 13:13:19.983    35    64 E RILC    : invalid response length
+04-08 13:13:19.991   218   274 D RILJ    : [0088]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:13:19.991   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:13:19.991   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:13:40.028   218   218 D RILJ    : [0089]> SIGNAL_STRENGTH
+04-08 13:13:40.031    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:13:40.031    35    64 D AT      : AT> AT+CSQ
+04-08 13:13:40.031    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:13:40.031    35    66 D AT      : AT< OK
+04-08 13:13:40.031    35    64 E RILC    : invalid response length
+04-08 13:13:40.031   218   274 D RILJ    : [0089]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:13:40.041   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:13:40.041   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:00.110   218   218 D RILJ    : [0090]> SIGNAL_STRENGTH
+04-08 13:14:00.110    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:14:00.110    35    64 D AT      : AT> AT+CSQ
+04-08 13:14:00.110    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:14:00.110    35    66 D AT      : AT< OK
+04-08 13:14:00.110    35    64 E RILC    : invalid response length
+04-08 13:14:00.110   218   274 D RILJ    : [0090]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:14:00.130   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:00.130   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:20.149   218   218 D RILJ    : [0091]> SIGNAL_STRENGTH
+04-08 13:14:20.151    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:14:20.151    35    64 D AT      : AT> AT+CSQ
+04-08 13:14:20.151    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:14:20.151    35    66 D AT      : AT< OK
+04-08 13:14:20.151    35    64 E RILC    : invalid response length
+04-08 13:14:20.160   218   274 D RILJ    : [0091]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:14:20.160   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:20.160   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:40.176   218   218 D RILJ    : [0092]> SIGNAL_STRENGTH
+04-08 13:14:40.180    35    64 D RIL     : onRequest: SIGNAL_STRENGTH
+04-08 13:14:40.180    35    64 D AT      : AT> AT+CSQ
+04-08 13:14:40.180    35    66 D AT      : AT< +CSQ: 7,99
+04-08 13:14:40.180    35    66 D AT      : AT< OK
+04-08 13:14:40.180    35    64 E RILC    : invalid response length
+04-08 13:14:40.180   218   274 D RILJ    : [0092]< SIGNAL_STRENGTH error: com.android.internal.telephony.CommandException: INVALID_RESPONSE
+04-08 13:14:40.190   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''
+04-08 13:14:40.190   218   218 D RILB    : getLteOnCdmaMode=0 curVal=-1 product_type='' lteOnCdmaProductType=''

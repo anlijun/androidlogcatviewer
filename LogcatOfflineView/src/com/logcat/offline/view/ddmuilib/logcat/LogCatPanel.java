@@ -122,10 +122,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private static final String IMAGE_EDIT_FILTER = "edit.png"; //$NON-NLS-1$
     private static final String IMAGE_DISPLAY_FILTERS = "displayfilters.png"; //$NON-NLS-1$
     
-    private static final String ACTION_SHOW_TAG = "Hide Unselected Tag(s)";
+    private static final String ACTION_SHOW_TAG = "Show Selected Tag(s)";
     private static final String ACTION_HIDE_TAG = "Hide Selected Tag(s)";
     private static final String ACTION_HIGHLIGHT_TAG = "Highlight Selected Tag(s)";
-    private static final String ACTION_SHOW_PID = "Hide Unselected PID(s)";
+    private static final String ACTION_SHOW_PID = "Show Selected PID(s)";
     private static final String ACTION_HIDE_PID = "Hide Selected PID(s)";
     private static final String ACTION_HIGHLIGHT_PID = "Highlight Selected PID(s)";
     
@@ -594,6 +594,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     }
 
     private List<LogCatMessage> applyCurrentFilters(List<?> msgList) {
+    	if(msgList == null){
+    		return new ArrayList<LogCatMessage>();
+    	}
+    	
         Object[] items = msgList.toArray();
         List<LogCatMessage> filteredItems = new ArrayList<LogCatMessage>(items.length);
         List<LogCatViewerFilter> filters = getFiltersToApply();
@@ -698,19 +702,20 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 }
             }
         });
-        mViewer.getTable().addSelectionListener(new SelectionListener(){
+		mViewer.getTable().addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				mIsSynFromHere = true;
-				LogCatSynSelectedListener.getInstance().synSelected(
-						getSelectedLogCatMessages().get(0).getTime());
+				String time = getSelectedLogCatMessages().get(0).getTime();
+				if (time != null && time.length() > 10) {//04-08 13:13:43.851
+					LogCatSynSelectedListener.getInstance().synSelected(time);
+				}
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 			}
-        	
-        });
+		});
         
         createViewMenu();
 
