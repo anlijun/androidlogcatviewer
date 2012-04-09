@@ -23,7 +23,6 @@ import com.android.ddmuilib.actions.ToolItemAction;
 import com.android.ddmuilib.logcat.ILogCatMessageSelectionListener;
 import com.android.ddmuilib.logcat.LogCatFilterContentProvider;
 import com.android.ddmuilib.logcat.LogCatFilterLabelProvider;
-import com.android.ddmuilib.logcat.LogCatFilterSettingsDialog;
 import com.android.ddmuilib.logcat.LogCatMessage;
 import com.android.ddmuilib.logcat.LogCatViewerFilter;
 import com.android.ddmuilib.ITableFocusListener;
