@@ -60,7 +60,7 @@ public final class LogCatMessageParser {
           + "\\s+(\\d*):\\s*(\\S+)\\s([VDIWEAF])/(.*)\\]$");
     
 	private enum PatternType {
-		LOGCAT_BRIEF, LOGCAT_V_LONG, LOGCAT_V_TIME, LOGCAT_V_THREADTIME, UNKNOWN,
+		LOGCAT_BRIEF, LOGCAT_V_LONG, LOGCAT_V_TIME, LOGCAT_V_THREADTIME, DDMS_SAVE_FORMAT, UNKNOWN,
 	};
     
     private LogCatMessageParser(){
@@ -90,6 +90,10 @@ public final class LogCatMessageParser {
     	matcher = p_LOGCAT_V_THREADTIME.matcher(str);
     	if (matcher.matches()) {
     		return PatternType.LOGCAT_V_THREADTIME;
+    	}
+    	matcher = p_DDMS_SAVE_FORMAT.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.DDMS_SAVE_FORMAT;
     	}
     	return PatternType.UNKNOWN;
     }
@@ -133,6 +137,9 @@ public final class LogCatMessageParser {
 				break;
 			case LOGCAT_BRIEF:
 				logMessage = process_LOGCAT_BRIEF(linesList);
+				break;
+			case DDMS_SAVE_FORMAT:
+				logMessage = process_DDMS_SAVE_LOG(linesList);
 				break;
 
 			case UNKNOWN:
@@ -244,7 +251,7 @@ public final class LogCatMessageParser {
 	}
     
     private static final Pattern p_LOGCAT_V_TIME = Pattern.compile(
-            "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)" 
+            "^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+):*" 
           + "\\s([VDIWEAF])/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
 	private List<LogCatMessage> process_LOGCAT_V_TIME(List<String> linesList) {
 		LogLevel curLogLevel = LogLevel.WARN;
@@ -277,6 +284,56 @@ public final class LogCatMessageParser {
 				 * Log.wtf() is supposed to generate "A", but generates "F".
 				 */
 				if (curLogLevel == null && matcher.group(2).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}
+		}
+		return messages;
+	}
+	
+	//<de.gratnik@gmail.com> contribution test pattern.
+	//path: /LogcatOfflineView/test_pattern/ddms_save_format/type3.txt
+	private static final Pattern p_DDMS_SAVE_FORMAT = Pattern.compile(
+			"^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+):*"
+            + "\\s(VERBOSE|DEBUG|ERROR|WARNING|INFO|ASSERT)/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
+	private List<LogCatMessage> process_DDMS_SAVE_LOG(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_DDMS_SAVE_FORMAT.matcher(line);
+			if (matcher.matches()) {
+				curTime = matcher.group(1);
+				curLogLevel = LogLevel.getByLetterString(matcher.group(2));
+				curTag = matcher.group(3).trim();
+				if (curTag == null || curTag.equals("")){
+					continue;
+				}
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
+				curPid = matcher.group(4).trim();
+				curMesssage = matcher.group(5);
+				curTid = "";
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(2).startsWith("F")) {
 					curLogLevel = LogLevel.ASSERT;
 				}
 				if (curLogLevel == null) {
@@ -370,4 +427,86 @@ public final class LogCatMessageParser {
             l.messageReceived(messages, panelID);
         }
     }
+
+    //test with android 4.0
+	public void parseDumpstateFile(String filePath) {
+		if (filePath == null || "".equals(filePath)) {
+			return;
+		}
+		File file = new File(filePath);
+		if (!file.exists()) {
+			return;
+		}
+		System.gc();
+		try {
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			List<String> linesListMain = new ArrayList<String>();
+			List<String> linesListEvents = new ArrayList<String>();
+			List<String> linesListRadio = new ArrayList<String>();
+			int state = 0;
+			boolean finish = false;
+			while (br.ready()) {
+				String strLine = br.readLine();
+				switch (state) {
+				case 0:
+					if (strLine.startsWith("------ SYSTEM LOG (logcat -v threadtime")) {
+						state = 1;
+					}
+					break;
+				case 1:// main
+					if (strLine.startsWith("------ EVENT LOG (logcat -b events -v threadtime")) {
+						state = 2;
+						continue;
+					}
+					linesListMain.add(strLine);
+					break;
+				case 2:// events
+					if (strLine.startsWith("------ RADIO LOG (logcat -b radio -v threadtime")) {
+						state = 3;
+						continue;
+					}
+					linesListEvents.add(strLine);
+					break;
+				case 3:// radio
+					if (strLine.startsWith("[logcat:")) {
+						state = 4;
+						continue;
+					}
+					linesListRadio.add(strLine);
+					break;
+				case 4:// finish
+					finish = true;
+					break;
+				default:
+					assert (false);
+					break;
+				}
+
+				if (finish) {
+					break;
+				}
+			}
+
+			if (linesListMain.size() > 0) {
+				List<LogCatMessage> logMessageMain = process_LOGCAT_V_THREADTIME(linesListMain);
+				sendMessageReceivedEvent(logMessageMain, UIThread.PANEL_ID_MAIN);
+			}
+
+			if (linesListEvents.size() > 0) {
+				List<LogCatMessage> logMessageEvents = process_LOGCAT_V_THREADTIME(linesListEvents);
+				sendMessageReceivedEvent(logMessageEvents, UIThread.PANEL_ID_EVENTS);
+			}
+
+			if (linesListRadio.size() > 0) {
+				List<LogCatMessage> logMessageRadio = process_LOGCAT_V_THREADTIME(linesListRadio);
+				sendMessageReceivedEvent(logMessageRadio, UIThread.PANEL_ID_RADIO);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 }

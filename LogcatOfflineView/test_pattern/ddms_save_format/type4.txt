@@ -1,0 +1,7 @@
+04-10 19:19:09.828: D/WifiService(2715): acquireWifiLockLocked: WifiLock{NetworkLocationLocator type=2 binder=android.os.BinderProxy@40bf7440}
+04-10 19:19:14.983: I/ApplicationPackageManager(14260): cscCountry is not German : SEK
+04-10 19:19:14.993: D/WifiService(2715): releaseWifiLockLocked: WifiLock{NetworkLocationLocator type=2 binder=android.os.BinderProxy@40bf7440}
+04-10 19:19:14.993: I/wpa_supplicant(2847): SCAN_RESULTS : [8] 
+04-10 19:19:16.238: V/WifiMonitor(2715): Event [ SCAN-RESULTS ]
+04-10 19:19:16.243: I/wpa_supplicant(2847): SCAN_RESULTS : [8] 
+04-10 19:19:16.253: I/wpa_supplicant(2847): SCAN_RESULTS : [8] 

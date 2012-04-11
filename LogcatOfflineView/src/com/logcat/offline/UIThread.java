@@ -36,6 +36,7 @@ public class UIThread {
 	
 	private static final String PREFERENCE_LOGSASH_H = "logSashLocation.h";
 	private static final String PREFERENCE_LOGSASH_V = "logSashLocation.v";
+	private static final String PREFERENCE_LAST_OPEN_FOLDER = "log.last.openfolder";
 	
 	public static final int PANEL_ID_MAIN = 0;
 	public static final int PANEL_ID_EVENTS = 1;
@@ -152,15 +153,41 @@ public class UIThread {
             }
         });
         
+        // create Open bugreport menu items
+        item = new MenuItem(fileMenu, SWT.NONE);
+        item.setText("&Open bugreport(dumpstate) file\tCtrl-B");
+        item.setAccelerator('B' | SWT.MOD1);
+        item.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                String filePath = new FileDialog(shell).open();
+                LogCatMessageParser.getInstance().parseDumpstateFile(filePath);
+            }
+        });
+        
         item = new MenuItem(fileMenu, SWT.NONE);
         item.setText("Open Log &Folder\tCtrl-F");
         item.setAccelerator('F' | SWT.MOD1);
         item.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
-            	String folderPath = new DirectoryDialog(shell).open();
-                LogCatMessageParser.getInstance().parseLogFolder(folderPath);
-            }
+			public void widgetSelected(SelectionEvent e) {
+				DirectoryDialog directoryDialog = new DirectoryDialog(shell);
+				String lastFolder = mPreferenceStore
+						.getString(PREFERENCE_LAST_OPEN_FOLDER);
+				if (lastFolder != null) {
+					directoryDialog.setFilterPath(lastFolder);
+				}
+				String folderPath = directoryDialog.open();
+				if (folderPath != null) {
+					LogCatMessageParser.getInstance()
+							.parseLogFolder(folderPath);
+					if (lastFolder != null
+							&& folderPath.compareTo(lastFolder) != 0) {
+						mPreferenceStore.setValue(PREFERENCE_LAST_OPEN_FOLDER,
+								folderPath);
+					}
+				}
+			}
         });
         
         new MenuItem(fileMenu, SWT.SEPARATOR);

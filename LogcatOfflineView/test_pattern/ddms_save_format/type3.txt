@@ -1,0 +1,19 @@
+12-01 19:32:32.234: INFO/KeyInputQueue(176): Enqueueing touch event0
+12-01 19:32:32.234: INFO/WindowManager(176): Read next event 0
+12-01 19:32:32.234: INFO/WindowManager(176): Delivering pointer 0 > Window{4a5ea8e0 AtchDlg:com.acronis.acronis/com.acronis.acronis.activities.MagicBrowserActivity paused=false}
+12-01 19:32:32.293: INFO/KeyInputQueue(176): Enqueueing touch event1
+12-01 19:32:32.293: INFO/WindowManager(176): Read next event 1
+12-01 19:32:32.293: INFO/WindowManager(176): Delivering pointer 1 > Window{4a5ea8e0 AtchDlg:com.acronis.acronis/com.acronis.acronis.activities.MagicBrowserActivity paused=false}
+12-01 19:32:32.923: DEBUG/BatteryService(176): update start
+12-01 19:32:32.923: DEBUG/BatteryService(176): update start
+12-01 19:32:32.933: DEBUG/BatteryService(176): update start
+12-01 19:32:34.173: INFO/KeyInputQueue(176): Enqueueing touch event0
+12-01 19:32:34.173: INFO/WindowManager(176): Read next event 0
+12-01 19:32:34.173: INFO/WindowManager(176): Delivering pointer 0 > Window{4a5f06a8 AtchDlg:com.acronis.acronis/com.acronis.acronis.activities.MagicBrowserActivity paused=false}
+12-01 19:32:34.233: INFO/KeyInputQueue(176): Enqueueing touch event1
+12-01 19:32:34.233: INFO/WindowManager(176): Read next event 1
+12-01 19:32:34.233: INFO/WindowManager(176): Delivering pointer 1 > Window{4a5f06a8 AtchDlg:com.acronis.acronis/com.acronis.acronis.activities.MagicBrowserActivity paused=false}
+12-01 19:32:34.373: VERBOSE/AudioFlinger(95): Track constructor name 4098, calling thread 176
+12-01 19:32:34.373: VERBOSE/AudioFlinger(95): start(4098), calling thread 176
+12-01 19:32:34.373: VERBOSE/AudioFlinger(95): ? => ACTIVE (4098) on thread 0x612c0
+12-01 19:32:34.373: VERBOSE/AudioPolicyManager(95): startOutput() output 1, stream 1

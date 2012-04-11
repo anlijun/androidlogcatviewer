@@ -32,6 +32,7 @@ import java.util.regex.PatternSyntaxException;
  */
 public final class LogCatFilter {
     public static final String PID_KEYWORD = "pid:";   //$NON-NLS-1$
+    public static final String TID_KEYWORD = "tid:";   //$NON-NLS-1$
 //    public static final String APP_KEYWORD = "app:";   //$NON-NLS-1$
     public static final String TAG_KEYWORD = "tag:";   //$NON-NLS-1$
     public static final String TEXT_KEYWORD = "text:"; //$NON-NLS-1$
@@ -42,6 +43,7 @@ public final class LogCatFilter {
     private final String mTag;
     private final String mText;
     private final String mPid;
+    private final String mTid;
 //    private final String mAppName;
     private final LogLevel mLogLevel;
     private List<String> mPIDHideList;
@@ -83,12 +85,13 @@ public final class LogCatFilter {
      * @param logLevel value for the logcat message's log level. Only messages of
      * higher priority will be accepted by the filter.
      */
-    public LogCatFilter(String name, String tag, String text, String pid,
+    public LogCatFilter(String name, String tag, String text, String pid, String tid,
             LogLevel logLevel, List<String> PIDHideList, List<String> tagHideList) {
         mName = name.trim();
         mTag = tag.trim();
         mText = text.trim();
         mPid = pid.trim();
+        mTid = tid.trim();
 //        mAppName = appName.trim();
         mLogLevel = logLevel;
         mPIDHideList = PIDHideList;
@@ -172,10 +175,13 @@ public final class LogCatFilter {
             String tag = "";
             String text = "";
             String pid = "";
+            String tid = "";
 //            String app = "";
 
             if (s.startsWith(PID_KEYWORD)) {
                 pid = s.substring(PID_KEYWORD.length());
+            } else if (s.startsWith(TID_KEYWORD)) {
+                tid = s.substring(TID_KEYWORD.length());
 //            } else if (s.startsWith(APP_KEYWORD)) {
 //                app = s.substring(APP_KEYWORD.length());
             } else if (s.startsWith(TAG_KEYWORD)) {
@@ -188,7 +194,7 @@ public final class LogCatFilter {
                 }
             }
             LogCatFilter logCatFilter = new LogCatFilter("livefilter-" + s,
-                    tag, text, pid, minLevel, new ArrayList<String>(), new ArrayList<String>());
+                    tag, text, pid, tid, minLevel, new ArrayList<String>(), new ArrayList<String>());
             logCatFilter.setmPIDList(pidList);
             logCatFilter.setmTagList(tagList);
             filterSettings.add(logCatFilter);
@@ -211,6 +217,9 @@ public final class LogCatFilter {
 
     public String getPid() {
         return mPid;
+    }
+    public String getTid() {
+        return mTid;
     }
 
 //    public String getAppName() {
@@ -245,6 +254,8 @@ public final class LogCatFilter {
         if (mCheckPid && !m.getPid().equals(mPid)) {
             return false;
         }
+        //lijun
+        //FIXME: need tid?
 
 //        /* if app name filter is enabled, filter out messages not matching the app name */
 //        if (mCheckAppName) {

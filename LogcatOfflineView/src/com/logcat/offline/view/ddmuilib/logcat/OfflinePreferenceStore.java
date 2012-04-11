@@ -9,7 +9,7 @@ public class OfflinePreferenceStore {
 	
 	private static PreferenceStore preferenceStore;
 	private static String PREFERENCE_STORE_DIR = 
-			System.getProperty("user.home") + File.separator + "preferenceStore.ops";
+			System.getProperty("user.home") + File.separator + "LogcatOfflineView.cfg";
 	
 	private OfflinePreferenceStore(){
 	}

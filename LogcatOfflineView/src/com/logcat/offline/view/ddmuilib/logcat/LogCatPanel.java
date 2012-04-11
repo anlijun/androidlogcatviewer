@@ -224,7 +224,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         String pid = "";
 //        String app = "";
         mLogCatFilters.add(new LogCatFilter("All messages (no filters)",
-                tag, text, pid, LogLevel.VERBOSE, new ArrayList<String>(), new ArrayList<String>()));
+                tag, text, pid, "no tid", LogLevel.VERBOSE, new ArrayList<String>(), new ArrayList<String>()));
 
         /* restore saved filters from prefStore */
         List<LogCatFilter> savedFilters = getSavedFilters();
@@ -369,6 +369,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 d.getTag().trim(),
                 d.getText().trim(),
                 d.getPid().trim(),
+                "no tid",
 //                d.getAppName().trim(),
                 LogLevel.getByString(d.getLogLevel()), d.getPIDHideList(), d.getTagHideList());
 
@@ -419,6 +420,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 dialog.getTag(),
                 dialog.getText(),
                 dialog.getPid(),
+                "no tid",
 //                dialog.getAppName(),
                 LogLevel.getByString(dialog.getLogLevel()), dialog.getPIDHideList(), dialog.getTagHideList());
         mLogCatFilters.set(selectedIndex, f);
@@ -741,6 +743,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 "Time",
                 "PID",
 //                "Application",
+                "TID",//add tid
                 "Tag",
                 "Text",
         };
@@ -750,9 +753,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         String[] sampleText = {
                 "    ",
                 "    00-00 00:00:00.0000 ",
-                "    0000",
+                "  0000",
 //                "    com.android.launcher",
-                "    SampleTagText",
+                "  0000",//add tid
+                "    SampleTagText++++",
                 "    Log Message field should be pretty long by default. As long as possible for correct display on Mac.",
         };
 

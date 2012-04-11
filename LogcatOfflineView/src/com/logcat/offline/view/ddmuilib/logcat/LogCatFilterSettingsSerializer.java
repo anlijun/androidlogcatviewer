@@ -137,7 +137,7 @@ public final class LogCatFilterSettingsSerializer {
                 }
             }
 
-            fs.add(new LogCatFilter(name, tag, text, pid, level, PIDHideList, tagHideList));
+            fs.add(new LogCatFilter(name, tag, text, pid, "no tid", level, PIDHideList, tagHideList));
         }
 
         return fs;
