@@ -302,7 +302,7 @@ public final class LogCatMessageParser {
 	//path: /LogcatOfflineView/test_pattern/ddms_save_format/type3.txt
 	private static final Pattern p_DDMS_SAVE_FORMAT = Pattern.compile(
 			"^(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+):*"
-            + "\\s(VERBOSE|DEBUG|ERROR|WARNING|INFO|ASSERT)/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
+            + "\\s(VERBOSE|DEBUG|ERROR|WARN|INFO|ASSERT)/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
 	private List<LogCatMessage> process_DDMS_SAVE_LOG(List<String> linesList) {
 		LogLevel curLogLevel = LogLevel.WARN;
 		String curPid = "?";
