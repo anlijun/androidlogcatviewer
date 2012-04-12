@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
  */
 public final class LogCatMessageParser {
     
-    private static Set<ILogCatMessageEventListener> mLogCatMessageListeners;
+	private static Set<ILogCatMessageEventListener> mLogCatMessageListeners;
     
     private static LogCatMessageParser logCatMessageParser;
 
@@ -113,12 +113,13 @@ public final class LogCatMessageParser {
 			List<String> linesList = new ArrayList<String>();
 			PatternType logType = PatternType.UNKNOWN;
 			while (br.ready()){
-				String strLine = br.readLine();
+				String strLine = br.readLine().trim();
 				
 				if(logType == PatternType.UNKNOWN){
 					logType = PatternRecognition(strLine);
 				}
-				if(logType != PatternType.UNKNOWN){
+				if(logType != PatternType.UNKNOWN
+						&& strLine.length() > 0){
 					linesList.add(strLine);
 				}
 			}
@@ -147,7 +148,7 @@ public final class LogCatMessageParser {
 				return;
 			}
 			sendMessageReceivedEvent(
-					logMessage, panelID);
+					logMessage, panelID, file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -195,6 +196,8 @@ public final class LogCatMessageParser {
 				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
 						curTid, curTag, curTime, curMesssage);
 				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
 			}
 		}
 		return messages;
@@ -245,6 +248,8 @@ public final class LogCatMessageParser {
 				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
 						curTid, curTag, curTime, curMesssage);
 				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
 			}
 		}
 		return messages;
@@ -293,9 +298,18 @@ public final class LogCatMessageParser {
 				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
 						curTid, curTag, curTime, curMesssage);
 				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
 			}
 		}
 		return messages;
+	}
+
+    private static final String UNKNOWN_FORMAT_TAG = "UNKNOWN_FORMAT";
+	private void addAsUnkownFormat(List<LogCatMessage> messages, String line) {
+		LogCatMessage m = new LogCatMessage(LogLevel.WARN, "", "",
+				UNKNOWN_FORMAT_TAG, "", line);
+		messages.add(m);
 	}
 	
 	//<de.gratnik@gmail.com> contribution test pattern.
@@ -343,6 +357,8 @@ public final class LogCatMessageParser {
 				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
 						curTid, curTag, curTime, curMesssage);
 				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
 			}
 		}
 		return messages;
@@ -422,9 +438,9 @@ public final class LogCatMessageParser {
         mLogCatMessageListeners.remove(l);
     }
 
-    private void sendMessageReceivedEvent(List<LogCatMessage> messages, int panelID) {
+    private void sendMessageReceivedEvent(List<LogCatMessage> messages, int panelID, File file) {
         for (ILogCatMessageEventListener l : mLogCatMessageListeners) {
-            l.messageReceived(messages, panelID);
+            l.messageReceived(messages, panelID, file);
         }
     }
 
@@ -447,7 +463,7 @@ public final class LogCatMessageParser {
 			int state = 0;
 			boolean finish = false;
 			while (br.ready()) {
-				String strLine = br.readLine();
+				String strLine = br.readLine().trim();
 				switch (state) {
 				case 0:
 					if (strLine.startsWith("------ SYSTEM LOG (logcat -v threadtime")) {
@@ -490,17 +506,17 @@ public final class LogCatMessageParser {
 
 			if (linesListMain.size() > 0) {
 				List<LogCatMessage> logMessageMain = process_LOGCAT_V_THREADTIME(linesListMain);
-				sendMessageReceivedEvent(logMessageMain, UIThread.PANEL_ID_MAIN);
+				sendMessageReceivedEvent(logMessageMain, UIThread.PANEL_ID_MAIN, file);
 			}
 
 			if (linesListEvents.size() > 0) {
 				List<LogCatMessage> logMessageEvents = process_LOGCAT_V_THREADTIME(linesListEvents);
-				sendMessageReceivedEvent(logMessageEvents, UIThread.PANEL_ID_EVENTS);
+				sendMessageReceivedEvent(logMessageEvents, UIThread.PANEL_ID_EVENTS, file);
 			}
 
 			if (linesListRadio.size() > 0) {
 				List<LogCatMessage> logMessageRadio = process_LOGCAT_V_THREADTIME(linesListRadio);
-				sendMessageReceivedEvent(logMessageRadio, UIThread.PANEL_ID_RADIO);
+				sendMessageReceivedEvent(logMessageRadio, UIThread.PANEL_ID_RADIO, file);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -16,6 +16,7 @@
 
 package com.logcat.offline.view.ddmuilib.logcat;
 
+import java.io.File;
 import java.util.List;
 
 import com.android.ddmuilib.logcat.LogCatMessage;
@@ -27,7 +28,7 @@ public interface ILogCatMessageEventListener {
     /** Called on reception of logcat messages.
      * @param receivedMessages list of messages received
      */
-    void messageReceived(List<LogCatMessage> receivedMessages, int panelID);
+    void messageReceived(List<LogCatMessage> receivedMessages, int panelID, File Path);
     
     void synSelected(String synTime);
 }
