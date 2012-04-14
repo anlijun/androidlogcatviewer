@@ -1,5 +1,6 @@
 package com.logcat.offline;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
@@ -135,10 +136,15 @@ public class UIThread {
         fileItem.setText("&File");
         MenuItem editItem = new MenuItem(menuBar, SWT.CASCADE);
         editItem.setText("&Edit");
+        MenuItem aboutItem = new MenuItem(menuBar, SWT.CASCADE);
+        aboutItem.setText("&About");
+        
         Menu fileMenu = new Menu(menuBar);
         fileItem.setMenu(fileMenu);
         Menu editMenu = new Menu(menuBar);
         editItem.setMenu(editMenu);
+        Menu aboutMenu = new Menu(menuBar);
+        aboutItem.setMenu(aboutMenu);
 
         MenuItem item;
         // create File menu items
@@ -224,6 +230,18 @@ public class UIThread {
                 mTableListener.selectAll();
             }
         });
+        
+        item = new MenuItem(aboutMenu, SWT.NONE);
+        item.setText("A&bout Tool");
+        item.addSelectionListener(new SelectionAdapter(){
+        	@Override
+            public void widgetSelected(SelectionEvent e) {
+        		String msg = " Email : m41m41.a@gmail.com\n"
+        					+"Author : Lijun An";
+        		MessageDialog.openInformation(shell, "About Tool", msg);
+            }
+        });
+        
         // tell the shell to use this menu
         shell.setMenuBar(menuBar);
 	}

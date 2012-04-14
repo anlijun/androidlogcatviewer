@@ -226,7 +226,7 @@ public final class LogCatFilterSettingsSerializer {
     	List<String> list = new ArrayList<String>();
     	if(value == null || value.length()<3)
     		return list;
-    	value = value.substring(1, value.length() - 2);
+    	value = value.substring(1, value.length() - 1);
     	for (String str : value.split(KW_LIST_VALUE)){
     		list.add(str);
     	}

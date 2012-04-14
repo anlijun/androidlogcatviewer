@@ -54,7 +54,11 @@ public final class LogCatMessage {
             tidValue = -1;
         }
 
-        mTid = Long.toString(tidValue);
+        if (tidValue == -1){
+        	mTid = "?";
+        } else {
+        	mTid = Long.toString(tidValue);
+        }
     }
 
     public LogLevel getLogLevel() {
