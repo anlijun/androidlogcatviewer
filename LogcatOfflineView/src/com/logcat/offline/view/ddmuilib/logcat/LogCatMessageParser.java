@@ -158,7 +158,7 @@ public final class LogCatMessageParser {
     
     //I/MediaUploader(22541): No need to wake up
     private static final Pattern p_LOGCAT_BRIEF = Pattern.compile(
-            "^([VDIWEAF])/(.*?)\\((\\s*\\d+)\\):\\s+(.*)$");
+            "^([VDIWEAF])/(.*?)\\(\\s*(\\d+)\\):\\s+(.*)$");
     private List<LogCatMessage> process_LOGCAT_BRIEF(List<String> linesList) {
 		LogLevel curLogLevel = LogLevel.WARN;
 		String curPid = "?";
@@ -175,6 +175,7 @@ public final class LogCatMessageParser {
 			if (matcher.matches()) {
 				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
 				curTag = matcher.group(2).trim();
+				curPid = matcher.group(3).trim();
 				if (curTag == null || curTag.equals("")){
 					continue;
 				}

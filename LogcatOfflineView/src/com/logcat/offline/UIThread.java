@@ -1,5 +1,7 @@
 package com.logcat.offline;
 
+import java.io.IOException;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.swt.SWT;
@@ -137,7 +139,7 @@ public class UIThread {
         MenuItem editItem = new MenuItem(menuBar, SWT.CASCADE);
         editItem.setText("&Edit");
         MenuItem aboutItem = new MenuItem(menuBar, SWT.CASCADE);
-        aboutItem.setText("&About");
+        aboutItem.setText("&Help");
         
         Menu fileMenu = new Menu(menuBar);
         fileItem.setMenu(fileMenu);
@@ -232,12 +234,42 @@ public class UIThread {
         });
         
         item = new MenuItem(aboutMenu, SWT.NONE);
-        item.setText("A&bout Tool");
+        item.setText("&Discuss-group");
+        item.addSelectionListener(new SelectionAdapter(){
+        	@Override
+            public void widgetSelected(SelectionEvent e) {
+        		try {
+					Runtime.getRuntime().exec("cmd /c start " +
+							"http://groups.google.com/group/androidlogcatviewer");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+        });
+        
+        item = new MenuItem(aboutMenu, SWT.NONE);
+        item.setText("&Project site");
+        item.addSelectionListener(new SelectionAdapter(){
+        	@Override
+            public void widgetSelected(SelectionEvent e) {
+        		try {
+					Runtime.getRuntime().exec("cmd /c start " +
+							"http://code.google.com/p/androidlogcatviewer/");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+        });
+        
+        item = new MenuItem(aboutMenu, SWT.NONE);
+        item.setText("&About");
         item.addSelectionListener(new SelectionAdapter(){
         	@Override
             public void widgetSelected(SelectionEvent e) {
         		String msg = " Email : m41m41.a@gmail.com\n"
-        					+"Author : Lijun An";
+        					+" Email : yuru_1012@163.com";
         		MessageDialog.openInformation(shell, "About Tool", msg);
             }
         });
