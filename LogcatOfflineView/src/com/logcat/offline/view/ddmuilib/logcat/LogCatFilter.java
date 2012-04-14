@@ -20,6 +20,7 @@ import com.android.ddmlib.Log.LogLevel;
 import com.android.ddmuilib.logcat.LogCatMessage;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -49,6 +50,7 @@ public final class LogCatFilter {
     private List<String> mPIDHideList;
 //    private List<String> mTagHideList;
     private List<String> mTagShowList;
+    private HashSet<String> mTagShowSet;
 
     /** Indicates the number of messages that match this filter, but have not
      * yet been read by the user. This is really metadata about this filter
@@ -110,6 +112,7 @@ public final class LogCatFilter {
         mCheckHidePID = (mPIDHideList != null && mPIDHideList.size() > 0);
 //        mCheckHideTag = (mTagHideList != null);
         mCheckShowTag = (mTagShowList != null && mTagShowList.size() > 0);
+        mTagShowSet = new HashSet<String>(mTagShowList);
 
 //        if (mAppName.length() != 0) {
 //            try {
@@ -329,7 +332,8 @@ public final class LogCatFilter {
         
         if (mCheckShowTag){
         	boolean isFind = false;
-        	for (String tag : mTagShowList){
+        	for (String tag : mTagShowSet){
+//        	for (String tag : mTagShowList){
         		if (m.getTag().equals(tag)){
         			isFind = true;
         		}

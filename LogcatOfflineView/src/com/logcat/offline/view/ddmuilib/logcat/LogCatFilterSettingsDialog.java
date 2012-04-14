@@ -551,9 +551,9 @@ public final class LogCatFilterSettingsDialog extends TitleAreaDialog {
     		if (tag.equals("?")){
     			continue;
     		}
-    		if (!mTagShowList.contains(tag)){
+//    		if (!mTagShowList.contains(tag)){
     			mTagShowList.add(tag);
-    		}
+//    		}
     	}
     	Collections.sort(mTagShowList, mTagSort);
     	return mTagShowList;

@@ -86,6 +86,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -1314,12 +1315,16 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     }
     
     private void setPIDAndTagList(List<LogCatMessage> receivedMessages){
-    	mPIDList = new ArrayList<String>();
-    	mTagList = new ArrayList<String>();
+//    	mPIDList = new ArrayList<String>();
+//    	mTagList = new ArrayList<String>();
+    	HashSet<String> pidSet = new HashSet<String>();
+    	HashSet<String> tagSet = new HashSet<String>();
     	for (LogCatMessage msg : receivedMessages){
-    		mPIDList.add(msg.getPid());
-    		mTagList.add(msg.getTag());
+    		pidSet.add(msg.getPid());
+    		tagSet.add(msg.getTag());
     	}
+    	mPIDList = new ArrayList<String>(pidSet);
+    	mTagList = new ArrayList<String>(tagSet);
     }
     
     /**
