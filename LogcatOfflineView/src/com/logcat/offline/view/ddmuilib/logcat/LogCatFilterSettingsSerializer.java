@@ -44,7 +44,8 @@ public final class LogCatFilterSettingsSerializer {
 //    private static final String KW_APP = "app";
     private static final String KW_LOGLEVEL = "level";
     private static final String KW_HIDE_PID = "hidePID";
-    private static final String KW_HIDE_TAG = "hideTag";
+//    private static final String KW_HIDE_TAG = "hideTag";
+    private static final String KW_SHOW_TAG = "showTag";
 
     /**
      * Encode the settings from a list of {@link LogCatFilter}'s into a string for saving to
@@ -78,8 +79,9 @@ public final class LogCatFilterSettingsSerializer {
             	sb.append(quoteString(f.getLogLevel().getStringValue())); sb.append(ATTR_DELIM);
             sb.append(KW_HIDE_PID); sb.append(KW_DELIM);
             	sb.append(quoteString(f.getPIDHideList().toString().replaceAll(", ", KW_LIST_VALUE))); sb.append(ATTR_DELIM);
-            sb.append(KW_HIDE_TAG); sb.append(KW_DELIM);
-            	sb.append(quoteString(f.getTagHideList().toString().replaceAll(", ", KW_LIST_VALUE))); sb.append(ATTR_DELIM);
+//            sb.append(KW_HIDE_TAG); sb.append(KW_DELIM);
+            sb.append(KW_SHOW_TAG); sb.append(KW_DELIM);
+            	sb.append(quoteString(f.getTagShowList().toString().replaceAll(", ", KW_LIST_VALUE))); sb.append(ATTR_DELIM);
         }
         return sb.toString();
     }
@@ -114,7 +116,8 @@ public final class LogCatFilterSettingsSerializer {
 
             index += 2;
             List<String> PIDHideList = new ArrayList<String>();
-            List<String> tagHideList = new ArrayList<String>();
+//            List<String> tagHideList = new ArrayList<String>();
+            List<String> tagShowList = new ArrayList<String>();
             while (index < kv.size() && !kv.get(index).equals(KW_NAME)) {
                 String key = kv.get(index);
                 String value = kv.get(index + 1);
@@ -131,13 +134,16 @@ public final class LogCatFilterSettingsSerializer {
                 } else if (key.equals(KW_LOGLEVEL)) {
                     level = LogLevel.getByString(value);
                 } else if (key.equals(KW_HIDE_PID)){
-                	PIDHideList = getHideList(value);
-                } else if (key.equals(KW_HIDE_TAG)){
-                	tagHideList = getHideList(value);
+                	PIDHideList = getListByValue(value);
+//                } else if (key.equals(KW_HIDE_TAG)){
+//                	tagHideList = getListByValue(value);
+//                }
+                } else if (key.equals(KW_SHOW_TAG)){
+                	tagShowList = getListByValue(value);
                 }
             }
-
-            fs.add(new LogCatFilter(name, tag, text, pid, "no tid", level, PIDHideList, tagHideList));
+//            fs.add(new LogCatFilter(name, tag, text, pid, "no tid", level, PIDHideList, tagHideList));
+            fs.add(new LogCatFilter(name, tag, text, pid, "no tid", level, PIDHideList, tagShowList));
         }
 
         return fs;
@@ -216,14 +222,14 @@ public final class LogCatFilterSettingsSerializer {
         return sb.toString();
     }
     
-    private List<String> getHideList(String value){
-    	List<String> hideList = new ArrayList<String>();
+    private List<String> getListByValue(String value){
+    	List<String> list = new ArrayList<String>();
     	if(value == null || value.length()<3)
-    		return hideList;
+    		return list;
     	value = value.substring(1, value.length() - 2);
     	for (String str : value.split(KW_LIST_VALUE)){
-    		hideList.add(str);
+    		list.add(str);
     	}
-    	return hideList;
+    	return list;
     }
 }

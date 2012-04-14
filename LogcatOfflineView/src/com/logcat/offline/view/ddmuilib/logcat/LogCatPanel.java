@@ -371,7 +371,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 d.getPid().trim(),
                 "no tid",
 //                d.getAppName().trim(),
-                LogLevel.getByString(d.getLogLevel()), d.getPIDHideList(), d.getTagHideList());
+                LogLevel.getByString(d.getLogLevel()), d.getPIDHideList(), d.getTagShowList());
 
         mLogCatFilters.add(f);
         mFiltersTableViewer.refresh();
@@ -411,7 +411,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 Display.getCurrent().getActiveShell());
         dialog.setDefaults(curFilter.getName(), curFilter.getTag(), curFilter.getText(),
                 curFilter.getPid(), curFilter.getLogLevel(), mPIDList, curFilter.getPIDHideList(),
-                mTagList, curFilter.getTagHideList());
+                mTagList, curFilter.getTagShowList());
         if (dialog.open() != Window.OK) {
             return;
         }
@@ -422,7 +422,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
                 dialog.getPid(),
                 "no tid",
 //                dialog.getAppName(),
-                LogLevel.getByString(dialog.getLogLevel()), dialog.getPIDHideList(), dialog.getTagHideList());
+                LogLevel.getByString(dialog.getLogLevel()), dialog.getPIDHideList(), dialog.getTagShowList());
         mLogCatFilters.set(selectedIndex, f);
         mFiltersTableViewer.refresh();
 
@@ -850,8 +850,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				setText(getText() + " : ");
 				for (LogCatMessage item : selectedItems){
 					String tag = item.getTag();
-					setText(getText() + tag + ", ");
-					mSelectedTagList.add(tag);
+					if (!mSelectedTagList.contains(tag)){
+						setText(getText() + tag + ", ");
+						mSelectedTagList.add(tag);
+					}
 				}
 				updateAppliedFilters();
 				mShowSelectedTag.setEnabled(false);
@@ -870,8 +872,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				setText(getText() + " : ");
 				for (LogCatMessage item : selectedItems){
 					String tag = item.getTag();
-					setText(getText() + tag + ", ");
-					mSelectedTagList.add(tag);
+					if (!mSelectedTagList.contains(tag)){
+						setText(getText() + tag + ", ");
+						mSelectedTagList.add(tag);
+					}
 				}
 				updateAppliedFilters();
 				mShowSelectedTag.setEnabled(false);
@@ -894,8 +898,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 		        }
 		        for (LogCatMessage item : selectedItems){
 					String selectTag = item.getTag();
-					setText(getText() + selectTag + ", ");
-					selectedTags.add(selectTag);
+					if (!selectedTags.contains(selectTag)){
+						setText(getText() + selectTag + ", ");
+						selectedTags.add(selectTag);
+					}
 				}
 		       TableItem[] items = mViewer.getTable().getItems();
 		        for (int i = 0; i < filteredItems.size(); i++){
@@ -947,8 +953,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				setText(getText() + " : ");
 				for (LogCatMessage item : selectedItems){
 					String PID = item.getPid();
-					setText(getText() + PID + ", ");
-					mSelectedPIDList.add(PID);
+					if (!mSelectedPIDList.contains(PID)){
+						setText(getText() + PID + ", ");
+						mSelectedPIDList.add(PID);
+					}
 				}
 				updateAppliedFilters();
 			}
@@ -967,8 +975,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				setText(getText() + " : ");
 				for (LogCatMessage item : selectedItems){
 					String PID = item.getPid();
-					setText(getText() + PID + ", ");
-					mSelectedPIDList.add(PID);
+					if (!mSelectedPIDList.contains(PID)){
+						setText(getText() + PID + ", ");
+						mSelectedPIDList.add(PID);
+					}
 				}
 				updateAppliedFilters();
 			}
@@ -989,8 +999,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 		        }
 		        for (LogCatMessage item : selectedItems){
 					String selectPID = item.getPid();
-					setText(getText() + selectPID + ", ");
-					selectedPIDs.add(selectPID);
+					if (!selectedPIDs.contains(selectPID)){
+						setText(getText() + selectPID + ", ");
+						selectedPIDs.add(selectPID);
+					}
 				}
 		        for (int i = 0; i < filteredItems.size(); i++){
 		        	String localPID = filteredItems.get(i).getPid();

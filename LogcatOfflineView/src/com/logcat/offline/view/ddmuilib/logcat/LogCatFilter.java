@@ -47,7 +47,8 @@ public final class LogCatFilter {
 //    private final String mAppName;
     private final LogLevel mLogLevel;
     private List<String> mPIDHideList;
-    private List<String> mTagHideList;
+//    private List<String> mTagHideList;
+    private List<String> mTagShowList;
 
     /** Indicates the number of messages that match this filter, but have not
      * yet been read by the user. This is really metadata about this filter
@@ -64,7 +65,8 @@ public final class LogCatFilter {
     private boolean mCheckTag;
     private boolean mCheckText;
     private boolean mCheckHidePID;
-    private boolean mCheckHideTag;
+//    private boolean mCheckHideTag;
+    private boolean mCheckShowTag;
     private List<String> mPIDList;
     private List<String> mTagList;
 
@@ -86,7 +88,7 @@ public final class LogCatFilter {
      * higher priority will be accepted by the filter.
      */
     public LogCatFilter(String name, String tag, String text, String pid, String tid,
-            LogLevel logLevel, List<String> PIDHideList, List<String> tagHideList) {
+            LogLevel logLevel, List<String> PIDHideList, List<String> tagShowList) {
         mName = name.trim();
         mTag = tag.trim();
         mText = text.trim();
@@ -95,7 +97,8 @@ public final class LogCatFilter {
 //        mAppName = appName.trim();
         mLogLevel = logLevel;
         mPIDHideList = PIDHideList;
-        mTagHideList = tagHideList;
+//        mTagHideList = tagHideList;
+        mTagShowList = tagShowList;
 
         mUnreadCount = 0;
 
@@ -104,8 +107,9 @@ public final class LogCatFilter {
         mTransient = false;
 
         mCheckPid = mPid.length() != 0;
-        mCheckHidePID = (mPIDHideList != null);
-        mCheckHideTag = (mTagHideList != null);
+        mCheckHidePID = (mPIDHideList != null && mPIDHideList.size() > 0);
+//        mCheckHideTag = (mTagHideList != null);
+        mCheckShowTag = (mTagShowList != null && mTagShowList.size() > 0);
 
 //        if (mAppName.length() != 0) {
 //            try {
@@ -315,12 +319,23 @@ public final class LogCatFilter {
         		}
         	}
         }
-        
-        if (mCheckHideTag){
+        /*if (mCheckHideTag){
         	for (String tag : mTagHideList){
         		if (m.getTag().equals(tag)){
         			return false;
         		}
+        	}
+        }*/
+        
+        if (mCheckShowTag){
+        	boolean isFind = false;
+        	for (String tag : mTagShowList){
+        		if (m.getTag().equals(tag)){
+        			isFind = true;
+        		}
+        	}
+        	if (!isFind){
+        		return false;
         	}
         }
 
@@ -368,7 +383,11 @@ public final class LogCatFilter {
     	return mPIDHideList;
     }
     
-    public List<String> getTagHideList(){
-    	return mTagHideList;
+//    public List<String> getTagHideList(){
+//    	return mTagHideList;
+//    }
+    
+    public List<String> getTagShowList(){
+    	return mTagShowList;
     }
 }
