@@ -58,11 +58,13 @@ public final class LogCatMessageParser {
     private static final Pattern sLogHeaderPattern = Pattern.compile(
             "^\\[\\s(\\d\\d-\\d\\d\\s\\d\\d:\\d\\d:\\d\\d\\.\\d+)"
           + "\\s+(\\d*):\\s*(\\S+)\\s([VDIWEAF])/(.*)\\]$");
-    
+
 	private enum PatternType {
-		LOGCAT_BRIEF, LOGCAT_V_LONG, LOGCAT_V_TIME, LOGCAT_V_THREADTIME, DDMS_SAVE_FORMAT, UNKNOWN,
+		LOGCAT_BRIEF, LOGCAT_V_LONG, LOGCAT_V_TIME, LOGCAT_V_THREADTIME, DDMS_SAVE_FORMAT,
+		LOGCAT_V_PROCESS, LOGCAT_V_TAG, LOGCAT_V_THREAD,
+		UNKNOWN,
 	};
-    
+
     private LogCatMessageParser(){
     }
 
@@ -91,6 +93,20 @@ public final class LogCatMessageParser {
     	if (matcher.matches()) {
     		return PatternType.LOGCAT_V_THREADTIME;
     	}
+    	
+    	matcher = p_LOGCAT_V_PROCESS.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_PROCESS;
+    	}
+    	matcher = p_LOGCAT_V_TAG.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_TAG;
+    	}
+    	matcher = p_LOGCAT_V_THREAD.matcher(str);
+    	if (matcher.matches()) {
+    		return PatternType.LOGCAT_V_THREAD;
+    	}
+    	
     	matcher = p_DDMS_SAVE_FORMAT.matcher(str);
     	if (matcher.matches()) {
     		return PatternType.DDMS_SAVE_FORMAT;
@@ -133,6 +149,17 @@ public final class LogCatMessageParser {
 			case LOGCAT_V_TIME:
 				logMessage = process_LOGCAT_V_TIME(linesList);
 				break;
+				
+			case LOGCAT_V_PROCESS:
+				logMessage = process_LOGCAT_V_PROCESS(linesList);
+				break;
+			case LOGCAT_V_TAG:
+				logMessage = process_LOGCAT_V_TAG(linesList);
+				break;
+			case LOGCAT_V_THREAD:
+				logMessage = process_LOGCAT_V_THREAD(linesList);
+				break;
+				
 			case LOGCAT_V_THREADTIME:
 				logMessage = process_LOGCAT_V_THREADTIME(linesList);
 				break;
@@ -306,6 +333,128 @@ public final class LogCatMessageParser {
 		return messages;
 	}
 
+    private static final Pattern p_LOGCAT_V_PROCESS = Pattern.compile(
+            "^([VDIWEAF])\\(\\s*(\\d+)\\)\\s+(.*)$");
+	private List<LogCatMessage> process_LOGCAT_V_PROCESS(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_V_PROCESS.matcher(line);
+			if (matcher.matches()) {
+				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
+				curPid = matcher.group(2).trim();
+				curMesssage = matcher.group(3);
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(1).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
+			}
+		}
+		return messages;
+	}
+
+    private static final Pattern p_LOGCAT_V_TAG = Pattern.compile(
+            "^([VDIWEAF])/(.*?):\\s+(.*)$");
+	private List<LogCatMessage> process_LOGCAT_V_TAG(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_V_TAG.matcher(line);
+			if (matcher.matches()) {
+				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
+				curTag = matcher.group(2).trim();
+				if (curTag.indexOf(",") != -1){
+					curTag.replaceAll(",", "_");
+				}
+				curMesssage = matcher.group(3);
+				curTid = "";
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(1).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
+			}
+		}
+		return messages;
+	}
+    private static final Pattern p_LOGCAT_V_THREAD = Pattern.compile(
+    		"^([VDIWEAF])\\(\\s*(\\d+):(0x.*?)\\)"
+            + "\\s+(.*)$");
+	private List<LogCatMessage> process_LOGCAT_V_THREAD(List<String> linesList) {
+		LogLevel curLogLevel = LogLevel.WARN;
+		String curPid = "?";
+		String curTid = "?";
+		String curTag = "?";
+		String curTime = "?";
+		String curMesssage = "?";
+		List<LogCatMessage> messages = new ArrayList<LogCatMessage>();
+		for (String line : linesList) {
+			if (line.length() == 0) {
+                continue;
+            }
+			Matcher matcher = p_LOGCAT_V_THREAD.matcher(line);
+			if (matcher.matches()) {
+				curLogLevel = LogLevel.getByLetterString(matcher.group(1));
+				curPid = matcher.group(2).trim();
+				curTid = matcher.group(3).trim();
+				curMesssage = matcher.group(4);
+				/*
+				 * LogLevel doesn't support messages with severity "F".
+				 * Log.wtf() is supposed to generate "A", but generates "F".
+				 */
+				if (curLogLevel == null && matcher.group(1).equals("F")) {
+					curLogLevel = LogLevel.ASSERT;
+				}
+				if (curLogLevel == null) {
+					continue;
+				}
+				LogCatMessage m = new LogCatMessage(curLogLevel, curPid,
+						curTid, curTag, curTime, curMesssage);
+				messages.add(m);
+			}else{
+				addAsUnkownFormat(messages, line);
+			}
+		}
+		return messages;
+	}
+	
     private static final String UNKNOWN_FORMAT_TAG = "UNKNOWN_FORMAT";
 	private void addAsUnkownFormat(List<LogCatMessage> messages, String line) {
 		LogCatMessage m = new LogCatMessage(LogLevel.WARN, "", "",
