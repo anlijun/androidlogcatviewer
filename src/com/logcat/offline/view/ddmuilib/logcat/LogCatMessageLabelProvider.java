@@ -16,14 +16,14 @@
 
 package com.logcat.offline.view.ddmuilib.logcat;
 
-import com.android.ddmlib.Log.LogLevel;
-import com.android.ddmuilib.logcat.LogCatMessage;
-
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Point;
+
+import com.android.ddmlib.Log.LogLevel;
+import com.android.ddmuilib.logcat.LogCatMessage;
 
 /**
  * A JFace Column label provider for the LogCat log messages. It expects elements of type
@@ -44,6 +44,8 @@ public final class LogCatMessageLabelProvider extends ColumnLabelProvider {
     private static final Color ERROR_MSG_COLOR =   new Color(null, 255, 0, 0);
     private static final Color WARN_MSG_COLOR =    new Color(null, 255, 127, 0);
     private static final Color VERBOSE_MSG_COLOR = new Color(null, 0, 0, 0);
+    private static final Color HIGHLITH_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 120);
+    private static final Color NORMAL_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 255);
 
     /** Amount of pixels to shift the tooltip by. */
     private static final Point LOGCAT_TOOLTIP_SHIFT = new Point(10, 10);
@@ -83,16 +85,22 @@ public final class LogCatMessageLabelProvider extends ColumnLabelProvider {
     @Override
     public void update(ViewerCell cell) {
         Object element = cell.getElement();
-        if (!(element instanceof LogCatMessage)) {
+        if (!(element instanceof LogCatMessageWrapper)) {
             return;
         }
-        LogCatMessage m = (LogCatMessage) element;
+        LogCatMessage m = ((LogCatMessageWrapper) element).getLogCatMessage();
 
         String text = getCellText(m, cell.getColumnIndex());
         cell.setText(text);
         cell.setFont(mLogFont);
         cell.setForeground(getForegroundColor(m));
+        cell.setBackground(getBackgroundColor((LogCatMessageWrapper) element));
     }
+
+	private Color getBackgroundColor(LogCatMessageWrapper wrapper) {
+		return wrapper.isHighlight() ? HIGHLITH_MSG_BACKGROUND_COLOR
+				: NORMAL_MSG_BACKGROUND_COLOR;
+	}
 
     private Color getForegroundColor(LogCatMessage m) {
         LogLevel l = m.getLogLevel();

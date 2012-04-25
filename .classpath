@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="lib/x86/swt.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.core.commands_3.4.0.I20080509-2000.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.4.0.v20080421-2006.jar"/>
-	<classpathentry kind="lib" path="lib/org.eclipse.jface_3.4.2.M20090107-0800.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.jface_3.4.2.M20090107-0800.jar" sourcepath="D:/android-sdk_r07-windows/eclipse-SDK-4.2M6-win32/eclipse/plugins"/>
 	<classpathentry kind="lib" path="lib/osgi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

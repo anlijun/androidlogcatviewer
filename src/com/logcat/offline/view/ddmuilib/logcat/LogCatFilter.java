@@ -352,9 +352,9 @@ public final class LogCatFilter {
      * accepted by this filter.
      * @param newMessages list of new messages.
      */
-    public void updateUnreadCount(List<LogCatMessage> newMessages) {
-        for (LogCatMessage m : newMessages) {
-            if (matches(m)) {
+    public void updateUnreadCount(List<LogCatMessageWrapper> newMessages) {
+        for (LogCatMessageWrapper m : newMessages) {
+            if (matches(m.getLogCatMessage())) {
                 mUnreadCount++;
             }
         }
