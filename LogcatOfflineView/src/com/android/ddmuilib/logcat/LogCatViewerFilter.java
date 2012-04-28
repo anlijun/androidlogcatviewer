@@ -19,6 +19,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 import com.logcat.offline.view.ddmuilib.logcat.LogCatFilter;
+import com.logcat.offline.view.ddmuilib.logcat.LogCatMessageWrapper;
 import com.logcat.offline.view.ddmuilib.logcat.LogCatPanel;
 
 /**
@@ -39,11 +40,11 @@ public final class LogCatViewerFilter extends ViewerFilter {
 
     @Override
     public boolean select(Viewer viewer, Object parent, Object element) {
-        if (!(element instanceof LogCatMessage)) {
+        if (!(element instanceof LogCatMessageWrapper)) {
             return false;
         }
 
-        LogCatMessage m = (LogCatMessage) element;
+        LogCatMessage m = ((LogCatMessageWrapper) element).getLogCatMessage();
         return mFilter.matches(m);
     }
 }

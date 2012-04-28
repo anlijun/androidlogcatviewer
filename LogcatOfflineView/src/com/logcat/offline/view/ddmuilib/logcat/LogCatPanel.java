@@ -16,18 +16,14 @@
 
 package com.logcat.offline.view.ddmuilib.logcat;
 
-import com.android.ddmlib.DdmConstants;
-import com.android.ddmlib.Log.LogLevel;
-import com.android.ddmuilib.ITableFocusListener.IFocusedTableActivator;
-import com.android.ddmuilib.actions.ToolItemAction;
-import com.android.ddmuilib.logcat.ILogCatMessageSelectionListener;
-import com.android.ddmuilib.logcat.LogCatFilterContentProvider;
-import com.android.ddmuilib.logcat.LogCatFilterLabelProvider;
-import com.android.ddmuilib.logcat.LogCatMessage;
-import com.android.ddmuilib.logcat.LogCatViewerFilter;
-import com.android.ddmuilib.ITableFocusListener;
-import com.android.ddmuilib.ImageLoader;
-import com.android.ddmuilib.TableHelper;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
@@ -58,7 +54,6 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.GC;
@@ -80,20 +75,25 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import com.android.ddmlib.DdmConstants;
+import com.android.ddmlib.Log.LogLevel;
+import com.android.ddmuilib.ITableFocusListener;
+import com.android.ddmuilib.ImageLoader;
+import com.android.ddmuilib.TableHelper;
+import com.android.ddmuilib.ITableFocusListener.IFocusedTableActivator;
+import com.android.ddmuilib.actions.ToolItemAction;
+import com.android.ddmuilib.logcat.ILogCatMessageSelectionListener;
+import com.android.ddmuilib.logcat.LogCatFilterContentProvider;
+import com.android.ddmuilib.logcat.LogCatFilterLabelProvider;
+import com.android.ddmuilib.logcat.LogCatMessage;
+import com.android.ddmuilib.logcat.LogCatViewerFilter;
 
 /**
  * LogCatPanel displays a table listing the logcat messages.
  */
 public final class LogCatPanel implements ILogCatMessageEventListener{
     private static final String RESET_ALL_FILTER = "Reset All Filter";
+    private static final String RESET_HIGHT_LIGHT = "Reset High Light";
 
 	private static final String RESET_PID_FILTER = "Reset PID Filter";
 
@@ -137,10 +137,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     
     private static final String ACTION_SHOW_TAG = "Show Selected Tag(s)";
     private static final String ACTION_HIDE_TAG = "Hide Selected Tag(s)";
-    private static final String ACTION_HIGHLIGHT_TAG = "Highlight Selected Tag(s)";
+    private static final String ACTION_HIGHLIGHT_TAG = "High Light Selected Tag(s)";
     private static final String ACTION_SHOW_PID = "Show Selected PID(s)";
     private static final String ACTION_HIDE_PID = "Hide Selected PID(s)";
-    private static final String ACTION_HIGHLIGHT_PID = "Highlight Selected PID(s)";
+    private static final String ACTION_HIGHLIGHT_PID = "High Light Selected PID(s)";
     
     private ToolItemAction[] mLogLevelActions;
     private String[] mLogLevelIcons = {
@@ -183,9 +183,6 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     private Action mResetPID;
 
     private String mLogFileExportFolder;
-    
-    private Color mYellow;
-    private Color mGreen;
     
     private boolean mIsSynFromHere = false;
     
@@ -602,7 +599,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         }
 
         /* obtain list of selected messages */
-        final List<LogCatMessage> selectedMessages = getSelectedLogCatMessages();
+        final List<LogCatMessageWrapper> selectedMessages = getSelectedLogCatMessages();
         if (selectedMessages == null){
         	return;
         }
@@ -613,8 +610,8 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
             public void run() {
                 try {
                     BufferedWriter w = new BufferedWriter(new FileWriter(fName));
-                    for (LogCatMessage m : selectedMessages) {
-                        w.append(m.toString());
+                    for (LogCatMessageWrapper m : selectedMessages) {
+                        w.append(m.getLogCatMessage().toString());
                         w.newLine();
                     }
                     w.close();
@@ -673,7 +670,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         }
     }
     
-    private List<LogCatMessage> getSelectedLogCatMessages() {
+    private List<LogCatMessageWrapper> getSelectedLogCatMessages() {
     	Object input = mViewer.getInput();
     	if (input == null){
     		return null;
@@ -685,11 +682,11 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         // Get items from the table's input as opposed to getting each table item's data.
         // Retrieving table item's data can return NULL in case of a virtual table if the item
         // has not been displayed yet.
-        List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
-        List<LogCatMessage> selectedMessages = new ArrayList<LogCatMessage>(indices.length);
+        List<LogCatMessageWrapper> filteredItems = applyCurrentFilters((List<?>) input);
+        List<LogCatMessageWrapper> selectedMessages = new ArrayList<LogCatMessageWrapper>(indices.length);
         for (int i : indices) {
             if (i < filteredItems.size()) {
-                LogCatMessage m = filteredItems.get(i);
+            	LogCatMessageWrapper m = filteredItems.get(i);
                 selectedMessages.add(m);
             }
         }
@@ -697,26 +694,24 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         return selectedMessages;
     }
 
-    private List<LogCatMessage> applyCurrentFilters(List<?> msgList) {
+    private List<LogCatMessageWrapper> applyCurrentFilters(List<?> msgList) {
         Object[] items = msgList.toArray();
-        List<LogCatMessage> filteredItems = new ArrayList<LogCatMessage>(items.length);
+        List<LogCatMessageWrapper> filteredItems = new ArrayList<LogCatMessageWrapper>();
         List<LogCatViewerFilter> filters = getFiltersToApply();
 
         for (Object item : items) {
-            if (!(item instanceof LogCatMessage)) {
+            if (!(item instanceof LogCatMessageWrapper)) {
                 continue;
             }
-
-            LogCatMessage msg = (LogCatMessage) item;
-            if (!isMessageFiltered(msg, filters)) {
-                filteredItems.add(msg);
+            if (!isMessageFiltered((LogCatMessageWrapper) item, filters)) {
+                filteredItems.add((LogCatMessageWrapper) item);
             }
         }
 
         return filteredItems;
     }
 
-    private boolean isMessageFiltered(LogCatMessage msg, List<LogCatViewerFilter> filters) {
+    private boolean isMessageFiltered(LogCatMessageWrapper msg, List<LogCatViewerFilter> filters) {
         for (LogCatViewerFilter f : filters) {
             if (!f.select(null, null, msg)) {
                 // message does not make it through this filter
@@ -732,7 +727,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         // to be of the same height, thereby clipping any rows with multiple lines of text.
         // In such a case, users can view the full text by hovering over the item and looking at
         // the tooltip.
-        final Table table = new Table(parent, SWT.FULL_SELECTION | SWT.MULTI);
+        final Table table = new Table(parent, SWT.FULL_SELECTION | SWT.MULTI | SWT.VIRTUAL);
         mViewer = new TableViewer(table);
 
         table.setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -808,7 +803,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				mIsSynFromHere = true;
-				String time = getSelectedLogCatMessages().get(0).getTime();
+				String time = getSelectedLogCatMessages().get(0).getLogCatMessage().getTime();
 				if (time != null && time.length() > 10) {//04-08 13:13:43.851
 					LogCatSynSelectedListener.getInstance().synSelected(time);
 				}
@@ -834,6 +829,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 			public void run() {
 				mResetTag.run();
 				mResetPID.run();
+				mResetHighLight.run();
 				updateAppliedFilters();
 			}
     	});
@@ -842,15 +838,15 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     	mShowSelectedTag = new Action(ACTION_SHOW_TAG){
 			@Override
 			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
 				if (selectedItems == null || selectedItems.size() == 0){
 					return;
 				}
 				mSelectedTagList = new ArrayList<String>();
 				mSelectedTagList.add(LogCatFilter.SHOW_KEYWORD);
 				setText(getText() + " : ");
-				for (LogCatMessage item : selectedItems){
-					String tag = item.getTag();
+				for (LogCatMessageWrapper item : selectedItems){
+					String tag = item.getLogCatMessage().getTag();
 					if (!mSelectedTagList.contains(tag)){
 						setText(getText() + tag + ", ");
 						mSelectedTagList.add(tag);
@@ -864,15 +860,15 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     	mHideSelectedTag = new Action(ACTION_HIDE_TAG){
 			@Override
 			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
 				if (selectedItems == null || selectedItems.size() == 0){
 					return;
 				}
 				mSelectedTagList = new ArrayList<String>();
 				mSelectedTagList.add(LogCatFilter.HIDE_KEYWORD);
 				setText(getText() + " : ");
-				for (LogCatMessage item : selectedItems){
-					String tag = item.getTag();
+				for (LogCatMessageWrapper item : selectedItems){
+					String tag = item.getLogCatMessage().getTag();
 					if (!mSelectedTagList.contains(tag)){
 						setText(getText() + tag + ", ");
 						mSelectedTagList.add(tag);
@@ -883,53 +879,15 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				mHideSelectedTag.setEnabled(false);
 			}
     	};
-    	mHighlightSelectedTag = new Action(ACTION_HIGHLIGHT_TAG){
-			@Override
-			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
-				if (selectedItems == null || selectedItems.size() == 0){
-					return;
-				}
-				Object input = mViewer.getInput();
-		        List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
-		        setText(getText() + " : ");
-		        List<String> selectedTags = new ArrayList<String>();
-		        if (mYellow == null){
-		        	mYellow = mViewer.getTable().getDisplay().getSystemColor(SWT.COLOR_YELLOW);
-		        }
-		        for (LogCatMessage item : selectedItems){
-					String selectTag = item.getTag();
-					if (!selectedTags.contains(selectTag)){
-						setText(getText() + selectTag + ", ");
-						selectedTags.add(selectTag);
-					}
-				}
-		       TableItem[] items = mViewer.getTable().getItems();
-		        for (int i = 0; i < filteredItems.size(); i++){
-		        	String localTag = filteredItems.get(i).getTag();
-		        	if (selectedTags.contains(localTag)){
-//		        		mViewer.getTable().getItem(i).setBackground(mYellow);
-		        		items[i].setBackground(mYellow);
-		        	}
-		        }
-		        mViewer.getTable().redraw();
-		        mHighlightSelectedTag.setEnabled(false);
-			}
-    	};
     	mResetTag = new Action(RESET_TAG_FILTER){
 			@Override
 			public void run() {
 				mSelectedTagList = null;
 				mShowSelectedTag.setText(ACTION_SHOW_TAG);
 				mHideSelectedTag.setText(ACTION_HIDE_TAG);
-				mHighlightSelectedTag.setText(ACTION_HIGHLIGHT_TAG);
+				
 				mShowSelectedTag.setEnabled(true);
 				mHideSelectedTag.setEnabled(true);
-				mHighlightSelectedTag.setEnabled(true);
-				if (mYellow == null){
-					mYellow = mViewer.getTable().getDisplay().getSystemColor(SWT.COLOR_YELLOW);
-		        }
-				cleanBackground(mYellow.hashCode());
 				updateAppliedFilters();
 			}
     	};
@@ -937,13 +895,10 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     	mmg.add(mResetTag);
     	mmg.add(mShowSelectedTag);
     	mmg.add(mHideSelectedTag);
-    	mmg.add(mHighlightSelectedTag);
-    	
-    	mmg.add(new Separator());
     	mShowSelectedPID = new Action(ACTION_SHOW_PID){
 			@Override
 			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
 				if (selectedItems == null || selectedItems.size() == 0){
 					return;
 				}
@@ -952,8 +907,8 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				mSelectedPIDList = new ArrayList<String>();
 				mSelectedPIDList.add(LogCatFilter.SHOW_KEYWORD);
 				setText(getText() + " : ");
-				for (LogCatMessage item : selectedItems){
-					String PID = item.getPid();
+				for (LogCatMessageWrapper item : selectedItems){
+					String PID = item.getLogCatMessage().getPid();
 					if (!mSelectedPIDList.contains(PID)){
 						setText(getText() + PID + ", ");
 						mSelectedPIDList.add(PID);
@@ -965,7 +920,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     	mHideSelectedPID = new Action(ACTION_HIDE_PID){
 			@Override
 			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
 				if (selectedItems == null || selectedItems.size() == 0){
 					return;
 				}
@@ -974,8 +929,8 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				mSelectedPIDList = new ArrayList<String>();
 				mSelectedPIDList.add(LogCatFilter.HIDE_KEYWORD);
 				setText(getText() + " : ");
-				for (LogCatMessage item : selectedItems){
-					String PID = item.getPid();
+				for (LogCatMessageWrapper item : selectedItems){
+					String PID = item.getLogCatMessage().getPid();
 					if (!mSelectedPIDList.contains(PID)){
 						setText(getText() + PID + ", ");
 						mSelectedPIDList.add(PID);
@@ -984,70 +939,119 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				updateAppliedFilters();
 			}
     	};
-    	mHighlightSelectedPID = new Action(ACTION_HIGHLIGHT_PID){
-			@Override
-			public void run() {
-				List<LogCatMessage> selectedItems = getSelectedLogCatMessages();
-				if (selectedItems == null || selectedItems.size() == 0){
-					return;
-				}
-				Object input = mViewer.getInput();
-		        List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
-		        setText(getText() + " : ");
-		        List<String> selectedPIDs = new ArrayList<String>();
-		        if (mGreen == null){
-		        	mGreen = mViewer.getTable().getDisplay().getSystemColor(SWT.COLOR_GREEN);
-		        }
-		        for (LogCatMessage item : selectedItems){
-					String selectPID = item.getPid();
-					if (!selectedPIDs.contains(selectPID)){
-						setText(getText() + selectPID + ", ");
-						selectedPIDs.add(selectPID);
-					}
-				}
-		        for (int i = 0; i < filteredItems.size(); i++){
-		        	String localPID = filteredItems.get(i).getPid();
-		        	if (selectedPIDs.contains(localPID)){
-		        		mViewer.getTable().getItem(i).setBackground(mGreen);
-		        	}
-		        }
-		        mViewer.getTable().redraw();
-		        mHighlightSelectedPID.setEnabled(false);
-			}
-    	};
     	mResetPID = new Action(RESET_PID_FILTER){
 			@Override
 			public void run() {
 				mSelectedPIDList = null;
 				mShowSelectedPID.setText(ACTION_SHOW_PID);
 				mHideSelectedPID.setText(ACTION_HIDE_PID);
-				mHighlightSelectedPID.setText(ACTION_HIGHLIGHT_PID);
 				mShowSelectedPID.setEnabled(true);
 				mHideSelectedPID.setEnabled(true);
-				mHighlightSelectedPID.setEnabled(true);
-				if (mGreen == null){
-					mGreen = mViewer.getTable().getDisplay().getSystemColor(SWT.COLOR_GREEN);
-		        }
-				cleanBackground(mGreen.hashCode());
 				updateAppliedFilters();
 			}
     	};
+    	mmg.add(new Separator());
     	mmg.add(mResetPID);
     	mmg.add(mShowSelectedPID);
     	mmg.add(mHideSelectedPID);
+    	
+
+    	mHighlightSelectedTag = new Action(ACTION_HIGHLIGHT_TAG){
+			@Override
+			public void run() {
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
+				if (selectedItems == null || selectedItems.size() == 0){
+					return;
+				}
+				List<LogCatMessageWrapper> allItems = getAllLogcatMessageUnfiltered();
+		        setText(getText() + " : ");
+		        List<String> selectedTags = new ArrayList<String>();
+
+		        for (LogCatMessageWrapper item : selectedItems){
+					String selectTag = item.getLogCatMessage().getTag();
+					if (!selectedTags.contains(selectTag)){
+						setText(getText() + selectTag + ", ");
+						selectedTags.add(selectTag);
+					}
+				}
+		        for (int i = 0; i < allItems.size(); i++){
+		        	LogCatMessageWrapper logCatMessageWrapper = allItems.get(i);
+					String localTag = logCatMessageWrapper.getLogCatMessage().getTag();
+		        	if (selectedTags.contains(localTag)){
+		        		logCatMessageWrapper.setHighlight(true);
+		        	}
+		        }
+		        mViewer.refresh();
+			}
+    	};
+    	mHighlightSelectedPID = new Action(ACTION_HIGHLIGHT_PID){
+			@Override
+			public void run() {
+				List<LogCatMessageWrapper> selectedItems = getSelectedLogCatMessages();
+				if (selectedItems == null || selectedItems.size() == 0){
+					return;
+				}
+
+				List<LogCatMessageWrapper> allItems = getAllLogcatMessageUnfiltered();
+		        setText(getText() + " : ");
+		        List<String> selectedPIDs = new ArrayList<String>();
+
+		        for (LogCatMessageWrapper item : selectedItems){
+					String selectPID = item.getLogCatMessage().getPid();
+					if (!selectedPIDs.contains(selectPID)){
+						setText(getText() + selectPID + ", ");
+						selectedPIDs.add(selectPID);
+					}
+				}
+		        for (int i = 0; i < allItems.size(); i++){
+		        	LogCatMessageWrapper logCatMessageWrapper = allItems.get(i);
+					String localPID = logCatMessageWrapper.getLogCatMessage().getPid();
+		        	if (selectedPIDs.contains(localPID)){
+		        		logCatMessageWrapper.setHighlight(true);
+		        	}
+		        }
+		        mViewer.refresh();
+			}
+    	};
+    	
+    	mResetHighLight = new Action(RESET_HIGHT_LIGHT){
+			@Override
+			public void run() {
+				cleanBackground();
+				resetUI();
+				updateAppliedFilters();
+			}
+    	};
+    	mmg.add(new Separator());
+		mmg.add(mResetHighLight);
+    	mmg.add(mHighlightSelectedTag);
     	mmg.add(mHighlightSelectedPID);
 
     	mViewer.getTable().setMenu(menu);
     }
     
-    private void cleanBackground(int color){
-    	for (TableItem item : mViewer.getTable().getItems()){
-    		if (item.getBackground().hashCode() == color){
-    			item.setBackground(mViewer.getTable().getDisplay().getSystemColor(SWT.COLOR_WHITE));
-    		}
-    	}
-    	mViewer.getTable().redraw();
+    private void cleanBackground(){
+		List<LogCatMessageWrapper> filteredItems = getAllLogcatMessageUnfiltered();
+    	for (LogCatMessageWrapper logCatMessageWrapper : filteredItems) {
+    		logCatMessageWrapper.setHighlight(false);
+		}
+    	mViewer.refresh();
     }
+
+	@SuppressWarnings("unchecked")
+	private List<LogCatMessageWrapper> getAllLogcatMessageUnfiltered() {
+		Object input = mViewer.getInput();
+		List<?> list = (List<?>) input;
+		if (input == null
+				|| list.size() == 0
+				|| !(list.get(0) instanceof LogCatMessageWrapper)) {
+			return new ArrayList<LogCatMessageWrapper>(0);
+		}
+		else{
+			List<LogCatMessageWrapper> filteredItems = (List<LogCatMessageWrapper>) list;
+			return filteredItems;
+		}
+	}
 
     /**
      * Setup to automatically enable or disable scroll lock. From a user's perspective,
@@ -1224,8 +1228,9 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 
     private void updateAppliedFilters() {
         List<LogCatViewerFilter> filters = getFiltersToApply();
+        mViewer.getTable().setRedraw(false);//performance issue
         mViewer.setFilters(filters.toArray(new LogCatViewerFilter[filters.size()]));
-
+        mViewer.getTable().setRedraw(true);
         /* whenever filters are changed, the number of displayed logs changes
          * drastically. Display the latest log in such a situation. */
         if (mViewer.getInput() == null){
@@ -1277,12 +1282,28 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 		mLiveFilterText.setToolTipText("File path: " + file.getAbsolutePath() + "\n"
 				+ DEFAULT_SEARCH_TOOLTIP);
 
-    	setPIDAndTagList(receivedMessages);
-    	mViewer.setInput(receivedMessages);
-        refreshLogCatTable();
-        updateUnreadCount(receivedMessages);
-        refreshFiltersTable();
+		List<LogCatMessageWrapper> wrapperList = new ArrayList<LogCatMessageWrapper>();
+		for (int i = 0; i < receivedMessages.size(); i++) {
+			wrapperList.add(new LogCatMessageWrapper(receivedMessages.get(i)));
+		}
+		setPIDAndTagList(wrapperList);
+		resetUI();//!!!
+		mViewer.setInput(wrapperList);
+		refreshLogCatTable();
+		updateUnreadCount(wrapperList);
+		refreshFiltersTable();
+		
     }
+
+    /**
+     * Change log file, some filter will drop.
+     */
+	private void resetUI() {
+		//High light filter will drop
+		mHighlightSelectedTag.setText(ACTION_HIGHLIGHT_TAG);
+		mHighlightSelectedPID.setText(ACTION_HIGHLIGHT_PID);
+		mSelectedPIDList = null; //PID filter will drop
+	}
     
     public void synSelected(String synTime){
     	if (!mIsSynFromHere){
@@ -1293,13 +1314,13 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     		int low = 0;
     		int high = mViewer.getTable().getItemCount() - 1;
     		int mid = (low + high) / 2;
-	        List<LogCatMessage> filteredItems = applyCurrentFilters((List<?>) input);
+	        List<LogCatMessageWrapper> filteredItems = applyCurrentFilters((List<?>) input);
     		while (low <= high){
     			mid = (low + high) / 2;
     			/*if (mid == 0){
     				mid = 1;
     			}*/
-    			String localTime = filteredItems.get(mid).getTime();
+    			String localTime = filteredItems.get(mid).getLogCatMessage().getTime();
     			if (synTime.compareTo(localTime) < 0){
     				high = mid - 1;
     			} else if (synTime.compareTo(localTime) > 0){
@@ -1314,14 +1335,14 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     	mIsSynFromHere = false;
     }
     
-    private void setPIDAndTagList(List<LogCatMessage> receivedMessages){
+    private void setPIDAndTagList(List<LogCatMessageWrapper> receivedMessages){
 //    	mPIDList = new ArrayList<String>();
 //    	mTagList = new ArrayList<String>();
     	HashSet<String> pidSet = new HashSet<String>();
     	HashSet<String> tagSet = new HashSet<String>();
-    	for (LogCatMessage msg : receivedMessages){
-    		pidSet.add(msg.getPid());
-    		tagSet.add(msg.getTag());
+    	for (LogCatMessageWrapper msg : receivedMessages){
+    		pidSet.add(msg.getLogCatMessage().getPid());
+    		tagSet.add(msg.getLogCatMessage().getTag());
     	}
     	mPIDList = new ArrayList<String>(pidSet);
     	mTagList = new ArrayList<String>(tagSet);
@@ -1332,7 +1353,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
      * the unread count associated with that filter.
      * @param receivedMessages list of new messages received
      */
-    private void updateUnreadCount(List<LogCatMessage> receivedMessages) {
+    private void updateUnreadCount(List<LogCatMessageWrapper> receivedMessages) {
         for (int i = 0; i < mLogCatFilters.size(); i++) {
             if (i == mCurrentSelectedFilterIndex) {
                 /* no need to update unread count for currently selected filter */
@@ -1419,6 +1440,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     }
     
     private ITableFocusListener mTableFocusListener;
+	private Action mResetHighLight;
 
     /**
      * Specify the listener to be called when the logcat view gets focus. This interface is
@@ -1458,12 +1480,12 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
     public void copySelectionToClipboard(Clipboard clipboard) {
         StringBuilder sb = new StringBuilder();
 
-        List<LogCatMessage> selectedList = getSelectedLogCatMessages();
+        List<LogCatMessageWrapper> selectedList = getSelectedLogCatMessages();
         if (selectedList == null){
         	return;
         }
-        for (LogCatMessage m : selectedList) {
-            sb.append(m.toString());
+        for (LogCatMessageWrapper m : selectedList) {
+            sb.append(m.getLogCatMessage().toString());
             sb.append('\n');
         }
 
