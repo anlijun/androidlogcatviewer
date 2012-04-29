@@ -29,6 +29,4 @@ public interface ILogCatMessageEventListener {
      * @param receivedMessages list of messages received
      */
     void messageReceived(List<LogCatMessage> receivedMessages, int panelID, File Path);
-    
-    void synSelected(String synTime);
 }

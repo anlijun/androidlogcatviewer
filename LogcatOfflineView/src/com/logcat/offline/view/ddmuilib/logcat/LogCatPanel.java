@@ -91,7 +91,7 @@ import com.android.ddmuilib.logcat.LogCatViewerFilter;
 /**
  * LogCatPanel displays a table listing the logcat messages.
  */
-public final class LogCatPanel implements ILogCatMessageEventListener{
+public final class LogCatPanel implements ILogCatMessageEventListener, ILogCatSyncListener{
     private static final String RESET_ALL_FILTER = "Reset All Filter";
     private static final String RESET_HIGHT_LIGHT = "Reset High Light";
 
@@ -207,7 +207,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
         mPannelName = pannelName;
         
         LogCatMessageParser.getInstance().addMessageReceivedEventListener(this);
-        LogCatSynSelectedListener.getInstance().addMessageReceivedEventListener(this);
+        LogCatSyncManager.getInstance().addSyncTimeEventListener(this);
         initializeFilters();
         setupDefaultPreferences();
         initializePreferenceUpdateListeners();
@@ -805,7 +805,7 @@ public final class LogCatPanel implements ILogCatMessageEventListener{
 				mIsSynFromHere = true;
 				String time = getSelectedLogCatMessages().get(0).getLogCatMessage().getTime();
 				if (time != null && time.length() > 10) {//04-08 13:13:43.851
-					LogCatSynSelectedListener.getInstance().synSelected(time);
+					LogCatSyncManager.getInstance().syncTime(time);
 				}
 			}
 
