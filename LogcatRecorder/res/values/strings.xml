@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">Logcat Recorder</string>
+    <string name="link"><a href="http://code.google.com/p/androidlogcatviewer/" rel="nofollow">Desktop Logcat Viewer Tool</a></string>
 
 </resources>
