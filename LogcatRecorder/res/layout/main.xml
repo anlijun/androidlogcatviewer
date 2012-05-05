@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/checkBox_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:checked="true"
+        android:text="Main log" android:clickable="false"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:checked="true"
+        android:text="Events log" />
+
+    <CheckBox
+        android:id="@+id/checkBox_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:checked="true"
+        android:text="Radio log" />
+
+    <TextView
+        android:id="@+id/textView_external_storage_path"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Save path:" />
+
+    <CheckBox
+        android:id="@+id/checkBox_save_at_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save on boot" android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/btnStartRecording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Start recording" />
+
+    <Button
+        android:id="@+id/btnStopRecording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Stop" />
+
+</LinearLayout>
