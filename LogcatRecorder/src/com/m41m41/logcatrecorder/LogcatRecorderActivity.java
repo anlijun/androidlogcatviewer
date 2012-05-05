@@ -29,6 +29,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
@@ -127,6 +128,8 @@ public class LogcatRecorderActivity extends Activity {
 				removeNotification(LogcatRecorderActivity.this);
 			}
 		});
+		TextView textLink = (TextView) findViewById(R.id.textView1); 
+		textLink.setMovementMethod(LinkMovementMethod.getInstance()); 
 	}
 
 	private SharedPreferences getPreference() {
