@@ -5,13 +5,23 @@ import com.android.ddmuilib.logcat.LogCatMessage;
 public class LogCatMessageWrapper {
 	private final LogCatMessage mLogMsg;
 	private boolean mHightlight;
+    private boolean mSearchHightlight;
 
 	public LogCatMessageWrapper(LogCatMessage logMsg) {
 		this.mLogMsg = logMsg;
 		mHightlight = false;
+		mSearchHightlight = false;
 	}
 
-	public LogCatMessage getLogCatMessage() {
+	public boolean isSearchHightlight() {
+        return mSearchHightlight;
+    }
+
+    public void setSearchHightlight(boolean highlight) {
+        mSearchHightlight = highlight;
+    }
+
+    public LogCatMessage getLogCatMessage() {
 		return mLogMsg;
 	}
 

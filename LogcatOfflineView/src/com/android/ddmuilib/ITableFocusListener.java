@@ -30,6 +30,8 @@ public interface ITableFocusListener {
         public void copy(Clipboard clipboard);
 
         public void selectAll();
+        public void previous();
+        public void next();
     }
 
     public void focusGained(IFocusedTableActivator activator);

@@ -44,8 +44,8 @@ public final class LogCatMessageLabelProvider extends ColumnLabelProvider {
     private static final Color ERROR_MSG_COLOR =   new Color(null, 255, 0, 0);
     private static final Color WARN_MSG_COLOR =    new Color(null, 255, 127, 0);
     private static final Color VERBOSE_MSG_COLOR = new Color(null, 0, 0, 0);
-    private static final Color HIGHLITH_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 120);
-    private static final Color NORMAL_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 255);
+    public static final Color HIGHLITH_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 120);
+    public static final Color NORMAL_MSG_BACKGROUND_COLOR = new Color(null, 255, 255, 255);
 
     /** Amount of pixels to shift the tooltip by. */
     private static final Point LOGCAT_TOOLTIP_SHIFT = new Point(10, 10);
@@ -97,10 +97,10 @@ public final class LogCatMessageLabelProvider extends ColumnLabelProvider {
         cell.setBackground(getBackgroundColor((LogCatMessageWrapper) element));
     }
 
-	private Color getBackgroundColor(LogCatMessageWrapper wrapper) {
-		return wrapper.isHighlight() ? HIGHLITH_MSG_BACKGROUND_COLOR
-				: NORMAL_MSG_BACKGROUND_COLOR;
-	}
+    private Color getBackgroundColor(LogCatMessageWrapper wrapper) {
+        return (wrapper.isHighlight() | wrapper.isSearchHightlight()) ? HIGHLITH_MSG_BACKGROUND_COLOR
+            : NORMAL_MSG_BACKGROUND_COLOR;
+    }
 
     private Color getForegroundColor(LogCatMessage m) {
         LogLevel l = m.getLogLevel();

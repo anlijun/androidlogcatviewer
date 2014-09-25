@@ -34,7 +34,8 @@ import com.logcat.offline.view.ddmuilib.logcat.LogCatPanel;
 import com.logcat.offline.view.ddmuilib.logcat.OfflinePreferenceStore;
 
 public class UIThread {
-	private static final String APP_NAME = "DDMS";
+	private static final int MINIMAL_HEIGHT = 20;
+    private static final String APP_NAME = "LogcatViewer";
 	private static UIThread uiThread;
 	
 	private static final String PREFERENCE_LOGSASH_H = "logSashLocation.h";
@@ -56,7 +57,9 @@ public class UIThread {
 	private Clipboard mClipboard;
     private MenuItem mCopyMenuItem;
     private MenuItem mSelectAllMenuItem;
+    private MenuItem mPreviousMenuItem;
     private TableFocusListener mTableListener;
+    private MenuItem mNextMenuItem;
 	
 	private UIThread(){
 	}
@@ -78,6 +81,8 @@ public class UIThread {
             if (mCopyMenuItem.isDisposed() == false) {
                 mCopyMenuItem.setEnabled(true);
                 mSelectAllMenuItem.setEnabled(true);
+                mPreviousMenuItem.setEnabled(true);
+                mNextMenuItem.setEnabled(true);
             }
         }
 
@@ -91,6 +96,8 @@ public class UIThread {
                 if (mCopyMenuItem.isDisposed() == false) {
                     mCopyMenuItem.setEnabled(false);
                     mSelectAllMenuItem.setEnabled(false);
+                    mPreviousMenuItem.setEnabled(false);
+                    mNextMenuItem.setEnabled(false);
                 }
             }
         }
@@ -104,6 +111,18 @@ public class UIThread {
         public void selectAll() {
             if (mCurrentActivator != null) {
                 mCurrentActivator.selectAll();
+            }
+        }
+
+        public void previous() {
+            if (mCurrentActivator != null) {
+                mCurrentActivator.previous();
+            }
+        }
+        
+        public void next() {
+            if (mCurrentActivator != null) {
+                mCurrentActivator.next();
             }
         }
     }
@@ -233,6 +252,26 @@ public class UIThread {
             }
         });
         
+        new MenuItem(editMenu, SWT.SEPARATOR);
+
+        mPreviousMenuItem = new MenuItem(editMenu, SWT.NONE);
+        mPreviousMenuItem.setText("&Previous item\tCtrl-,");
+        mPreviousMenuItem.setAccelerator(',' | SWT.MOD1);
+        mPreviousMenuItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                mTableListener.previous();
+            }
+        });
+        mNextMenuItem = new MenuItem(editMenu, SWT.NONE);
+        mNextMenuItem.setText("&Next item\tCtrl-.");
+        mNextMenuItem.setAccelerator('.' | SWT.MOD1);
+        mNextMenuItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                mTableListener.next();
+            }
+        });
         item = new MenuItem(aboutMenu, SWT.NONE);
         item.setText("&Discuss-group");
         item.addSelectionListener(new SelectionAdapter(){
@@ -351,8 +390,8 @@ public class UIThread {
             public void handleEvent(Event e) {
                 Rectangle sashRect = sash_h.getBounds();
                 Rectangle panelRect = panelArea.getClientArea();
-                int bottom = panelRect.height - sashRect.height - 100;
-                e.y = Math.max(Math.min(e.y, bottom), 100);
+                int bottom = panelRect.height - sashRect.height - MINIMAL_HEIGHT;
+                e.y = Math.max(Math.min(e.y, bottom), MINIMAL_HEIGHT);
                 if (e.y != sashRect.y) {
                 	sashData_h.top = new FormAttachment(0, e.y);
                     if (mPreferenceStore != null) {
