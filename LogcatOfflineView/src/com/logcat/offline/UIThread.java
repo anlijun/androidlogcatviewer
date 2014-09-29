@@ -6,6 +6,12 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.swt.dnd.DropTargetListener;
+import org.eclipse.swt.dnd.FileTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
@@ -432,15 +438,67 @@ public class UIThread {
 	private void createMainPanel(Composite parent) {
         mLogCatPanel_main = new LogCatPanel(mPreferenceStore, PANEL_ID_MAIN, "main buffer");
         mLogCatPanel_main.createControl(parent);
-	}
-	
+        addDropSupport(parent, PANEL_ID_MAIN);
+    }
+
 	private void createEventPanel(Composite parent) {
         mLogCatPanel_event = new LogCatPanel(mPreferenceStore, PANEL_ID_EVENTS, "events buffer");
         mLogCatPanel_event.createControl(parent);
+        addDropSupport(parent, PANEL_ID_EVENTS);
 	}
 	
 	private void createRadioPanel(Composite parent) {
         mLogCatPanel_radio = new LogCatPanel(mPreferenceStore, PANEL_ID_RADIO, "radio buffer");
         mLogCatPanel_radio.createControl(parent);
+        addDropSupport(parent, PANEL_ID_RADIO);
 	}
+
+    private void addDropSupport(Composite parent, final int panelIdMain) {
+        final FileTransfer fileTransfer = FileTransfer.getInstance();
+        DropTarget target = new DropTarget(parent, DND.DROP_MOVE | DND.Drop | DND.DROP_DEFAULT);
+        target.setTransfer(new Transfer[] { fileTransfer });
+        target.addDropListener(new DropTargetListener() {
+
+            @Override
+            public void dropAccept(DropTargetEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void drop(DropTargetEvent event) {
+                if (fileTransfer.isSupportedType(event.currentDataType)) {
+                    String[] files = (String[]) event.data;
+                    for (int i = 0; i < files.length; i++) {
+                        LogCatMessageParser.getInstance().parseLogFile(files[i], panelIdMain);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void dragOver(DropTargetEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void dragOperationChanged(DropTargetEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void dragLeave(DropTargetEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void dragEnter(DropTargetEvent arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+    }
 }
