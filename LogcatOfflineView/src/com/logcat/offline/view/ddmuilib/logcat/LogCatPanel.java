@@ -577,14 +577,20 @@ public final class LogCatPanel implements ILogCatMessageEventListener, ILogCatSy
         }
         int index = mViewer.getTable().getSelectionIndex();
         // no select, ignore
+        List<LogCatMessageWrapper> all = getAllLogcatMessageUnfiltered();
         for (int i = index; i > 0; i--) {
-            LogCatMessageWrapper data = (LogCatMessageWrapper) mViewer.getTable().getItem(i - 1).getData();
+            LogCatMessageWrapper data = all.get(i - 1);
             if (data == null) {
                 continue;
             }
             boolean hit = data.isHighlight() || data.isSearchHightlight();
             if (hit) {
                 mViewer.getTable().setSelection(i - 1);
+                if (i > 5) {
+                    mViewer.getTable().setTopIndex(i - 5);
+                } else {
+                    mViewer.getTable().setSelection(0);
+                }
                 break;
             }
         }
@@ -595,15 +601,20 @@ public final class LogCatPanel implements ILogCatMessageEventListener, ILogCatSy
             return;
         }
         int index = mViewer.getTable().getSelectionIndex();
-
-        for (int i = index; i < mViewer.getTable().getItemCount() - 1; i++) {
-            LogCatMessageWrapper data = (LogCatMessageWrapper) mViewer.getTable().getItem(i + 1).getData();
+        List<LogCatMessageWrapper> all = getAllLogcatMessageUnfiltered();
+        for (int i = index; i < all.size() - 1; i++) {
+            LogCatMessageWrapper data = all.get(i + 1);
             if (data == null) {
                 continue;
             }
             boolean hit = data.isHighlight() || data.isSearchHightlight();
             if (hit) {
                 mViewer.getTable().setSelection(i + 1);
+                if (i > all.size() - 5) {
+                    mViewer.getTable().setSelection(all.size() - 1);
+                } else {
+                    mViewer.getTable().setTopIndex(i + 1);
+                }
                 break;
             }
         }
@@ -857,19 +868,27 @@ public final class LogCatPanel implements ILogCatMessageEventListener, ILogCatSy
                     String value = inputDialog.getValue();
                     if (value != null && value.length() > 0) {
                         // hight light item
-                        for (int i = 0; i < mViewer.getTable().getItemCount(); i++) {
-                            LogCatMessageWrapper data = (LogCatMessageWrapper) mViewer.getTable().getItem(i).getData();
-                            if (data == null) {
-                                continue;
-                            }
-                            String message = data.getLogCatMessage().getMessage();
+                        mViewer.getTable().setRedraw(false);
+                        List<LogCatMessageWrapper> allItems = getAllLogcatMessageUnfiltered();
+                        for (int i = 0; i < allItems.size(); i++) {
+                            LogCatMessageWrapper logCatMessageWrapper = allItems.get(i);
+                            String message = logCatMessageWrapper.getLogCatMessage().getMessage();
                             if (message != null && message.length() > 1) {
                                 if (message.contains(value)) {
-                                    data.setSearchHightlight(true);
+                                    logCatMessageWrapper.setSearchHightlight(true);
+                                    mViewer.getTable().select(i);
+                                    if (i < 5) {
+                                        mViewer.getTable().setTopIndex(0);
+                                    } else if (i > allItems.size() - 5) {
+                                        mViewer.getTable().setTopIndex(allItems.size() - 1);
+                                    } else {
+                                        mViewer.getTable().setTopIndex(i - 3);
+                                    }
                                 }
                             }
                         }
-                        updateAppliedFilters();
+                        mViewer.getTable().setRedraw(true);
+                        mViewer.refresh();
                     }
                 }
             }
@@ -878,7 +897,6 @@ public final class LogCatPanel implements ILogCatMessageEventListener, ILogCatSy
             @Override
             public void run() {
                 cleanSearchBackground();
-                updateAppliedFilters();
             }
         };
         mmg.add(mClearSearch);
